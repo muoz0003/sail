@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const recommendedLength = document.getElementById('recommended-length');
     const recommendedWidth = document.getElementById('recommended-width');
     const suggestedSkiSize = document.getElementById('suggested-ski-size');
+    const recommendedSnowshoeLength = document.getElementById('recommended-snowshoe-length');
+    const recommendedPoleLength = document.getElementById('recommended-pole-length');
     const calculateBtn = document.getElementById('calculate-btn');
     const resetBtn = document.getElementById('reset-btn');
 
@@ -98,6 +100,35 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             suggestedSkiSize.textContent = 'No suitable ski found for the given dimensions.';
         }
+
+        // Calculate snowshoe size
+        let snowshoeSize = 0;
+        if (weightUnit === 'lbs') {
+            snowshoeSize = weight * 0.25;
+        } else {
+            snowshoeSize = weight * 0.11;
+        }
+
+        // Adjust snowshoe size based on terrain
+        if (terrain === 'backcountry') {
+            snowshoeSize += 5;
+        } else if (terrain === 'groomed') {
+            snowshoeSize -= 5;
+        }
+
+        const roundedSnowshoeSize = Math.round(snowshoeSize);
+        recommendedSnowshoeLength.textContent = roundedSnowshoeSize;
+
+        // Calculate ski pole length
+        let poleLength = 0;
+        if (style === 'cross-country') {
+            poleLength = heightInCm * 0.83;
+        } else if (style === 'skate') {
+            poleLength = heightInCm * 0.89;
+        }
+
+        const roundedPoleLength = Math.round(poleLength / 5) * 5; // Round to nearest 5 cm
+        recommendedPoleLength.textContent = roundedPoleLength;
     }
 
     function resetFields() {
@@ -111,6 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
         recommendedLength.textContent = '';
         recommendedWidth.textContent = '';
         suggestedSkiSize.textContent = '';
+        recommendedSnowshoeLength.textContent = '';
+        recommendedPoleLength.textContent = '';
     }
 
     calculateBtn.addEventListener('click', calculateSkiDimensions);

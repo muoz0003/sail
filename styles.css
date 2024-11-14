@@ -59,3 +59,12 @@ footer a:hover {
     background-color: #E46C1D;
     border-color: #E46C1D;
 }
+
+.table {
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+}

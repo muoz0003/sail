@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ski Size Finder</title>
+    <title>Ski and Snowshoe Size Finder</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,8 +11,8 @@
     <div class="container mt-5">
         <header class="text-center mb-4">
             <img src="images/sail_logo.png" alt="SAIL Logo" class="logo mb-3">
-            <h1>Ski Size Finder</h1>
-            <h2>Determine the optimal length and width for your skis.</h2>
+            <h1>Ski and Snowshoe Size Finder</h1>
+            <h2>Determine the optimal length and width for your skis, snowshoes, and ski poles.</h2>
         </header>
         <main>
             <section class="user-info mb-4">
@@ -69,15 +69,41 @@
                 </div>
             </section>
             <section class="results">
-                <h3>Recommended Ski Dimensions</h3>
-                <p>Recommended Ski Length (cm): <span id="recommended-length" aria-live="polite"></span></p>
-                <p>Recommended Ski Width (mm): <span id="recommended-width" aria-live="polite"></span></p>
-                <h3>Suggested Ski Size for You</h3>
-                <p id="suggested-ski-size" aria-live="polite"></p>
+                <h3 class="text-center">Recommendations</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Type</th>
+                            <th scope="col">Recommendation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Recommended Ski Length (cm)</td>
+                            <td><span id="recommended-length" aria-live="polite"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Recommended Ski Width (mm)</td>
+                            <td><span id="recommended-width" aria-live="polite"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Suggested Ski Size for You</td>
+                            <td><span id="suggested-ski-size" aria-live="polite"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Recommended Snowshoe Length (in)</td>
+                            <td><span id="recommended-snowshoe-length" aria-live="polite"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Recommended Ski Pole Length (cm)</td>
+                            <td><span id="recommended-pole-length" aria-live="polite"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
         </main>
         <footer class="text-center mt-4">
-            <p>Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Associate ski specialist.</p>
+            <p>Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Camping Associate.</p>
             <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank" aria-label="David Muñoz Jensen Portfolio">David Muñoz Jensen 2024</a></p>
         </footer>
     </div>
