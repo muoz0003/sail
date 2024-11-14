@@ -18,27 +18,61 @@
             <section class="user-info mb-4">
                 <div class="form-group">
                     <label for="weight">Your Weight:</label>
-                    <input type="text" class="form-control" id="weight" name="weight" aria-label="Your Weight">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="weightUnit" id="kg" value="kg" checked aria-label="Weight in kilograms">
-                        <label class="form-check-label" for="kg">kg</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="weightUnit" id="lbs" value="lbs" aria-label="Weight in pounds">
-                        <label class="form-check-label" for="lbs">lbs</label>
-                    </div>
+                    <select class="form-control" id="weight" name="weight" aria-label="Your Weight">
+                        <!-- Options for weight in kg and lbs -->
+                        <option value="20">20 kg - 44 lbs</option>
+                        <option value="25">25 kg - 55 lbs</option>
+                        <option value="30">30 kg - 66 lbs</option>
+                        <option value="35">35 kg - 77 lbs</option>
+                        <option value="40">40 kg - 88 lbs</option>
+                        <option value="45">45 kg - 99 lbs</option>
+                        <option value="50">50 kg - 110 lbs</option>
+                        <option value="55">55 kg - 121 lbs</option>
+                        <option value="60">60 kg - 132 lbs</option>
+                        <option value="65">65 kg - 143 lbs</option>
+                        <option value="70">70 kg - 154 lbs</option>
+                        <option value="75">75 kg - 165 lbs</option>
+                        <option value="80">80 kg - 176 lbs</option>
+                        <option value="85">85 kg - 187 lbs</option>
+                        <option value="90">90 kg - 198 lbs</option>
+                        <option value="95">95 kg - 209 lbs</option>
+                        <option value="100">100 kg - 220 lbs</option>
+                        <option value="105">105 kg - 231 lbs</option>
+                        <option value="110">110 kg - 243 lbs</option>
+                        <option value="115">115 kg - 254 lbs</option>
+                        <option value="120">120 kg - 265 lbs</option>
+                        <!-- Add more options as needed -->
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="height">Your Height:</label>
-                    <input type="text" class="form-control" id="height" name="height" aria-label="Your Height">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="heightUnit" id="cm" value="cm" checked aria-label="Height in centimeters">
-                        <label class="form-check-label" for="cm">cm</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="heightUnit" id="inches" value="inches" aria-label="Height in inches">
-                        <label class="form-check-label" for="inches">inches</label>
-                    </div>
+                    <select class="form-control" id="height" name="height" aria-label="Your Height">
+                        <!-- Options for height in cm and inches -->
+                        <option value="90">90 cm - 35 inches</option>
+                        <option value="95">95 cm - 37 inches</option>
+                        <option value="100">100 cm - 39 inches</option>
+                        <option value="105">105 cm - 41 inches</option>
+                        <option value="110">110 cm - 43 inches</option>
+                        <option value="115">115 cm - 45 inches</option>
+                        <option value="120">120 cm - 47 inches</option>
+                        <option value="125">125 cm - 49 inches</option>
+                        <option value="130">130 cm - 51 inches</option>
+                        <option value="135">135 cm - 53 inches</option>
+                        <option value="140">140 cm - 55 inches</option>
+                        <option value="145">145 cm - 57 inches</option>
+                        <option value="150">150 cm - 59 inches</option>
+                        <option value="155">155 cm - 61 inches</option>
+                        <option value="160">160 cm - 63 inches</option>
+                        <option value="165">165 cm - 65 inches</option>
+                        <option value="170">170 cm - 67 inches</option>
+                        <option value="175">175 cm - 69 inches</option>
+                        <option value="180">180 cm - 71 inches</option>
+                        <option value="185">185 cm - 73 inches</option>
+                        <option value="190">190 cm - 75 inches</option>
+                        <option value="195">195 cm - 77 inches</option>
+                        <option value="200">200 cm - 79 inches</option>
+                        <!-- Add more options as needed -->
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="style">Skiing Style:</label>
@@ -69,7 +103,7 @@
                 </div>
             </section>
             <section class="results">
-                <h3 class="text-center">Recommendations</h3>
+                <h3>Recommendations</h3>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -103,7 +137,7 @@
             </section>
         </main>
         <footer class="text-center mt-4">
-            <p>Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Camping Associate.</p>
+            <p>Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Associate ski specialist.</p>
             <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank" aria-label="David Muñoz Jensen Portfolio">David Muñoz Jensen 2024</a></p>
         </footer>
     </div>

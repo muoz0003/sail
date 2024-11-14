@@ -36,8 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function calculateSkiDimensions() {
         const weight = parseFloat(weightInput.value);
         const height = parseFloat(heightInput.value);
-        const weightUnit = document.querySelector('input[name="weightUnit"]:checked').value;
-        const heightUnit = document.querySelector('input[name="heightUnit"]:checked').value;
         const style = styleSelect.value;
         const skill = skillSelect.value;
         const terrain = terrainSelect.value;
@@ -48,10 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Convert weight to kg if in lbs
-        const weightInKg = weightUnit === 'lbs' ? weight * 0.453592 : weight;
+        const weightInKg = weight;
 
         // Convert height to cm if in inches
-        const heightInCm = heightUnit === 'inches' ? height * 2.54 : height;
+        const heightInCm = height;
 
         let length = 0;
         let width = 0;
@@ -102,12 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Calculate snowshoe size
-        let snowshoeSize = 0;
-        if (weightUnit === 'lbs') {
-            snowshoeSize = weight * 0.25;
-        } else {
-            snowshoeSize = weight * 0.11;
-        }
+        let snowshoeSize = weightInKg * 0.11;
 
         // Adjust snowshoe size based on terrain
         if (terrain === 'backcountry') {
@@ -134,8 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function resetFields() {
         weightInput.value = '';
         heightInput.value = '';
-        document.getElementById('kg').checked = true;
-        document.getElementById('cm').checked = true;
         styleSelect.value = 'cross-country';
         skillSelect.value = 'beginner';
         terrainSelect.value = 'groomed';
