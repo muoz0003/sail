@@ -17,6 +17,37 @@ header h2 {
     max-width: 150px;
 }
 
+.selection-box {
+    border: 2px solid transparent;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.selection-box.selected {
+    border-color: #E46C1D;
+    background-color: #e9ecef;
+}
+.selection-box i {
+    font-size: 2rem;
+}
+.selection-box p {
+    margin: 0;
+}
+.selection-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.table-selection {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.table-selection th, .table-selection td {
+    text-align: center;
+    vertical-align: middle;
+}
+
 .results {
     margin-top: 20px;
 }

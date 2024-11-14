@@ -6,6 +6,7 @@
     <title>Ski and Snowshoe Size Finder</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="container mt-5">
@@ -74,28 +75,83 @@
                         <!-- Add more options as needed -->
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="style">Skiing Style:</label>
-                    <select class="form-control" id="style" name="style" aria-label="Skiing Style">
-                        <option value="cross-country">Cross-Country</option>
-                        <option value="skate">Skate</option>
-                    </select>
+                <div class="form-group text-center font-weight-bold">
+                    <label for="style" style="color: #7CA529; font-size: 1.25rem;">Skiing Style:</label>
+                    <table class="table table-selection">
+                        
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="selection-box" id="cross-country" data-value="cross-country">
+                                        <i class="fas fa-skiing-nordic"></i>
+                                        <p>Nordic</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="selection-box" id="skate" data-value="skate">
+                                        <i class="fas fa-skiing"></i>
+                                        <p>Skate</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="form-group">
-                    <label for="skill">Skill Level:</label>
-                    <select class="form-control" id="skill" name="skill" aria-label="Skill Level">
-                        <option value="beginner">Beginner</option>
-                        <option value="intermediate">Intermediate</option>
-                        <option value="advanced">Advanced</option>
-                    </select>
+                <div class="form-group text-center font-weight-bold">
+                    <label for="skill" style="color: #7CA529; font-size: 1.25rem;">Skill Level:</label>
+                    <table class="table table-selection">
+                        
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="selection-box" id="beginner" data-value="beginner">
+                                        <i class="fas fa-child"></i>
+                                        <p>Beginner</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="selection-box" id="intermediate" data-value="intermediate">
+                                        <i class="fas fa-user"></i>
+                                        <p>Intermediate</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="selection-box" id="advanced" data-value="advanced">
+                                        <i class="fas fa-user-tie"></i>
+                                        <p>Advanced</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="form-group">
-                    <label for="terrain">Terrain Type:</label>
-                    <select class="form-control" id="terrain" name="terrain" aria-label="Terrain Type">
-                        <option value="groomed">Groomed Trails</option>
-                        <option value="backcountry">Backcountry</option>
-                        <option value="mixed">Mixed</option>
-                    </select>
+                <div class="form-group text-center font-weight-bold">
+                    <label for="terrain" style="color: #7CA529; font-size: 1.25rem;">Terrain Type:</label>
+                    <table class="table table-selection">
+                       
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="selection-box" id="groomed" data-value="groomed">
+                                        <i class="fas fa-road"></i>
+                                        <p>Groomed Trails</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="selection-box" id="backcountry" data-value="backcountry">
+                                        <i class="fas fa-mountain"></i>
+                                        <p>Backcountry</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="selection-box" id="mixed" data-value="mixed">
+                                        <i class="fas fa-tree"></i>
+                                        <p>Mixed</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="text-center">
                     <button id="calculate-btn" class="btn btn-primary" aria-label="Calculate">Calculate</button>
@@ -137,7 +193,7 @@
             </section>
         </main>
         <footer class="text-center mt-4">
-            <p>Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Camping Associate.</p>
+            <p>Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Associate ski specialist.</p>
             <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank" aria-label="David Muñoz Jensen Portfolio">David Muñoz Jensen 2024</a></p>
         </footer>
     </div>
@@ -145,5 +201,23 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const selections = document.querySelectorAll('.selection-box');
+
+            selections.forEach(selection => {
+                selection.addEventListener('click', () => {
+                    const group = selection.closest('table');
+                    group.querySelectorAll('.selection-box').forEach(s => s.classList.remove('selected'));
+                    selection.classList.add('selected');
+                });
+            });
+
+            // Set default selected styles
+            document.getElementById('cross-country').classList.add('selected');
+            document.getElementById('beginner').classList.add('selected');
+            document.getElementById('groomed').classList.add('selected');
+        });
+    </script>
 </body>
 </html>

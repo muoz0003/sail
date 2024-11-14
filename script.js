@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const weightInput = document.getElementById('weight');
     const heightInput = document.getElementById('height');
-    const styleSelect = document.getElementById('style');
-    const skillSelect = document.getElementById('skill');
-    const terrainSelect = document.getElementById('terrain');
+    const styleSelect = document.querySelector('.selection-box.selected[data-value]');
+    const skillSelect = document.querySelector('.selection-box.selected[data-value]');
+    const terrainSelect = document.querySelector('.selection-box.selected[data-value]');
     const recommendedLength = document.getElementById('recommended-length');
     const recommendedWidth = document.getElementById('recommended-width');
     const suggestedSkiSize = document.getElementById('suggested-ski-size');
@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function calculateSkiDimensions() {
         const weight = parseFloat(weightInput.value);
         const height = parseFloat(heightInput.value);
-        const style = styleSelect.value;
-        const skill = skillSelect.value;
-        const terrain = terrainSelect.value;
+        const style = document.querySelector('.selection-box.selected[data-value]').getAttribute('data-value');
+        const skill = document.querySelector('.selection-box.selected[data-value]').getAttribute('data-value');
+        const terrain = document.querySelector('.selection-box.selected[data-value]').getAttribute('data-value');
 
         if (isNaN(weight) || isNaN(height)) {
             alert('Please enter valid weight and height.');
@@ -127,9 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function resetFields() {
         weightInput.value = '';
         heightInput.value = '';
-        styleSelect.value = 'cross-country';
-        skillSelect.value = 'beginner';
-        terrainSelect.value = 'groomed';
+        document.querySelectorAll('.selection-box').forEach(s => s.classList.remove('selected'));
+        document.getElementById('cross-country').classList.add('selected');
+        document.getElementById('beginner').classList.add('selected');
+        document.getElementById('groomed').classList.add('selected');
         recommendedLength.textContent = '';
         recommendedWidth.textContent = '';
         suggestedSkiSize.textContent = '';
