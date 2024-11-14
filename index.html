@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ski Size Finder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <header class="text-center mb-4">
+            <img src="images/sail_logo.png" alt="SAIL Logo" class="logo mb-3">
+            <h1>Ski Size Finder</h1>
+            <h2>Determine the optimal length and width for your skis.</h2>
+        </header>
+        <main>
+            <section class="user-info mb-4">
+                <div class="form-group">
+                    <label for="weight">Your Weight:</label>
+                    <input type="text" class="form-control" id="weight" name="weight" aria-label="Your Weight">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="weightUnit" id="kg" value="kg" checked aria-label="Weight in kilograms">
+                        <label class="form-check-label" for="kg">kg</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="weightUnit" id="lbs" value="lbs" aria-label="Weight in pounds">
+                        <label class="form-check-label" for="lbs">lbs</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="height">Your Height:</label>
+                    <input type="text" class="form-control" id="height" name="height" aria-label="Your Height">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="heightUnit" id="cm" value="cm" checked aria-label="Height in centimeters">
+                        <label class="form-check-label" for="cm">cm</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="heightUnit" id="inches" value="inches" aria-label="Height in inches">
+                        <label class="form-check-label" for="inches">inches</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="style">Skiing Style:</label>
+                    <select class="form-control" id="style" name="style" aria-label="Skiing Style">
+                        <option value="cross-country">Cross-Country</option>
+                        <option value="skate">Skate</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="skill">Skill Level:</label>
+                    <select class="form-control" id="skill" name="skill" aria-label="Skill Level">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="terrain">Terrain Type:</label>
+                    <select class="form-control" id="terrain" name="terrain" aria-label="Terrain Type">
+                        <option value="groomed">Groomed Trails</option>
+                        <option value="backcountry">Backcountry</option>
+                        <option value="mixed">Mixed</option>
+                    </select>
+                </div>
+                <div class="text-center">
+                    <button id="calculate-btn" class="btn btn-primary" aria-label="Calculate">Calculate</button>
+                    <button id="reset-btn" class="btn btn-secondary" aria-label="Reset">Reset</button>
+                </div>
+            </section>
+            <section class="results">
+                <h3>Recommended Ski Dimensions</h3>
+                <p>Recommended Ski Length (cm): <span id="recommended-length" aria-live="polite"></span></p>
+                <p>Recommended Ski Width (mm): <span id="recommended-width" aria-live="polite"></span></p>
+                <h3>Suggested Ski Size for You</h3>
+                <p id="suggested-ski-size" aria-live="polite"></p>
+            </section>
+        </main>
+        <footer class="text-center mt-4">
+            <p>Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Associate ski specialist.</p>
+            <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank" aria-label="David Muñoz Jensen Portfolio">David Muñoz Jensen 2024</a></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
