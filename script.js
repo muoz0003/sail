@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const weightInput = document.getElementById('weight');
     const heightInput = document.getElementById('height');
+    const genderSelect = document.getElementById('gender');
     const styleSelect = document.querySelector('.selection-box.selected[data-value]');
     const skillSelect = document.querySelector('.selection-box.selected[data-value]');
     const terrainSelect = document.querySelector('.selection-box.selected[data-value]');
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function calculateSkiDimensions() {
         const weight = parseFloat(weightInput.value);
         const height = parseFloat(heightInput.value);
+        const gender = genderSelect.value;
         const style = document.querySelector('.selection-box.selected[data-value]').getAttribute('data-value');
         const skill = document.querySelector('.selection-box.selected[data-value]').getAttribute('data-value');
         const terrain = document.querySelector('.selection-box.selected[data-value]').getAttribute('data-value');
@@ -100,17 +102,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Calculate snowshoe size
-        let snowshoeSize = weightInKg * 0.11;
-
-        // Adjust snowshoe size based on terrain
-        if (terrain === 'backcountry') {
-            snowshoeSize += 5;
-        } else if (terrain === 'groomed') {
-            snowshoeSize -= 5;
+        let snowshoeSize = 0;
+        if (weight <= 140) {
+            snowshoeSize = terrain === 'backcountry' ? 22 : 20;
+        } else if (weight <= 200) {
+            snowshoeSize = terrain === 'backcountry' ? 25 : 22;
+        } else if (weight <= 260) {
+            snowshoeSize = terrain === 'backcountry' ? 30 : 25;
+        } else {
+            snowshoeSize = terrain === 'backcountry' ? 35 : 30;
         }
 
-        const roundedSnowshoeSize = Math.round(snowshoeSize);
-        recommendedSnowshoeLength.textContent = roundedSnowshoeSize;
+        recommendedSnowshoeLength.textContent = `${snowshoeSize} inches`;
 
         // Calculate ski pole length
         let poleLength = 0;
@@ -122,11 +125,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const roundedPoleLength = Math.round(poleLength / 5) * 5; // Round to nearest 5 cm
         recommendedPoleLength.textContent = roundedPoleLength;
+
+        // Scroll to results section
+        document.querySelector('.results').scrollIntoView({ behavior: 'smooth' });
     }
 
     function resetFields() {
         weightInput.value = '';
         heightInput.value = '';
+        genderSelect.value = 'male';
         document.querySelectorAll('.selection-box').forEach(s => s.classList.remove('selected'));
         document.getElementById('cross-country').classList.add('selected');
         document.getElementById('beginner').classList.add('selected');
