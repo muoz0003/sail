@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0;
+    padding: 0 20px; /* Add horizontal padding */
 }
 
 header h1 {
@@ -23,6 +24,12 @@ header h2 {
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s, border-color 0.3s;
+    width: 150px; /* Set a fixed width */
+    height: 150px; /* Set a fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .selection-box.selected {
     border-color: #E46C1D;
@@ -42,10 +49,25 @@ header h2 {
 .table-selection {
     width: 100%;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
 }
 .table-selection th, .table-selection td {
     text-align: center;
     vertical-align: middle;
+}
+.table-selection tbody {
+    display: flex;
+    justify-content: center;
+}
+.table-selection tr {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.table-selection td {
+    display: flex;
+    justify-content: center;
 }
 
 .results {
