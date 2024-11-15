@@ -12,13 +12,21 @@
     <div class="container mt-5">
         <header class="text-center mb-4">
             <img src="images/sail_logo.png" alt="SAIL Logo" class="logo mb-3">
-            <h1>Ski and Snowshoe Size Finder</h1>
-            <h2>Determine the optimal length and width for your skis, snowshoes, and ski poles.</h2>
+            <div class="language-selector">
+                <div class="selection-box small-box" id="english" data-lang="en">
+                    <img src="images/Flag_of_United_Kingdom.svg" alt="English" class="flag-icon">
+                </div>
+                <div class="selection-box small-box" id="french" data-lang="fr">
+                    <img src="images/Flag_of_France.svg" alt="French" class="flag-icon">
+                </div>
+            </div>
+            <h1 data-lang-en="Ski and Snowshoe Size Finder" data-lang-fr="Trouveur de taille de ski et de raquette">Ski and Snowshoe Size Finder</h1>
+            <h2 data-lang-en="Determine the optimal length and width for your skis, snowshoes, and ski poles." data-lang-fr="Déterminez la longueur et la largeur optimales de vos skis, raquettes et bâtons de ski.">Determine the optimal length and width for your skis, snowshoes, and ski poles.</h2>
         </header>
         <main>
             <section class="user-info mb-4">
                 <div class="form-group">
-                    <label for="weight" class="font-weight-bold">Your Weight:</label>
+                    <label for="weight" class="font-weight-bold" data-lang-en="Your Weight:" data-lang-fr="Votre poids:">Your Weight:</label>
                     <select class="form-control" id="weight" name="weight" aria-label="Your Weight">
                         <!-- Options for weight in kg and lbs -->
                         <option value="20">20 kg - 44 lbs</option>
@@ -46,7 +54,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="height" class="font-weight-bold">Your Height:</label>
+                    <label for="height" class="font-weight-bold" data-lang-en="Your Height:" data-lang-fr="Votre taille:">Your Height:</label>
                     <select class="form-control" id="height" name="height" aria-label="Your Height">
                         <!-- Options for height in cm, meters, and feet -->
                         <option value="90">90 cm - 0.9 m - 2.95 ft</option>
@@ -76,28 +84,27 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="gender" class="font-weight-bold">Gender:</label>
+                    <label for="gender" class="font-weight-bold" data-lang-en="Gender:" data-lang-fr="Genre:">Gender:</label>
                     <select class="form-control" id="gender" name="gender" aria-label="Your Gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                        <option value="male" data-lang-en="Male" data-lang-fr="Homme">Male</option>
+                        <option value="female" data-lang-en="Female" data-lang-fr="Femme">Female</option>
                     </select>
                 </div>
                 <div class="form-group mt-5">
-                    <label for="style" class="font-weight-bold" style="color: #7CA529; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;">Skiing Style:</label>
+                    <label for="style" class="font-weight-bold" style="color: #7CA529; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Skiing Style:" data-lang-fr="Style de ski:">Skiing Style:</label>
                     <table class="table table-selection">
-                
                         <tbody>
                             <tr>
                                 <td>
                                     <div class="selection-box" id="cross-country" data-value="cross-country">
                                         <i class="fas fa-skiing-nordic"></i>
-                                        <p>Cross-Country</p>
+                                        <p data-lang-en="Cross-Country" data-lang-fr="Ski de fond">Cross-Country</p>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="selection-box" id="skate" data-value="skate">
                                         <i class="fas fa-skiing"></i>
-                                        <p>Skate</p>
+                                        <p data-lang-en="Skate" data-lang-fr="Ski de patinage">Skate</p>
                                     </div>
                                 </td>
                             </tr>
@@ -105,27 +112,26 @@
                     </table>
                 </div>
                 <div class="form-group mt-5">
-                    <label for="skill" class="font-weight-bold" style="color: #7CA529; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;">Skill Level:</label>
+                    <label for="skill" class="font-weight-bold" style="color: #7CA529; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Skill Level:" data-lang-fr="Niveau de compétence:">Skill Level:</label>
                     <table class="table table-selection">
-                   
                         <tbody>
                             <tr>
                                 <td>
                                     <div class="selection-box" id="beginner" data-value="beginner">
                                         <i class="fas fa-child"></i>
-                                        <p>Beginner</p>
+                                        <p data-lang-en="Beginner" data-lang-fr="Débutant">Beginner</p>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="selection-box" id="intermediate" data-value="intermediate">
                                         <i class="fas fa-user"></i>
-                                        <p>Intermediate</p>
+                                        <p data-lang-en="Intermediate" data-lang-fr="Intermédiaire">Intermediate</p>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="selection-box" id="advanced" data-value="advanced">
                                         <i class="fas fa-user-tie"></i>
-                                        <p>Advanced</p>
+                                        <p data-lang-en="Advanced" data-lang-fr="Avancé">Advanced</p>
                                     </div>
                                 </td>
                             </tr>
@@ -133,27 +139,26 @@
                     </table>
                 </div>
                 <div class="form-group mt-5">
-                    <label for="terrain" class="font-weight-bold" style="color: #7CA529; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;">Terrain Type:</label>
+                    <label for="terrain" class="font-weight-bold" style="color: #7CA529; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Terrain Type:" data-lang-fr="Type de terrain:">Terrain Type:</label>
                     <table class="table table-selection">
-                     
                         <tbody>
                             <tr>
                                 <td>
                                     <div class="selection-box" id="groomed" data-value="groomed">
                                         <i class="fas fa-road"></i>
-                                        <p>Groomed Trails</p>
+                                        <p data-lang-en="Groomed Trails" data-lang-fr="Sentiers damés">Groomed Trails</p>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="selection-box" id="backcountry" data-value="backcountry">
                                         <i class="fas fa-mountain"></i>
-                                        <p>Backcountry</p>
+                                        <p data-lang-en="Backcountry" data-lang-fr="Hors-piste">Backcountry</p>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="selection-box" id="mixed" data-value="mixed">
                                         <i class="fas fa-tree"></i>
-                                        <p>Mixed</p>
+                                        <p data-lang-en="Mixed" data-lang-fr="Mixte">Mixed</p>
                                     </div>
                                 </td>
                             </tr>
@@ -161,38 +166,38 @@
                     </table>
                 </div>
                 <div class="text-center mt-2">
-                    <button id="calculate-btn" class="btn btn-primary" aria-label="Calculate">Calculate</button>
-                    <button id="reset-btn" class="btn btn-secondary" aria-label="Reset">Reset</button>
+                    <button id="calculate-btn" class="btn btn-primary" aria-label="Calculate" data-lang-en="Calculate" data-lang-fr="Calculer">Calculate</button>
+                    <button id="reset-btn" class="btn btn-secondary" aria-label="Reset" data-lang-en="Reset" data-lang-fr="Réinitialiser">Reset</button>
                 </div>
             </section>
             <section class="results">
-                <h3 class="font-weight-bold" style="color: #7CA529; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;">Recommendations</h3>
+                <h3 class="font-weight-bold" style="color: #7CA529; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Recommendations" data-lang-fr="Recommandations">Recommendations</h3>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">Type</th>
-                            <th scope="col">Recommendation</th>
+                            <th scope="col" data-lang-en="Type" data-lang-fr="Type">Type</th>
+                            <th scope="col" data-lang-en="Recommendation" data-lang-fr="Recommandation">Recommendation</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Recommended Ski Length (cm)</td>
+                            <td data-lang-en="Recommended Ski Length (cm)" data-lang-fr="Longueur de ski recommandée (cm)">Recommended Ski Length (cm)</td>
                             <td><span id="recommended-length" aria-live="polite"></span></td>
                         </tr>
                         <tr>
-                            <td>Recommended Ski Width (mm)</td>
+                            <td data-lang-en="Recommended Ski Width (mm)" data-lang-fr="Largeur de ski recommandée (mm)">Recommended Ski Width (mm)</td>
                             <td><span id="recommended-width" aria-live="polite"></span></td>
                         </tr>
                         <tr>
-                            <td>Suggested Ski Size for You</td>
+                            <td data-lang-en="Suggested Ski Size for You" data-lang-fr="Taille de ski suggérée pour vous">Suggested Ski Size for You</td>
                             <td><span id="suggested-ski-size" aria-live="polite"></span></td>
                         </tr>
                         <tr>
-                            <td>Recommended Snowshoe Length (in)</td>
+                            <td data-lang-en="Recommended Snowshoe Length (in)" data-lang-fr="Longueur de raquette recommandée (in)">Recommended Snowshoe Length (in)</td>
                             <td><span id="recommended-snowshoe-length" aria-live="polite"></span></td>
                         </tr>
                         <tr>
-                            <td>Recommended Ski Pole Length (cm)</td>
+                            <td data-lang-en="Recommended Ski Pole Length (cm)" data-lang-fr="Longueur de bâton de ski recommandée (cm)">Recommended Ski Pole Length (cm)</td>
                             <td><span id="recommended-pole-length" aria-live="polite"></span></td>
                         </tr>
                     </tbody>
@@ -200,8 +205,8 @@
             </section>
         </main>
         <footer class="text-center mt-4">
-            <p>Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Camping Associate.</p>
-            <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank" aria-label="David Muñoz Jensen Portfolio">David Muñoz Jensen 2024</a></p>
+            <p data-lang-en="Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Camping Associate." data-lang-fr="Avertissement : Ces recommandations sont générales. Pour un ajustement précis, consultez un associé de camping SAIL.">Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Camping Associate.</p>
+            <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank" aria-label="David Muñoz Jensen Portfolio" data-lang-en="David Muñoz Jensen 2024" data-lang-fr="David Muñoz Jensen 2024">David Muñoz Jensen 2024</a></p>
         </footer>
     </div>
     <script src="script.js"></script>
@@ -224,6 +229,26 @@
             document.getElementById('cross-country').classList.add('selected');
             document.getElementById('beginner').classList.add('selected');
             document.getElementById('groomed').classList.add('selected');
+
+            // Language switcher
+            const languageBoxes = document.querySelectorAll('.language-selector .selection-box');
+            languageBoxes.forEach(box => {
+                box.addEventListener('click', () => {
+                    languageBoxes.forEach(s => s.classList.remove('selected'));
+                    box.classList.add('selected');
+                    const lang = box.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+
+            function switchLanguage(lang) {
+                document.querySelectorAll('[data-lang-en]').forEach(el => {
+                    el.textContent = el.getAttribute(`data-lang-${lang}`);
+                });
+            }
+
+            // Set default language
+            document.getElementById('english').classList.add('selected');
         });
     </script>
 </body>

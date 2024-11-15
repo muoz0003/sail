@@ -70,6 +70,23 @@ header h2 {
     justify-content: center;
 }
 
+.language-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.language-selector .selection-box {
+    width: 50px; /* Smaller width */
+    height: 50px; /* Smaller height */
+}
+
+.language-selector .selection-box img {
+    width: 100%;
+    height: auto;
+}
+
 .results {
     margin-top: 20px;
 }
@@ -120,4 +137,25 @@ footer a:hover {
 .table th, .table td {
     text-align: center;
     vertical-align: middle;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .selection-box {
+        width: 100px; /* Adjust width for smaller screens */
+        height: 100px; /* Adjust height for smaller screens */
+    }
+
+    .selection-group {
+        flex-direction: column; /* Stack selection boxes vertically on smaller screens */
+        align-items: center;
+    }
+
+    .table-selection tr {
+        flex-direction: column; /* Stack table rows vertically on smaller screens */
+    }
+
+    .table-selection td {
+        margin-bottom: 10px; /* Add margin between stacked items */
+    }
 }
