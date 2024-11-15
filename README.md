@@ -78,6 +78,6 @@ This project is licensed under the MIT License.
 For any questions or feedback, please contact:
 
 David Muñoz Jensen
-Email: davidmue@gmail.com
+Email: davidmuje@gmail.com
 
 Thank you for using the Ski and Snowshoe Size Finder!
