@@ -58,10 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (style === 'cross-country') {
             length = heightInCm * (skill === 'beginner' ? 1.1 : 1.2);
-            width = 45;
         } else if (style === 'skate') {
             length = heightInCm * (skill === 'beginner' ? 1.05 : 1.1);
-            width = 40;
         }
 
         // Adjust length based on weight
@@ -72,31 +70,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Adjust length based on terrain
-        if (terrain === 'backcountry') {
+        if (terrain === 'backcountry' || terrain === 'mixed') {
             length -= 5;
+
+            // Calculate ski width for backcountry or mixed terrain
+            const desiredPressure = 4000; // 4 kPa in N/m^2
+            const gravity = 9.81; // m/s^2
+            const weightInNewton = weightInKg * gravity; // Convert weight to Newton
+            const surfaceArea = weightInNewton / desiredPressure; // Total surface area of both skis in m^2
+            const skiLengthInMeters = length / 100; // Convert length to meters
+            width = (surfaceArea / (2 * skiLengthInMeters)) * 1000; // Calculate width in mm
+
+            // Ensure width is more than 55 mm for backcountry
+            if (terrain === 'backcountry' && width < 55) {
+                width = 55;
+            }
+        } else {
+            width = style === 'cross-country' ? 45 : 40;
         }
 
         const roundedLength = Math.round(length);
+        const roundedWidth = Math.round(width);
         recommendedLength.textContent = roundedLength;
-        recommendedWidth.textContent = width;
+        recommendedWidth.textContent = roundedWidth;
 
         let closestSki = null;
         let closestDifference = Infinity;
 
         skis.forEach(ski => {
-            if (ski.width === width) {
-                ski.sizes.forEach(size => {
-                    const difference = Math.abs(size - roundedLength);
-                    if (difference < closestDifference) {
-                        closestSki = { ...ski, closestSize: size };
-                        closestDifference = difference;
-                    }
-                });
-            }
+            ski.sizes.forEach(size => {
+                const difference = Math.abs(size - roundedLength);
+                if (difference < closestDifference) {
+                    closestSki = { ...ski, closestSize: size };
+                    closestDifference = difference;
+                }
+            });
         });
 
         if (closestSki) {
-            suggestedSkiSize.innerHTML = `Brand: ${closestSki.brand}, Model: ${closestSki.model}, Length: ${closestSki.closestSize} cm, Width: ${width} mm`;
+            suggestedSkiSize.innerHTML = `Brand: ${closestSki.brand}, Model: ${closestSki.model}, Length: ${closestSki.closestSize} cm, Width: ${roundedWidth} mm`;
         } else {
             suggestedSkiSize.textContent = 'No suitable ski found for the given dimensions.';
         }
