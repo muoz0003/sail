@@ -2,9 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const weightInput = document.getElementById('weight');
     const heightInput = document.getElementById('height');
     const genderSelect = document.getElementById('gender');
-    const styleSelect = document.querySelector('.selection-box.selected[data-value]');
-    const skillSelect = document.querySelector('.selection-box.selected[data-value]');
-    const terrainSelect = document.querySelector('.selection-box.selected[data-value]');
     const recommendedLength = document.getElementById('recommended-length');
     const recommendedWidth = document.getElementById('recommended-width');
     const suggestedSkiSize = document.getElementById('suggested-ski-size');
@@ -38,19 +35,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const weight = parseFloat(weightInput.value);
         const height = parseFloat(heightInput.value);
         const gender = genderSelect.value;
-        const style = document.querySelector('.selection-box.selected[data-value]').getAttribute('data-value');
-        const skill = document.querySelector('.selection-box.selected[data-value]').getAttribute('data-value');
-        const terrain = document.querySelector('.selection-box.selected[data-value]').getAttribute('data-value');
+        const styleElement = document.querySelector('.selection-box.selected[data-group="style"]');
+        const skillElement = document.querySelector('.selection-box.selected[data-group="skill"]');
+        const terrainElement = document.querySelector('.selection-box.selected[data-group="terrain"]');
+
+        if (!styleElement || !skillElement || !terrainElement) {
+            alert('Please select your skiing style, skill level, and terrain type.');
+            return;
+        }
+
+        const style = styleElement.getAttribute('data-value');
+        const skill = skillElement.getAttribute('data-value');
+        const terrain = terrainElement.getAttribute('data-value');
 
         if (isNaN(weight) || isNaN(height)) {
             alert('Please enter valid weight and height.');
             return;
         }
 
-        // Convert weight to kg if in lbs
         const weightInKg = weight;
-
-        // Convert height to cm if in inches
         const heightInCm = height;
 
         let length = 0;
@@ -62,27 +65,24 @@ document.addEventListener('DOMContentLoaded', () => {
             length = heightInCm * (skill === 'beginner' ? 1.05 : 1.1);
         }
 
-        // Adjust length based on weight
         if (weightInKg > 75) {
             length += 5;
         } else if (weightInKg < 55) {
             length -= 5;
         }
 
-        // Adjust length based on terrain
         if (terrain === 'backcountry' || terrain === 'mixed') {
             length -= 5;
 
-            // Calculate ski width for backcountry or mixed terrain
             const desiredPressure = 4000; // 4 kPa in N/m^2
             const gravity = 9.81; // m/s^2
-            const weightInNewton = weightInKg * gravity; // Convert weight to Newton
-            const surfaceArea = weightInNewton / desiredPressure; // Total surface area of both skis in m^2
-            const skiLengthInMeters = length / 100; // Convert length to meters
-            width = (surfaceArea / (2 * skiLengthInMeters)) * 1000; // Calculate width in mm
+            const weightInNewton = weightInKg * gravity;
+            const surfaceArea = weightInNewton / desiredPressure;
+            const skiLengthInMeters = length / 100;
+            width = (surfaceArea / (2 * skiLengthInMeters)) * 1000;
 
-            // Ensure width is more than 55 mm for backcountry
-            if (terrain === 'backcountry' && width < 55) {
+            // Ensure width is at least 55 mm for backcountry or mixed terrain
+            if (width < 55) {
                 width = 55;
             }
         } else {
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             poleLength = heightInCm * 0.89;
         }
 
-        const roundedPoleLength = Math.round(poleLength / 5) * 5; // Round to nearest 5 cm
+        const roundedPoleLength = Math.round(poleLength / 5) * 5;
         recommendedPoleLength.textContent = roundedPoleLength;
 
         // Scroll to results section
