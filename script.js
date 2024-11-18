@@ -28,13 +28,25 @@ document.addEventListener('DOMContentLoaded', () => {
         { brand: 'ROSSIGNOL', model: 'XT Venture WXLS', width: 70, sizes: [176, 186, 191] },
         { brand: 'ATOMIC', model: 'Savor 48 Skintec Med + PA', width: 48, sizes: [174, 184, 194, 204] },
         { brand: 'ATOMIC', model: 'Savor 52 Grip + Prolink Access CL', width: 52, sizes: [177, 184, 191, 198, 205] },
-        { brand: 'ATOMIC', model: 'Savor 48 Skintec Hard with Prolink Shift Pro CL Binding', width: 48, sizes: [204] }
+        { brand: 'ATOMIC', model: 'Savor 48 Skintec Hard with Prolink Shift Pro CL Binding', width: 48, sizes: [204] },
+        // New skis added
+        {
+            brand: 'SALOMON',
+            model: 'Escape 48 eSKIN Cross-country Skis and X-Stiff Shift Binding',
+            width: [48, 46, 44, 46],
+            sizes: [180, 206]
+        },
+        {
+            brand: 'ATOMIC',
+            model: 'Pro C1 Skintec Hard Cross-country Skis with Prolink Shift CL Binding',
+            width: 47,
+            sizes: [209]
+        }
     ];
 
     function calculateSkiDimensions() {
         const weight = parseFloat(weightInput.value);
         const height = parseFloat(heightInput.value);
-        const gender = genderSelect.value;
         const styleElement = document.querySelector('.selection-box.selected[data-group="style"]');
         const skillElement = document.querySelector('.selection-box.selected[data-group="skill"]');
         const terrainElement = document.querySelector('.selection-box.selected[data-group="terrain"]');
@@ -81,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const skiLengthInMeters = length / 100;
             width = (surfaceArea / (2 * skiLengthInMeters)) * 1000;
 
-            // Ensure width is at least 55 mm for backcountry or mixed terrain
             if (width < 55) {
                 width = 55;
             }
@@ -138,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const roundedPoleLength = Math.round(poleLength / 5) * 5;
         recommendedPoleLength.textContent = roundedPoleLength;
 
-        // Scroll to results section
         document.querySelector('.results').scrollIntoView({ behavior: 'smooth' });
     }
 
