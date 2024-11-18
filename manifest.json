@@ -18,5 +18,26 @@
         "sizes": "512x512",
         "type": "image/png"
       }
+    ],
+    "screenshots": [
+      {
+        "src": "screenshots/app1.jpg",
+        "sizes": "640x480",
+        "type": "image/jpeg"
+      },
+      {
+        "src": "screenshots/app2.jpg",
+        "sizes": "640x480",
+        "type": "image/jpeg"
+      },
+      {
+        "src": "screenshots/app3.jpg",
+        "sizes": "640x480",
+        "type": "image/jpeg"
+      }
+    ],
+    "categories": [
+      "sports",
+      "utilities"
     ]
   }
