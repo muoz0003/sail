@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { brand: 'ATOMIC', model: 'Savor 48 Skintec Med + PA', width: 48, sizes: [174, 184, 194, 204] },
         { brand: 'ATOMIC', model: 'Savor 52 Grip + Prolink Access CL', width: 52, sizes: [177, 184, 191, 198, 205] },
         { brand: 'ATOMIC', model: 'Savor 48 Skintec Hard with Prolink Shift Pro CL Binding', width: 48, sizes: [204] },
-        // New skis added
         {
             brand: 'SALOMON',
             model: 'Escape 48 eSKIN Cross-country Skis and X-Stiff Shift Binding',
@@ -47,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function calculateSkiDimensions() {
         const weight = parseFloat(weightInput.value);
         const height = parseFloat(heightInput.value);
+        const gender = genderSelect.value;
         const styleElement = document.querySelector('.selection-box.selected[data-group="style"]');
         const skillElement = document.querySelector('.selection-box.selected[data-group="skill"]');
         const terrainElement = document.querySelector('.selection-box.selected[data-group="terrain"]');
@@ -89,8 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const desiredPressure = 4000; // 4 kPa in N/m^2
             const gravity = 9.81; // m/s^2
             const weightInNewton = weightInKg * gravity;
-            const surfaceArea = weightInNewton / desiredPressure;
             const skiLengthInMeters = length / 100;
+            const surfaceArea = weightInNewton / desiredPressure;
             width = (surfaceArea / (2 * skiLengthInMeters)) * 1000;
 
             if (width < 55) {
@@ -125,17 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Calculate snowshoe size
-        let snowshoeSize = 0;
-        if (weight <= 140) {
-            snowshoeSize = terrain === 'backcountry' ? 22 : 20;
-        } else if (weight <= 200) {
-            snowshoeSize = terrain === 'backcountry' ? 25 : 22;
-        } else if (weight <= 260) {
-            snowshoeSize = terrain === 'backcountry' ? 30 : 25;
-        } else {
-            snowshoeSize = terrain === 'backcountry' ? 35 : 30;
-        }
-
+        const snowshoeSize = calculateSnowshoeSize(weightInKg, terrain);
         recommendedSnowshoeLength.textContent = `${snowshoeSize} inches`;
 
         // Calculate ski pole length
@@ -150,6 +140,43 @@ document.addEventListener('DOMContentLoaded', () => {
         recommendedPoleLength.textContent = roundedPoleLength;
 
         document.querySelector('.results').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function calculateSnowshoeSize(weightInKg, terrain) {
+        const weightInLbs = weightInKg * 2.20462;
+        let size = 0;
+
+        if (terrain === 'groomed') {
+            if (weightInLbs <= 120) {
+                size = 22; // 20-22 inches
+            } else if (weightInLbs <= 180) {
+                size = 25; // 23-25 inches
+            } else {
+                size = 25; // Max size for groomed trails
+            }
+        } else if (terrain === 'mixed') {
+            if (weightInLbs <= 120) {
+                size = 23; // 23 inches
+            } else if (weightInLbs <= 160) {
+                size = 25; // 23-25 inches
+            } else if (weightInLbs <= 220) {
+                size = 28; // 26-30 inches
+            } else {
+                size = 30; // Up to 30 inches
+            }
+        } else if (terrain === 'backcountry') {
+            if (weightInLbs <= 160) {
+                size = 25; // 25 inches
+            } else if (weightInLbs <= 180) {
+                size = 30; // 26-30 inches
+            } else if (weightInLbs <= 250) {
+                size = 35; // 30-35 inches
+            } else {
+                size = 36; // Over 250 lbs
+            }
+        }
+
+        return size || 25; // Default size if none matched
     }
 
     function resetFields() {
