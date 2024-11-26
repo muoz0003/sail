@@ -207,6 +207,10 @@
                 </table>
             </section>
         </main>
+
+        <!-- Counter display added here -->
+        <p id="user-counter" class="text-center"></p>
+
         <footer class="text-center mt-4">
             <p data-lang-en="Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Camping Associate." data-lang-fr="Avertissement : Ces recommandations sont générales. Pour un ajustement précis, consultez un associé de camping SAIL.">Disclaimer: These recommendations are general. For Cross-Country Skiing in Backcountry or Offtrail consider 55mm + on the width of the Ski. For precise fitting, consult a SAIL Camping Associate.</p>
             <p>&copy; <a href="https://sail.ca" target="_blank" aria-label="David Muñoz Jensen Ski Tool" data-lang-en="SAIL Plein Air 2024" data-lang-fr="SAIL Plein Air 2024">SAIL Plein Air 2024</a></p>
@@ -252,6 +256,27 @@
 
             // Set default language
             document.getElementById('english').classList.add('selected');
+
+            // Counter for number of users who have used the calculator
+            let userCounter = localStorage.getItem('userCounter');
+            if (!userCounter) {
+                userCounter = 0;
+            } else {
+                userCounter = parseInt(userCounter);
+            }
+            document.getElementById('user-counter').textContent = `Clients Assisted This Week: ${userCounter}`;
+
+            const calculateBtn = document.getElementById('calculate-btn');
+
+            calculateBtn.addEventListener('click', () => {
+                // Existing code for calculation (if any)
+                // ...
+
+                // Increment counter
+                userCounter++;
+                localStorage.setItem('userCounter', userCounter);
+                document.getElementById('user-counter').textContent = `Number of users who have used the calculator: ${userCounter}`;
+            });
         });
     </script>
 </body>
