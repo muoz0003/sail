@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<script>navigator.serviceWorker.register("service-worker.js")</script> 
-<link rel="manifest" href="manifest.json" />    <link rel="icon" href="https://www.sail.ca/static/version1731590178/frontend/Sailpleinair/sailpleinair/en_CA/Magento_Theme/favicon.ico" type="https://www.sail.ca/static/version1731590178/frontend/Sailpleinair/sailpleinair/en_CA/Magento_Theme/favicon.ico">
+    <script>navigator.serviceWorker.register("service-worker.js")</script> 
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="https://www.sail.ca/static/version1731590178/frontend/Sailpleinair/sailpleinair/en_CA/Magento_Theme/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container mt-5">
@@ -209,31 +210,71 @@
         </main>
 
         <!-- Counter display -->
-<p id="user-counter" class="text-center">Clients Assisted This Week: 0</p>
+        <p id="user-counter" class="text-center">Clients Assisted This Week: 0</p>
 
         <footer class="text-center mt-4">
             <p data-lang-en="Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Camping Associate." data-lang-fr="Avertissement : Ces recommandations sont générales. Pour un ajustement précis, consultez un associé de camping SAIL.">Disclaimer: These recommendations are general. For Cross-Country Skiing in Backcountry or Offtrail consider 55mm + on the width of the Ski. For precise fitting, consult a SAIL Camping Associate.</p>
             <p>&copy; <a href="https://sail.ca" target="_blank" aria-label="David Muñoz Jensen Ski Tool" data-lang-en="SAIL Plein Air 2024" data-lang-fr="SAIL Plein Air 2024">SAIL Plein Air 2024</a></p>
         </footer>
     </div>
-    <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Include Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database-compat.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const selectionBoxes = document.querySelectorAll('.selection-box');
+    <!-- Include Firebase SDKs -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+      import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyD926t439MidAbOtVP1pFtOUlSb-rU1Plc",
+        authDomain: "counter-7437b.firebaseapp.com",
+        databaseURL: "https://counter-7437b-default-rtdb.firebaseio.com",
+        projectId: "counter-7437b",
+        storageBucket: "counter-7437b.appspot.com",
+        messagingSenderId: "865274425490",
+        appId: "1:865274425490:web:4c521e426fc3df3c28f64b",
+        measurementId: "G-6R3MCCTG6P"
+      };
 
-            selectionBoxes.forEach(box => {
-                box.addEventListener('click', () => {
-                    const group = box.closest('table').querySelectorAll('.selection-box');
-                    group.forEach(s => s.classList.remove('selected'));
-                    box.classList.add('selected');
-                });
-            });
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+
+      // Reference to the counter in the database
+      const counterRef = ref(database, 'userCounter');
+
+      // Function to increment the counter
+      function incrementCounter() {
+          runTransaction(counterRef, (currentValue) => {
+              return (currentValue || 0) + 1;
+          });
+      }
+
+      // Display the counter value
+      onValue(counterRef, (snapshot) => {
+          const count = snapshot.val() || 0;
+          document.getElementById('user-counter').textContent = `Clients Assisted This Week: ${count}`;
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+          const calculateBtn = document.getElementById('calculate-btn');
+
+          calculateBtn.addEventListener('click', () => {
+              // Existing code for calculation (if any)
+              // ...
+
+              // Increment counter in Firebase
+              incrementCounter();
+          });
+
+          // Existing selection box code
+          const selectionBoxes = document.querySelectorAll('.selection-box');
+
+          selectionBoxes.forEach(box => {
+              box.addEventListener('click', () => {
+                  const group = box.closest('table').querySelectorAll('.selection-box');
+                  group.forEach(s => s.classList.remove('selected'));
+                  box.classList.add('selected');
+              });
+          });
 
             // Set default selected styles
             document.getElementById('cross-country').classList.add('selected');
@@ -262,50 +303,6 @@
 
             
         }); 
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "YOUR-API-KEY",
-            authDomain: "YOUR-PROJECT-ID.firebaseapp.com",
-            databaseURL: "https://YOUR-PROJECT-ID-default-rtdb.firebaseio.com",
-            projectId: "YOUR-PROJECT-ID",
-            storageBucket: "YOUR-PROJECT-ID.appspot.com",
-            messagingSenderId: "SENDER-ID",
-            appId: "APP-ID"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        var database = firebase.database();
-        // Reference to the counter in the database
-        const counterRef = firebase.database().ref('userCounter');
-
-        // Function to increment the counter
-        function incrementCounter() {
-            counterRef.transaction(function(currentValue) {
-                return (currentValue || 0) + 1;
-            });
-        }
-
-        // Display the counter value
-        counterRef.on('value', (snapshot) => {
-            const count = snapshot.val() || 0;
-            document.getElementById('user-counter').textContent = `Clients Assisted This Week: ${count}`;
-        });
-
-        const calculateBtn = document.getElementById('calculate-btn');
-
-        calculateBtn.addEventListener('click', () => {
-            // Existing code for calculation (if any)
-            // ...
-
-            // Increment counter in Firebase
-            incrementCounter();
-        });
-
-        // ... rest of your code ...
-    });
     </script>
 </body>
 </html>
