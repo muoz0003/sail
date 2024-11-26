@@ -208,8 +208,8 @@
             </section>
         </main>
 
-        <!-- Counter display added here -->
-        <p id="user-counter" class="text-center"></p>
+        <!-- Counter display -->
+<p id="user-counter" class="text-center">Clients Assisted This Week: 0</p>
 
         <footer class="text-center mt-4">
             <p data-lang-en="Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Camping Associate." data-lang-fr="Avertissement : Ces recommandations sont générales. Pour un ajustement précis, consultez un associé de camping SAIL.">Disclaimer: These recommendations are general. For Cross-Country Skiing in Backcountry or Offtrail consider 55mm + on the width of the Ski. For precise fitting, consult a SAIL Camping Associate.</p>
@@ -220,6 +220,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database-compat.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const selectionBoxes = document.querySelectorAll('.selection-box');
@@ -257,27 +260,52 @@
             // Set default language
             document.getElementById('english').classList.add('selected');
 
-            // Counter for number of users who have used the calculator
-            let userCounter = localStorage.getItem('userCounter');
-            if (!userCounter) {
-                userCounter = 0;
-            } else {
-                userCounter = parseInt(userCounter);
-            }
-            document.getElementById('user-counter').textContent = `Clients Assisted This Week: ${userCounter}`;
+            
+        }); 
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "YOUR-API-KEY",
+            authDomain: "YOUR-PROJECT-ID.firebaseapp.com",
+            databaseURL: "https://YOUR-PROJECT-ID-default-rtdb.firebaseio.com",
+            projectId: "YOUR-PROJECT-ID",
+            storageBucket: "YOUR-PROJECT-ID.appspot.com",
+            messagingSenderId: "SENDER-ID",
+            appId: "APP-ID"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+        // Reference to the counter in the database
+        const counterRef = firebase.database().ref('userCounter');
 
-            const calculateBtn = document.getElementById('calculate-btn');
-
-            calculateBtn.addEventListener('click', () => {
-                // Existing code for calculation (if any)
-                // ...
-
-                // Increment counter
-                userCounter++;
-                localStorage.setItem('userCounter', userCounter);
-                document.getElementById('user-counter').textContent = `Number of users who have used the calculator: ${userCounter}`;
+        // Function to increment the counter
+        function incrementCounter() {
+            counterRef.transaction(function(currentValue) {
+                return (currentValue || 0) + 1;
             });
+        }
+
+        // Display the counter value
+        counterRef.on('value', (snapshot) => {
+            const count = snapshot.val() || 0;
+            document.getElementById('user-counter').textContent = `Clients Assisted This Week: ${count}`;
         });
+
+        const calculateBtn = document.getElementById('calculate-btn');
+
+        calculateBtn.addEventListener('click', () => {
+            // Existing code for calculation (if any)
+            // ...
+
+            // Increment counter in Firebase
+            incrementCounter();
+        });
+
+        // ... rest of your code ...
+    });
     </script>
 </body>
 </html>
