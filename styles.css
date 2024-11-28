@@ -36,11 +36,20 @@ header h2 {
     border-color: #E46C1D;
     background-color: #e9ecef;
 }
+
+.selection-box i.fas.fa-hiking::before {
+    content: "\f6ec"; /* Font Awesome hiking icon */
+}
+
 .selection-box i {
     font-size: 2rem;
 }
 .selection-box p {
     margin: 0;
+}
+.selection-box.selected {
+    border-color: #E46C1D;
+    background-color: #e9ecef;
 }
 .selection-group {
     display: flex;

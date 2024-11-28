@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const terrainElement = document.querySelector('.selection-box.selected[data-group="terrain"]');
 
         if (!styleElement || !skillElement || !terrainElement) {
-            alert('Please select your skiing style, skill level, and terrain type.');
+            alert('Please select your activity, skill level, and terrain type.');
             return;
         }
 
@@ -69,76 +69,93 @@ document.addEventListener('DOMContentLoaded', () => {
         const weightInKg = weight;
         const heightInCm = height;
 
-        let length = 0;
-        let width = 0;
+        if (style === 'snowshoeing') {
+            // Calculate snowshoe size
+            const snowshoeSize = calculateSnowshoeSize(weightInKg, terrain);
+            recommendedSnowshoeLength.textContent = `${snowshoeSize} inches`;
 
-        if (style === 'cross-country') {
-            length = heightInCm * (skill === 'beginner' ? 1.1 : 1.2);
-        } else if (style === 'skate') {
-            length = heightInCm * (skill === 'beginner' ? 1.05 : 1.1);
-        }
+            // Calculate ski pole length
+            let poleLength = heightInCm * 0.68; // Adjusted for snowshoeing
+            const roundedPoleLength = Math.round(poleLength / 5) * 5;
+            recommendedPoleLength.textContent = roundedPoleLength;
 
-        if (weightInKg > 75) {
-            length += 5;
-        } else if (weightInKg < 55) {
-            length -= 5;
-        }
+            // Hide ski recommendations
+            recommendedLength.textContent = '';
+            recommendedWidth.textContent = '';
+            suggestedSkiSize.textContent = '';
 
-        if (terrain === 'backcountry' || terrain === 'mixed') {
-            length -= 5;
+        } else {
+            let length = 0;
+            let width = 0;
 
-            const desiredPressure = 4000; // 4 kPa in N/m^2
-            const gravity = 9.81; // m/s^2
-            const weightInNewton = weightInKg * gravity;
-            const skiLengthInMeters = length / 100;
-            const surfaceArea = weightInNewton / desiredPressure;
-            width = (surfaceArea / (2 * skiLengthInMeters)) * 1000;
-
-            if (width < 55) {
-                width = 55;
+            if (style === 'cross-country') {
+                length = heightInCm * (skill === 'beginner' ? 1.1 : 1.2);
+            } else if (style === 'skate') {
+                length = heightInCm * (skill === 'beginner' ? 1.05 : 1.1);
             }
-        } else {
-            width = style === 'cross-country' ? 45 : 40;
-        }
 
-        const roundedLength = Math.round(length);
-        const roundedWidth = Math.round(width);
-        recommendedLength.textContent = roundedLength;
-        recommendedWidth.textContent = roundedWidth;
+            if (weightInKg > 75) {
+                length += 5;
+            } else if (weightInKg < 55) {
+                length -= 5;
+            }
 
-        let closestSki = null;
-        let closestDifference = Infinity;
+            if (terrain === 'backcountry' || terrain === 'mixed') {
+                length -= 5;
 
-        skis.forEach(ski => {
-            ski.sizes.forEach(size => {
-                const difference = Math.abs(size - roundedLength);
-                if (difference < closestDifference) {
-                    closestSki = { ...ski, closestSize: size };
-                    closestDifference = difference;
+                const desiredPressure = 4000; // 4 kPa in N/m^2
+                const gravity = 9.81; // m/s^2
+                const weightInNewton = weightInKg * gravity;
+                const skiLengthInMeters = length / 100;
+                const surfaceArea = weightInNewton / desiredPressure;
+                width = (surfaceArea / (2 * skiLengthInMeters)) * 1000;
+
+                if (width < 55) {
+                    width = 55;
                 }
+            } else {
+                width = style === 'cross-country' ? 45 : 40;
+            }
+
+            const roundedLength = Math.round(length);
+            const roundedWidth = Math.round(width);
+            recommendedLength.textContent = roundedLength;
+            recommendedWidth.textContent = roundedWidth;
+
+            let closestSki = null;
+            let closestDifference = Infinity;
+
+            skis.forEach(ski => {
+                ski.sizes.forEach(size => {
+                    const difference = Math.abs(size - roundedLength);
+                    if (difference < closestDifference) {
+                        closestSki = { ...ski, closestSize: size };
+                        closestDifference = difference;
+                    }
+                });
             });
-        });
 
-        if (closestSki) {
-            suggestedSkiSize.innerHTML = `Brand: ${closestSki.brand}, Model: ${closestSki.model}, Length: ${closestSki.closestSize} cm, Width: ${roundedWidth} mm`;
-        } else {
-            suggestedSkiSize.textContent = 'No suitable ski found for the given dimensions.';
+            if (closestSki) {
+                suggestedSkiSize.innerHTML = `Brand: ${closestSki.brand}, Model: ${closestSki.model}, Length: ${closestSki.closestSize} cm, Width: ${roundedWidth} mm`;
+            } else {
+                suggestedSkiSize.textContent = 'No suitable ski found for the given dimensions.';
+            }
+
+            // Calculate snowshoe size
+            const snowshoeSize = calculateSnowshoeSize(weightInKg, terrain);
+            recommendedSnowshoeLength.textContent = `${snowshoeSize} inches`;
+
+            // Calculate ski pole length
+            let poleLength = 0;
+            if (style === 'cross-country') {
+                poleLength = heightInCm * 0.83;
+            } else if (style === 'skate') {
+                poleLength = heightInCm * 0.89;
+            }
+
+            const roundedPoleLength = Math.round(poleLength / 5) * 5;
+            recommendedPoleLength.textContent = roundedPoleLength;
         }
-
-        // Calculate snowshoe size
-        const snowshoeSize = calculateSnowshoeSize(weightInKg, terrain);
-        recommendedSnowshoeLength.textContent = `${snowshoeSize} inches`;
-
-        // Calculate ski pole length
-        let poleLength = 0;
-        if (style === 'cross-country') {
-            poleLength = heightInCm * 0.83;
-        } else if (style === 'skate') {
-            poleLength = heightInCm * 0.89;
-        }
-
-        const roundedPoleLength = Math.round(poleLength / 5) * 5;
-        recommendedPoleLength.textContent = roundedPoleLength;
 
         document.querySelector('.results').scrollIntoView({ behavior: 'smooth' });
     }
