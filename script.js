@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { brand: 'FISCHER', model: 'Aerolite Skate 60 IFP', width: 41, sizes: [176, 181, 186] },
         { brand: 'SALOMON', model: 'RC7+ eSKIN with Prolink Shift Binding', width: 44, sizes: [174, 182, 190, 198, 206] },
         { brand: 'SALOMON', model: 'RC8+ eSKIN with Prolink Shift Binding', width: 44, sizes: [174, 182, 190, 198, 206] },
-        { brand: 'SALOMON', model: 'Escape Snow 59 POSI with Prolink Auto Binding', width: 59, sizes: ['L', 'M', 'S', 'TTG', 'XL'] },
+        { brand: 'SALOMON', model: 'Escape Snow 59 POSI with Prolink Auto Binding', width: 59, sizes: [163, 173, 183, 193] },
         { brand: 'FISCHER', model: 'Twin Skin Power EF', width: 51, sizes: [184, 189, 194, 199] },
         { brand: 'FISCHER', model: 'Sports Crown EF', width: 50, sizes: [179, 184, 189, 194, 199] },
         { brand: 'ROSSIGNOL', model: 'Evo Xc 60 R-Skin with Control SI Ski Bindings', width: 60, sizes: [165, 175, 185, 195] },
