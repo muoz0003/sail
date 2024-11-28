@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const recommendedPoleLength = document.getElementById('recommended-pole-length');
     const calculateBtn = document.getElementById('calculate-btn');
     const resetBtn = document.getElementById('reset-btn');
+    const selectionBoxes = document.querySelectorAll('.selection-box');
 
     const skis = [
         { brand: 'FISCHER', model: 'Spider 62 Crown Xtralite', width: 62, sizes: [169, 179, 189, 199] },
@@ -196,4 +197,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     calculateBtn.addEventListener('click', calculateSkiDimensions);
     resetBtn.addEventListener('click', resetFields);
+
+    selectionBoxes.forEach(box => {
+        box.addEventListener('click', () => {
+            const group = box.closest('table').querySelectorAll('.selection-box');
+            group.forEach(s => s.classList.remove('selected'));
+            box.classList.add('selected');
+        });
+    });
+
+    // Set default selected styles
+    document.getElementById('cross-country').classList.add('selected');
+    document.getElementById('beginner').classList.add('selected');
+    document.getElementById('groomed').classList.add('selected');
+
+    // Language switcher
+    const languageBoxes = document.querySelectorAll('.language-selector .selection-box');
+    languageBoxes.forEach(box => {
+        box.addEventListener('click', () => {
+            languageBoxes.forEach(s => s.classList.remove('selected'));
+            box.classList.add('selected');
+            const lang = box.getAttribute('data-lang');
+            switchLanguage(lang);
+        });
+    });
+
+    function switchLanguage(lang) {
+        document.querySelectorAll('[data-lang-en]').forEach(el => {
+            el.textContent = el.getAttribute(`data-lang-${lang}`);
+        });
+    }
+
+    // Set default language
+    document.getElementById('english').classList.add('selected');
 });

@@ -220,43 +220,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const selectionBoxes = document.querySelectorAll('.selection-box');
-
-            selectionBoxes.forEach(box => {
-                box.addEventListener('click', () => {
-                    const group = box.closest('table').querySelectorAll('.selection-box');
-                    group.forEach(s => s.classList.remove('selected'));
-                    box.classList.add('selected');
-                });
-            });
-
-            // Set default selected styles
-            document.getElementById('cross-country').classList.add('selected');
-            document.getElementById('beginner').classList.add('selected');
-            document.getElementById('groomed').classList.add('selected');
-
-            // Language switcher
-            const languageBoxes = document.querySelectorAll('.language-selector .selection-box');
-            languageBoxes.forEach(box => {
-                box.addEventListener('click', () => {
-                    languageBoxes.forEach(s => s.classList.remove('selected'));
-                    box.classList.add('selected');
-                    const lang = box.getAttribute('data-lang');
-                    switchLanguage(lang);
-                });
-            });
-
-            function switchLanguage(lang) {
-                document.querySelectorAll('[data-lang-en]').forEach(el => {
-                    el.textContent = el.getAttribute(`data-lang-${lang}`);
-                });
-            }
-
-            // Set default language
-            document.getElementById('english').classList.add('selected');
-        });
-    </script>
+   
 </body>
 </html>
