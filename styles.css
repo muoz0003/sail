@@ -90,6 +90,28 @@ header h2 {
 
 .results {
     margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.results h3 {
+    margin-bottom: 20px;
+}
+
+.results .table th, .results .table td {
+    vertical-align: middle;
+}
+
+.results .table td i {
+    margin-right: 10px;
+    color: #7CA529;
+    font-size: 1.25rem;
+}
+
+.results .table td span {
+    vertical-align: middle;
 }
 
 footer {
@@ -111,7 +133,8 @@ footer a:hover {
     border-color: #7CA529;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
     background-color: #E46C1D;
     border-color: #E46C1D;
 }
@@ -121,7 +144,8 @@ footer a:hover {
     border-color: #E46C1D;
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-secondary:focus {
     background-color: #7CA529;
     border-color: #7CA529;
 }
