@@ -1,12 +1,19 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    padding: 0 20px; /* Add horizontal padding */
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.85)
+    ), url('images/background.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 0 20px;
+    background-attachment: fixed;
 }
 
 header h1 {
     font-size: 1.5rem;
-    color: #7CA529;
+    color: #4D7585;
     text-transform: uppercase;
 }
 
@@ -32,8 +39,9 @@ header h2 {
     justify-content: center;
     align-items: center;
 }
+
 .selection-box.selected {
-    border-color: #E46C1D;
+    border-color: #4D7585;
     background-color: #e9ecef;
 }
 
@@ -44,37 +52,41 @@ header h2 {
 .selection-box i {
     font-size: 2rem;
 }
+
 .selection-box p {
     margin: 0;
 }
-.selection-box.selected {
-    border-color: #E46C1D;
-    background-color: #e9ecef;
-}
+
 .selection-group {
     display: flex;
     justify-content: center;
     gap: 10px;
 }
+
 .table-selection {
     width: 100%;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
 }
-.table-selection th, .table-selection td {
+
+.table-selection th,
+.table-selection td {
     text-align: center;
     vertical-align: middle;
 }
+
 .table-selection tbody {
     display: flex;
     justify-content: center;
 }
+
 .table-selection tr {
     display: flex;
     justify-content: center;
     width: 100%;
 }
+
 .table-selection td {
     display: flex;
     justify-content: center;
@@ -99,7 +111,7 @@ header h2 {
 
 .results {
     margin-top: 20px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -109,13 +121,14 @@ header h2 {
     margin-bottom: 20px;
 }
 
-.results .table th, .results .table td {
+.results .table th,
+.results .table td {
     vertical-align: middle;
 }
 
 .results .table td i {
     margin-right: 10px;
-    color: #7CA529;
+    color: #8AA6AC;
     font-size: 1.25rem;
 }
 
@@ -126,49 +139,53 @@ header h2 {
 footer {
     font-size: 0.75rem;
     color: #999;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 8px;
 }
 
 footer a {
-    color: #7CA529;
+    color: #8AA6AC;
     text-decoration: none;
 }
 
 footer a:hover {
-    color: #E46C1D;
+    color: #4D7585;
 }
 
 .btn-primary {
-    background-color: #7CA529;
-    border-color: #7CA529;
+    background-color: #8AA6AC;
+    border-color: #8AA6AC;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: #E46C1D;
-    border-color: #E46C1D;
+    background-color: #4D7585;
+    border-color: #4D7585;
 }
 
 .btn-secondary {
-    background-color: #E46C1D;
-    border-color: #E46C1D;
+    background-color: #4D7585;
+    border-color: #4D7585;
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus {
-    background-color: #7CA529;
-    border-color: #7CA529;
+    background-color: #8AA6AC;
+    border-color: #8AA6AC;
 }
 
 .form-check-input:checked {
-    background-color: #E46C1D;
-    border-color: #E46C1D;
+    background-color: #4D7585;
+    border-color: #4D7585;
 }
 
 .table {
     margin-top: 20px;
 }
 
-.table th, .table td {
+.table th,
+.table td {
     text-align: center;
     vertical-align: middle;
 }

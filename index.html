@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<script>navigator.serviceWorker.register("service-worker.js")</script> 
-<link rel="manifest" href="manifest.json" />    <link rel="icon" href="https://www.sail.ca/static/version1731590178/frontend/Sailpleinair/sailpleinair/en_CA/Magento_Theme/favicon.ico" type="https://www.sail.ca/static/version1731590178/frontend/Sailpleinair/sailpleinair/en_CA/Magento_Theme/favicon.ico">
+    <script>navigator.serviceWorker.register("service-worker.js")</script>
+    <link rel="manifest" href="manifest.json" />
+    <!-- FAVICON -->
+    <link rel="icon" href="images/ski-icon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container mt-5">
         <header class="text-center mb-4">
-            <img src="https://www.sail.ca/static/version1731590178/frontend/Sailpleinair/sailpleinair/en_CA/images/logo.svg" alt="SAIL Logo" class="logo mb-3">
-            <label class="font-weight-bold" style="color: #7CA529; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;">Select your language:</label>
+            <i class="fas fa-skiing fa-3x mb-3"></i>
+            <label class="font-weight-bold" style="color: #4D7585; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;">Select your language:</label>
             <div class="language-selector">
                 <div class="selection-box small-box" id="english" data-lang="en">
                     <img src="images/Flag_of_United_Kingdom.svg" alt="English" class="flag-icon">
@@ -23,7 +25,7 @@
                     <img src="images/Flag_of_France.svg" alt="French" class="flag-icon">
                 </div>
             </div>
-            <h1 data-lang-en="Ski and Snowshoe Size Finder" data-lang-fr="Trouveur de taille de ski et de raquette">Ski and Snowshoe Size Finder</h1>
+            <h1 class="font-weight-bold" data-lang-en="Ski and Snowshoe Size Finder" data-lang-fr="Trouveur de taille de ski et de raquette">Ski and Snowshoe Size Finder</h1>
             <h2 data-lang-en="Determine the optimal length and width for your skis, snowshoes, and ski poles." data-lang-fr="Déterminez la longueur et la largeur optimales de vos skis, raquettes et bâtons de ski.">Determine the optimal length and width for your skis, snowshoes, and ski poles.</h2>
         </header>
         <main>
@@ -53,13 +55,11 @@
                         <option value="110">110 kg - 243 lbs</option>
                         <option value="115">115 kg - 254 lbs</option>
                         <option value="120">120 kg - 265 lbs</option>
-                        <!-- Add more options as needed -->
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="height" class="font-weight-bold" data-lang-en="Your Height:" data-lang-fr="Votre taille:">Your Height:</label>
                     <select class="form-control" id="height" name="height" aria-label="Your Height">
-                        <!-- Options for height in cm, meters, and feet -->
                         <option value="90">90 cm - 0.9 m - 2.95 ft</option>
                         <option value="95">95 cm - 0.95 m - 3.12 ft</option>
                         <option value="100">100 cm - 1.0 m - 3.28 ft</option>
@@ -83,7 +83,6 @@
                         <option value="190">190 cm - 1.9 m - 6.23 ft</option>
                         <option value="195">195 cm - 1.95 m - 6.40 ft</option>
                         <option value="200">200 cm - 2.0 m - 6.56 ft</option>
-                        <!-- Add more options as needed -->
                     </select>
                 </div>
                 <div class="form-group">
@@ -94,7 +93,7 @@
                     </select>
                 </div>
                 <div class="form-group mt-5">
-                    <label for="style" class="font-weight-bold" style="color: #7CA529; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Activity:" data-lang-fr="Activité:">Activity:</label>
+                    <label for="style" class="font-weight-bold" style="color: #4D7585; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Activity:" data-lang-fr="Activité:">Activity:</label>
                     <table class="table table-selection">
                         <tbody>
                             <tr>
@@ -121,7 +120,7 @@
                     </table>
                 </div>
                 <div class="form-group mt-5">
-                    <label for="skill" class="font-weight-bold" style="color: #7CA529; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Skill Level:" data-lang-fr="Niveau de compétence:">Skill Level:</label>
+                    <label for="skill" class="font-weight-bold" style="color: #4D7585; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Skill Level:" data-lang-fr="Niveau de compétence:">Skill Level:</label>
                     <table class="table table-selection">
                         <tbody>
                             <tr>
@@ -148,7 +147,7 @@
                     </table>
                 </div>
                 <div class="form-group mt-5">
-                    <label for="terrain" class="font-weight-bold" style="color: #7CA529; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Terrain Type:" data-lang-fr="Type de terrain:">Terrain Type:</label>
+                    <label for="terrain" class="font-weight-bold" style="color: #4D7585; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Terrain Type:" data-lang-fr="Type de terrain:">Terrain Type:</label>
                     <table class="table table-selection">
                         <tbody>
                             <tr>
@@ -180,7 +179,7 @@
                 </div>
             </section>
             <section class="results">
-                <h3 class="font-weight-bold" style="color: #7CA529; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Recommendations" data-lang-fr="Recommandations">Recommendations</h3>
+                <h3 class="font-weight-bold" style="color: #4D7585; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Recommendations" data-lang-fr="Recommandations">Recommendations</h3>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -214,18 +213,20 @@
             </section>
         </main>
         <footer class="text-center mt-4">
-            <p data-lang-en="Disclaimer: These recommendations are general. For precise fitting, consult a SAIL Camping Associate." data-lang-fr="Avertissement : Ces recommandations sont générales. Pour un ajustement précis, consultez un associé de camping SAIL.">Disclaimer: These recommendations are general. For Cross-Country Skiing in Backcountry or Offtrail consider 55mm + on the width of the Ski. For precise fitting, consult a SAIL Camping Associate.</p>
-            <p>&copy; <a href="https://sail.ca" target="_blank" aria-label="David Muñoz Jensen Ski Tool" data-lang-en="SAIL Plein Air 2024" data-lang-fr="SAIL Plein Air 2024">SAIL Plein Air 2024</a></p>
+            <p data-lang-en="These recommendations are general and provide a broad guideline for Cross-Country Skiing and Snowshoeing. For a more precise fit, please consult a specialist." data-lang-fr="Ces recommandations sont générales et fournissent des directives générales pour le ski de fond et la raquette. Pour un ajustement plus précis, veuillez consulter un spécialiste.">
+                These recommendations are general and provide a broad guideline for Cross-Country Skiing and Snowshoeing. For a more precise fit, please consult a specialist.
+            </p>
+            <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank" aria-label="David Muñoz Jensen Ski Tool" data-lang-en="David Muñoz Jensen" data-lang-fr="David Muñoz Jensen">David Muñoz Jensen</a></p>
         </footer>
         <div class="text-center mb-4 pointer-events: none;">
-        <script type="text/javascript" src="https://www.free-counters.org/count/gq9b"></script>
-        <a href='https://www.acadoo.de/fachrichtungen/ghostwriter-medizin/'>Abschlussarbeit Medizin</a>
-        <script type='text/javascript' src='https://whomania.com/ctr?id=99bc3128ab158eaa670ac32fd08cc6bceb5ee866'></script>
+            <script type="text/javascript" src="https://www.free-counters.org/count/gq9b"></script>
+            <a href='https://www.acadoo.de/fachrichtungen/ghostwriter-medizin/'>Abschlussarbeit Medizin</a>
+            <script type='text/javascript' src='https://whomania.com/ctr?id=99bc3128ab158eaa670ac32fd08cc6bceb5ee866'></script>
+        </div>
+        <script src="script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </div>
-    <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   
 </body>
 </html>
