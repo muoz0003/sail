@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: #333; /* Change to match the canvas background color */
+    background: #7EE4F6; /* Change to match the canvas background color */
     color: #fff; /* Change text color to white for better contrast */
     padding: 0 20px;
     background-attachment: fixed;
@@ -13,7 +13,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1; /* Ensure it is behind other content */
-    background-color: #333; /* Change this to any color you prefer */
+    background-color: #7EE4F6; /* Change this to any color you prefer */
 }
 
 header h1 {
@@ -22,14 +22,26 @@ header h1 {
     text-transform: uppercase;
 }
 
+.full-width-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 header h2 {
     font-size: 1.25rem;
-    color: #ccc; /* Change to a lighter shade of gray */
+    color: #4D7585; /* Change to a lighter shade of gray */
 }
 
 p {
     font-size: 1.25rem;
-    color: #ccc; /* Change to a lighter shade of gray */
+    color: #4D7585; /* Change to a lighter shade of gray */
 }
 
 .logo {
@@ -48,13 +60,13 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #444; /* Darker background for selection boxes */
+    background-color: #7EE4F6; /* Darker background for selection boxes */
     color: #fff; /* White text color */
 }
 
 .selection-box.selected {
     border-color: #fff; /* White border for selected boxes */
-    background-color: #555; /* Slightly lighter background for selected boxes */
+    background-color: #7EE4F6; /* Slightly lighter background for selected boxes */
 }
 
 .selection-box i {
@@ -112,7 +124,7 @@ p {
 .language-selector .selection-box {
     width: 50px; /* Smaller width */
     height: 50px; /* Smaller height */
-    background-color: #444; /* Darker background for selection boxes */
+    background-color: #7EE4F6; /* Darker background for selection boxes */
     color: #fff; /* White text color */
 }
 
@@ -138,12 +150,12 @@ p {
 .results .table th,
 .results .table td {
     vertical-align: middle;
-    color: #fff; /* White text color */
+    color: #4D7585; /* White text color */
 }
 
 .results .table td i {
     margin-right: 10px;
-    color: #8AA6AC;
+    color: #4D7585;
     font-size: 1.25rem;
 }
 
@@ -153,14 +165,14 @@ p {
 
 footer {
     font-size: 0.75rem;
-    color: #ccc; /* Lighter gray text color */
+    color: #333; /* Lighter gray text color */
     background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
     padding: 10px;
     border-radius: 8px;
 }
 
 footer a {
-    color: #8AA6AC;
+    color: #4D7585;
     text-decoration: none;
 }
 
