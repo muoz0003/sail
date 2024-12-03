@@ -1,30 +1,35 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(
-        rgba(255, 255, 255, 0.85),
-        rgba(255, 255, 255, 0.85)
-    ), url('images/background.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background: #333; /* Change to match the canvas background color */
+    color: #fff; /* Change text color to white for better contrast */
     padding: 0 20px;
     background-attachment: fixed;
 }
 
+#backgroundCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it is behind other content */
+    background-color: #333; /* Change this to any color you prefer */
+}
+
 header h1 {
     font-size: 1.5rem;
-    color: #4D7585;
+    color: #fff; /* Change to white */
     text-transform: uppercase;
 }
 
 header h2 {
     font-size: 1.25rem;
-    color: #666;
+    color: #ccc; /* Change to a lighter shade of gray */
 }
 
 p {
     font-size: 1.25rem;
-    color: #666;
+    color: #ccc; /* Change to a lighter shade of gray */
 }
 
 .logo {
@@ -43,19 +48,18 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #444; /* Darker background for selection boxes */
+    color: #fff; /* White text color */
 }
 
 .selection-box.selected {
-    border-color: #4D7585;
-    background-color: #e9ecef;
-}
-
-.selection-box i.fas.fa-hiking::before {
-    content: "\f6ec"; /* Font Awesome hiking icon */
+    border-color: #fff; /* White border for selected boxes */
+    background-color: #555; /* Slightly lighter background for selected boxes */
 }
 
 .selection-box i {
     font-size: 2rem;
+    color: #fff; /* White icon color */
 }
 
 .selection-box p {
@@ -79,6 +83,7 @@ p {
 .table-selection td {
     text-align: center;
     vertical-align: middle;
+    color: #fff; /* White text color */
 }
 
 .table-selection tbody {
@@ -107,6 +112,8 @@ p {
 .language-selector .selection-box {
     width: 50px; /* Smaller width */
     height: 50px; /* Smaller height */
+    background-color: #444; /* Darker background for selection boxes */
+    color: #fff; /* White text color */
 }
 
 .language-selector .selection-box img {
@@ -116,19 +123,22 @@ p {
 
 .results {
     margin-top: 20px;
-    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
+    color: #fff; /* White text color */
 }
 
 .results h3 {
     margin-bottom: 20px;
+    color: #fff; /* White text color */
 }
 
 .results .table th,
 .results .table td {
     vertical-align: middle;
+    color: #fff; /* White text color */
 }
 
 .results .table td i {
@@ -143,8 +153,8 @@ p {
 
 footer {
     font-size: 0.75rem;
-    color: #999;
-    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    color: #ccc; /* Lighter gray text color */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
     padding: 10px;
     border-radius: 8px;
 }
@@ -161,6 +171,7 @@ footer a:hover {
 .btn-primary {
     background-color: #8AA6AC;
     border-color: #8AA6AC;
+    color: #fff; /* White text color */
 }
 
 .btn-primary:hover,
@@ -172,6 +183,7 @@ footer a:hover {
 .btn-secondary {
     background-color: #4D7585;
     border-color: #4D7585;
+    color: #fff; /* White text color */
 }
 
 .btn-secondary:hover,
@@ -193,6 +205,7 @@ footer a:hover {
 .table td {
     text-align: center;
     vertical-align: middle;
+    color: #fff; /* White text color */
 }
 
 /* Media Queries for Responsiveness */
