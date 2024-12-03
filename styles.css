@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background: #7EE4F6; /* Change to match the canvas background color */
     color: #fff; /* Change text color to white for better contrast */
-    padding: 0 20px;
+    /* padding: 0 20px; */
     background-attachment: fixed;
 }
 
