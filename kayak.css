@@ -248,8 +248,43 @@ footer a:hover {
     .table-selection td {
         margin-bottom: 10px; /* Add margin between stacked items */
     }
+
+    .form-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .results {
+        padding: 10px;
+    }
+
+    footer {
+        padding: 10px;
+    }
 }
 
+@media (max-width: 576px) {
+    .selection-box {
+        width: 80px; /* Adjust width for smaller screens */
+        height: 80px; /* Adjust height for smaller screens */
+    }
+
+    .form-container {
+        padding: 5px;
+    }
+
+    .results {
+        padding: 5px;
+    }
+
+    footer {
+        padding: 5px;
+    }
+}
 .input-group {
     display: flex;
     align-items: center;
