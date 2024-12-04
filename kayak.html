@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kayak Paddleboard Width Calculator</title>
+    <link rel="stylesheet" href="kayak.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="kayak.js" defer></script>
+</head>
+<body>
+    <canvas id="backgroundCanvas"></canvas>
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Kayak Calculator</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Ski Calculator</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <canvas id="backgroundCanvas"></canvas>
+    <header class="text-center">
+        <div class="image-container">
+            <img src="images/kayak2-01.webp" alt="Kayak Image" class="img-fluid">
+        </div>
+        <h1 data-lang-en="Kayak Paddleboard Width Calculator" data-lang-fr="Calculateur de largeur de planche de kayak">Kayak Paddleboard Width Calculator</h1>
+        <h2 data-lang-en="Calculate the optimal paddleboard width based on your kayak dimensions and height." data-lang-fr="Calculez la largeur optimale de la planche en fonction des dimensions de votre kayak et de votre taille.">Calculate the optimal paddleboard width based on your kayak dimensions and height.</h2>
+    </header>
+
+    <!-- Language Selector -->
+    <div class="language-selector d-flex justify-content-center mb-4">
+        <div class="selection-box mx-2" id="english" data-lang="en">
+            <img src="images/Flag_of_United_Kingdom.svg" alt="English" class="img-fluid">
+        </div>
+        <div class="selection-box mx-2" id="french" data-lang="fr">
+            <img src="images/Flag_of_France.svg" alt="Français" class="img-fluid">
+        </div>
+    </div>
+
+    <!-- Input Form -->
+    <div class="container">
+        <div class="form-container bg-light p-4 rounded shadow">
+            <div class="form-group">
+                <label for="person-height" data-lang-en="Your Height:" data-lang-fr="Votre taille:">
+                    <i class="fas fa-ruler-vertical"></i> Your Height:
+                </label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="person-height" name="person-height" min="0">
+                    <div class="input-group-append">
+                        <select id="height-unit" class="form-control">
+                            <option value="meters" data-lang-en="Meters" data-lang-fr="Mètres">Meters</option>
+                            <option value="feet" data-lang-en="Feet" data-lang-fr="Pieds">Feet</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="kayak-width" data-lang-en="Kayak Width:" data-lang-fr="Largeur du kayak:">
+                    <i class="fas fa-arrows-alt-h"></i> Kayak Width:
+                </label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="kayak-width" name="kayak-width" min="0">
+                    <div class="input-group-append">
+                        <select id="width-unit" class="form-control">
+                            <option value="meters" data-lang-en="Meters" data-lang-fr="Mètres">Meters</option>
+                            <option value="feet" data-lang-en="Feet" data-lang-fr="Pieds">Feet</option>
+                            <option value="inches" data-lang-en="Inches" data-lang-fr="Pouces">Inches</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="kayak-length" data-lang-en="Kayak Length:" data-lang-fr="Longueur du kayak:">
+                    <i class="fas fa-ruler-horizontal"></i> Kayak Length:
+                </label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="kayak-length" name="kayak-length" min="0">
+                    <div class="input-group-append">
+                        <select id="length-unit" class="form-control">
+                            <option value="meters" data-lang-en="Meters" data-lang-fr="Mètres">Meters</option>
+                            <option value="feet" data-lang-en="Feet" data-lang-fr="Pieds">Feet</option>
+                            <option value="inches" data-lang-en="Inches" data-lang-fr="Pouces">Inches</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button id="calculate-btn" class="btn btn-primary btn-block" data-lang-en="Calculate" data-lang-fr="Calculer">
+                <i class="fas fa-calculator"></i> Calculate
+            </button>
+            <button id="reset-btn" class="btn btn-secondary btn-block" data-lang-en="Reset" data-lang-fr="Réinitialiser">
+                <i class="fas fa-redo"></i> Reset
+            </button>
+        </div>
+    </div>
+
+    <!-- Results -->
+    <div class="results container text-center mt-4" id="results" style="display: none;">
+        <h3 data-lang-en="Recommended Paddleboard Width:" data-lang-fr="Largeur recommandée de la planche :">Recommended Paddleboard Width:</h3>
+        <p id="recommended-width"></p>
+        <p id="recommended-width-feet"></p>
+        <p id="recommended-width-inches"></p>
+        <p id="recommended-width-cm"></p>
+    </div>
+
+    <footer class="text-center mt-4">
+        <p data-lang-en="These recommendations are general and provide a broad guideline for kayaking. For a more precise fit, please consult a specialist." data-lang-fr="Ces recommandations sont générales et fournissent des directives générales pour le kayak. Pour un ajustement plus précis, veuillez consulter un spécialiste.">
+            These recommendations are general and provide a broad guideline for kayaking. For a more precise fit, please consult a specialist.
+        </p>
+        <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank" aria-label="David Muñoz Jensen Ski Tool" data-lang-en="David Muñoz Jensen" data-lang-fr="David Muñoz Jensen">David Muñoz Jensen</a></p>
+    </footer>
+</body>
+</html>
