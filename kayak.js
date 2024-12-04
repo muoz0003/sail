@@ -1,60 +1,90 @@
 document.addEventListener('DOMContentLoaded', () => {
     const heightInput = document.getElementById('person-height');
     const kayakWidthInput = document.getElementById('kayak-width');
-    const kayakLengthInput = document.getElementById('kayak-length');
     const heightUnit = document.getElementById('height-unit');
     const widthUnit = document.getElementById('width-unit');
-    const lengthUnit = document.getElementById('length-unit');
-    const recommendedWidth = document.getElementById('recommended-width');
-    const recommendedWidthFeet = document.getElementById('recommended-width-feet');
-    const recommendedWidthInches = document.getElementById('recommended-width-inches');
-    const recommendedWidthCm = document.getElementById('recommended-width-cm');
     const calculateBtn = document.getElementById('calculate-btn');
     const resetBtn = document.getElementById('reset-btn');
+    const recommendedLength = document.getElementById('recommended-length');
 
     calculateBtn.addEventListener('click', () => {
         let personHeight = parseFloat(heightInput.value);
         let kayakWidth = parseFloat(kayakWidthInput.value);
-        let kayakLength = parseFloat(kayakLengthInput.value);
+        let paddlingStyle = document.querySelector('input[name="paddling-style"]:checked').value;
 
-        if (isNaN(personHeight) || isNaN(kayakWidth) || isNaN(kayakLength)) {
+        if (isNaN(personHeight) || isNaN(kayakWidth)) {
             alert('Please enter valid numbers.');
             return;
         }
 
-        // Convert height to meters
+        // Convert height to centimeters if in feet
         if (heightUnit.value === 'feet') {
-            personHeight *= 0.3048;
+            personHeight *= 30.48;
         }
 
-        // Convert width to meters
+        // Convert width to centimeters if in feet or inches
         if (widthUnit.value === 'feet') {
-            kayakWidth *= 0.3048;
+            kayakWidth *= 30.48;
         } else if (widthUnit.value === 'inches') {
-            kayakWidth *= 0.0254;
+            kayakWidth *= 2.54;
         }
 
-        // Convert length to meters
-        if (lengthUnit.value === 'feet') {
-            kayakLength *= 0.3048;
-        } else if (lengthUnit.value === 'inches') {
-            kayakLength *= 0.0254;
+        // Determine paddle length based on height and kayak width
+        let paddleLength;
+        if (personHeight <= 160) {
+            if (kayakWidth < 60) {
+                paddleLength = 215;
+            } else if (kayakWidth <= 70) {
+                paddleLength = 225;
+            } else {
+                paddleLength = 235;
+            }
+        } else if (personHeight <= 170) {
+            if (kayakWidth < 60) {
+                paddleLength = 220;
+            } else if (kayakWidth <= 70) {
+                paddleLength = 230;
+            } else {
+                paddleLength = 240;
+            }
+        } else if (personHeight <= 180) {
+            if (kayakWidth < 60) {
+                paddleLength = 225;
+            } else if (kayakWidth <= 70) {
+                paddleLength = 235;
+            } else {
+                paddleLength = 245;
+            }
+        } else if (personHeight <= 190) {
+            if (kayakWidth < 60) {
+                paddleLength = 230;
+            } else if (kayakWidth <= 70) {
+                paddleLength = 240;
+            } else {
+                paddleLength = 250;
+            }
+        } else {
+            if (kayakWidth < 60) {
+                paddleLength = 235;
+            } else if (kayakWidth <= 70) {
+                paddleLength = 245;
+            } else {
+                paddleLength = 255;
+            }
         }
 
-        // Example calculation formula
-        const recommendedPaddleboardWidth = kayakWidth + (personHeight / 100) + (kayakLength / 200);
+        // Adjust for paddling style
+        if (paddlingStyle === 'high-angle') {
+            paddleLength -= 5;
+        }
 
-        recommendedWidth.innerText = recommendedPaddleboardWidth.toFixed(2) + ' meters';
-        recommendedWidthFeet.innerText = (recommendedPaddleboardWidth / 0.3048).toFixed(2) + ' feet';
-        recommendedWidthInches.innerText = (recommendedPaddleboardWidth / 0.0254).toFixed(2) + ' inches';
-        recommendedWidthCm.innerText = (recommendedPaddleboardWidth * 100).toFixed(2) + ' cm';
+        recommendedLength.innerText = paddleLength + ' cm';
         document.getElementById('results').style.display = 'block';
     });
 
     resetBtn.addEventListener('click', () => {
         heightInput.value = '';
         kayakWidthInput.value = '';
-        kayakLengthInput.value = '';
         document.getElementById('results').style.display = 'none';
     });
 

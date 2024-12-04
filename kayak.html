@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Kayak Paddleboard Width Calculator</title>
+        <title>Kayak Paddleboard Length Calculator</title>
         <link rel="stylesheet" href="kayak.css">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -34,8 +34,8 @@
         <div class="image-container">
             <img src="images/kayak2-01.webp" alt="Kayak Image" class="img-fluid">
         </div>
-        <h1 data-lang-en="Kayak Paddleboard Width Calculator" data-lang-fr="Calculateur de largeur de planche de kayak">Kayak Paddleboard Width Calculator</h1>
-        <h2 data-lang-en="Calculate the optimal paddleboard width based on your kayak dimensions and height." data-lang-fr="Calculez la largeur optimale de la planche en fonction des dimensions de votre kayak et de votre taille.">Calculate the optimal paddleboard width based on your kayak dimensions and height.</h2>
+        <h1 data-lang-en="Kayak Paddleboard Length Calculator" data-lang-fr="Calculateur de longueur de planche de kayak">Kayak Paddleboard Length Calculator</h1>
+        <h2 data-lang-en="Calculate the optimal paddleboard length based on your kayak dimensions and height." data-lang-fr="Calculez la longueur optimale de la planche en fonction des dimensions de votre kayak et de votre taille.">Calculate the optimal paddleboard length based on your kayak dimensions and height.</h2>
     </header>
 
     <!-- Language Selector -->
@@ -95,6 +95,21 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group">
+                <label data-lang-en="Paddling Style:" data-lang-fr="Style de pagayage:">
+                    <i class="fas fa-water"></i> Paddling Style:
+                </label>
+                <div class="input-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="paddling-style" id="low-angle" value="low-angle" checked>
+                        <label class="form-check-label" for="low-angle" data-lang-en="Low-angle" data-lang-fr="Angle bas">Low-angle</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="paddling-style" id="high-angle" value="high-angle">
+                        <label class="form-check-label" for="high-angle" data-lang-en="High-angle" data-lang-fr="Angle élevé">High-angle</label>
+                    </div>
+                </div>
+            </div>
             <button id="calculate-btn" class="btn btn-primary btn-block" data-lang-en="Calculate" data-lang-fr="Calculer">
                 <i class="fas fa-calculator"></i> Calculate
             </button>
@@ -106,11 +121,11 @@
 
     <!-- Results -->
     <div class="results container text-center mt-4" id="results" style="display: none;">
-        <h3 data-lang-en="Recommended Paddleboard Width:" data-lang-fr="Largeur recommandée de la planche :">Recommended Paddleboard Width:</h3>
-        <p id="recommended-width"></p>
-        <p id="recommended-width-feet"></p>
-        <p id="recommended-width-inches"></p>
-        <p id="recommended-width-cm"></p>
+        <h3 data-lang-en="Recommended Paddleboard Length:" data-lang-fr="Longueur recommandée de la planche :">Recommended Paddleboard Length:</h3>
+        <p id="recommended-length"></p>
+        <p id="recommended-length-feet"></p>
+        <p id="recommended-length-inches"></p>
+        <p id="recommended-length-cm"></p>
     </div>
 
     <footer class="text-center mt-4">
