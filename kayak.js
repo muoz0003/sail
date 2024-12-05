@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.lineTo(width, height);
         ctx.lineTo(0, height);
         ctx.closePath();
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)'; // Semi-transparent white color
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.2)'; // Semi-transparent white color
         ctx.fill();
     }
 

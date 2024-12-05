@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background: #7EE4F6; /* Change to match the canvas background color */
-    color: #fff; /* Change text color to white for better contrast */
+    color: #4D7585; /* Change text color to white for better contrast */
     /* padding: 0 20px; */
     background-attachment: fixed;
 }
@@ -18,7 +18,7 @@ body {
 
 header h1 {
     font-size: 2.5rem;
-    color: #fff; /* Change to white */
+    color: #4D7585; /* Change to white */
     text-transform: uppercase;
 }
 
