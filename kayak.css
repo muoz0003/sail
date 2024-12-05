@@ -1,138 +1,58 @@
+/* skill-level-assessment.css */
+
+/* Reset and Basic Styles */
 body {
     font-family: Arial, sans-serif;
-    background: #7EE4F6; /* Change to match the canvas background color */
-    color: #fff; /* Change text color to white for better contrast */
-    /* padding: 0 20px; */
+    background: #7EE4F6;
+    color: #fff;
     background-attachment: fixed;
+    margin: 0;
+    padding: 0;
 }
 
+/* Background Canvas */
 #backgroundCanvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Ensure it is behind other content */
-    background-color: #7EE4F6; /* Darker background color for better contrast with white waves */
+    z-index: -1;
+    background-color: #7EE4F6;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    color: #fff; /* Change to white */
-    text-transform: uppercase;
+.description {
+    font-size: 1.2rem; /* Adjust the size as needed */
 }
 
-.full-width-image {
-    width: 100vw;
-    height: 100vh;
-    display: block;
-    /* opacity: 0.9; */
+/* Navigation Menu */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
-.image-container {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+.navbar-brand {
+    font-weight: bold;
 }
 
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.navbar-light .navbar-nav .nav-link {
+    color: #000;
 }
 
-header h2 {
-    font-size: 1.25rem;
-    color: #4D7585; /* Change to a lighter shade of gray */
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #4D7585;
 }
 
-p {
-    font-size: 1.25rem;
-    color: #4D7585; /* Change to a lighter shade of gray */
-}
-
-.logo {
-    max-width: 150px;
-}
-
-.selection-box {
-    border: 2px solid transparent;
-    padding: 10px;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s, border-color 0.3s;
-    width: 150px; /* Set a fixed width */
-    height: 150px; /* Set a fixed height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #7EE4F6; /* Darker background for selection boxes */
-    color: #fff; /* White text color */
-}
-
-.selection-box.selected {
-    border-color: #fff; /* White border for selected boxes */
-    background-color: #7EE4F6; /* Slightly lighter background for selected boxes */
-}
-
-.selection-box i {
-    font-size: 2rem;
-    color: #fff; /* White icon color */
-}
-
-.selection-box p {
-    margin: 0;
-}
-
-.selection-group {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.table-selection {
-    width: 100%;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.table-selection th,
-.table-selection td {
-    text-align: center;
-    vertical-align: middle;
-    color: #fff; /* White text color */
-}
-
-.table-selection tbody {
-    display: flex;
-    justify-content: center;
-}
-
-.table-selection tr {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.table-selection td {
-    display: flex;
-    justify-content: center;
-}
-
+/* Language Selector */
 .language-selector {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
+    align-items: center;
 }
 
 .language-selector .selection-box {
-    width: 50px; /* Smaller width */
-    height: 50px; /* Smaller height */
-    background-color: #ffffff; /* Darker background for selection boxes */
-    color: #fff; /* White text color */
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 .language-selector .selection-box img {
@@ -140,169 +60,86 @@ p {
     height: auto;
 }
 
-
-.results {
-    margin-top: 20px;
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
-    color: #fff; /* White text color */
+/* Banner Image */
+.full-width-image {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.results h3 {
+/* Assessment Form */
+.assessment h1 {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.assessment label {
+    color: #fff;
+}
+
+.assessment .form-control {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000;
+}
+
+.assessment .form-group {
     margin-bottom: 20px;
-    color: #fff; /* White text color */
-}
-
-.results .table th,
-.results .table td {
-    vertical-align: middle;
-    color: #4D7585; /* White text color */
-}
-
-.results .table td i {
-    margin-right: 10px;
-    color: #4D7585;
-    font-size: 1.25rem;
-}
-
-.results .table td span {
-    vertical-align: middle;
-}
-
-footer {
-    font-size: 0.75rem;
-    color: #333; /* Lighter gray text color */
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-    padding: 10px;
-    border-radius: 8px;
-}
-
-footer a {
-    color: #4D7585;
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: #4D7585;
 }
 
 .btn-primary {
-    background-color: #68B6C0;
-    border-color: #8AA6AC;
-    color: #fff; /* White text color */
+    background-color: #4D7585;
+    border-color: #4D7585;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: #4D7585;
-    border-color: #4D7585;
-}
-
-.btn-secondary {
-    background-color: #4D7585;
-    border-color: #4D7585;
-    color: #fff; /* White text color */
-}
-
-.btn-secondary:hover,
-.btn-secondary:focus {
     background-color: #8AA6AC;
     border-color: #8AA6AC;
 }
 
-.form-check-input:checked {
-    background-color: #4D7585;
-    border-color: #4D7585;
-}
-
-.table {
-    margin-top: 20px;
-}
-
-.table th,
-.table td {
+/* Results Section */
+#skill-results h3 {
+    color: #fff;
     text-align: center;
-    vertical-align: middle;
-    color: #fff; /* White text color */
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .selection-box {
-        width: 100px; /* Adjust width for smaller screens */
-        height: 100px; /* Adjust height for smaller screens */
-    }
-
-    .selection-group {
-        flex-direction: column; /* Stack selection boxes vertically on smaller screens */
-        align-items: center;
-    }
-
-    .table-selection tr {
-        flex-direction: column; /* Stack table rows vertically on smaller screens */
-    }
-
-    .table-selection td {
-        margin-bottom: 10px; /* Add margin between stacked items */
-    }
-
-    .form-container {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    .results {
-        padding: 10px;
-    }
-
-    footer {
-        padding: 10px;
-    }
-}
-
-@media (max-width: 576px) {
-    .selection-box {
-        width: 80px; /* Adjust width for smaller screens */
-        height: 80px; /* Adjust height for smaller screens */
-    }
-
-    .form-container {
-        padding: 5px;
-    }
-
-    .results {
-        padding: 5px;
-    }
-
-    footer {
-        padding: 5px;
-    }
-}
-.input-group {
-    display: flex;
-    align-items: center;
-}
-
-.input-group select {
-    margin-left: 10px;
-}
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+#skill-results {
+    margin-top: 40px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
+}
+
+/* Footer */
+footer {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #7EE4F6;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .assessment h1 {
+        font-size: 1.8rem;
+    }
+
+    .language-selector {
+        margin-top: 10px;
+    }
 }
