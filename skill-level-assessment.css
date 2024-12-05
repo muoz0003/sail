@@ -21,6 +21,10 @@ body {
     background-color: #7EE4F6;
 }
 
+.black-text {
+    color: #4D7585;
+}
+
 .description {
     font-size: 1.2rem; /* Adjust the size as needed */
 }
