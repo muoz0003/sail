@@ -1,7 +1,7 @@
 // skill-assessment.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Animated Background - Falling Snowflakes
+    // Canvas animation for snow
     const canvas = document.getElementById('backgroundCanvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -14,47 +14,42 @@ document.addEventListener('DOMContentLoaded', () => {
             snowflakes.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                opacity: Math.random(),
-                speedX: Math.random() * 3 - 1.5,
-                speedY: Math.random() * 3 + 1,
-                radius: Math.random() * 4 + 1
+                radius: Math.random() * 4 + 1,
+                speed: Math.random() * 1 + 0.5
             });
         }
     }
 
     function drawSnowflakes() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.globalAlpha = 0.5; // Set transparency level
         ctx.fillStyle = 'white';
         ctx.beginPath();
-        for (let i = 0; i < snowflakes.length; i++) {
-            const sf = snowflakes[i];
-            ctx.moveTo(sf.x, sf.y);
-            ctx.arc(sf.x, sf.y, sf.radius, 0, Math.PI * 2, true);
-        }
+        snowflakes.forEach(snowflake => {
+            ctx.moveTo(snowflake.x, snowflake.y);
+            ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, Math.PI * 2);
+        });
         ctx.fill();
         updateSnowflakes();
     }
 
     function updateSnowflakes() {
-        for (let i = 0; i < snowflakes.length; i++) {
-            const sf = snowflakes[i];
-            sf.x += sf.speedX;
-            sf.y += sf.speedY;
-
-            if (sf.y > canvas.height) {
-                sf.x = Math.random() * canvas.width;
-                sf.y = -sf.radius;
+        snowflakes.forEach(snowflake => {
+            snowflake.y += snowflake.speed;
+            if (snowflake.y > canvas.height) {
+                snowflake.y = 0;
+                snowflake.x = Math.random() * canvas.width;
             }
-        }
+        });
     }
 
-    function animateSnowflakes() {
+    function animate() {
         drawSnowflakes();
-        requestAnimationFrame(animateSnowflakes);
+        requestAnimationFrame(animate);
     }
 
     createSnowflakes();
-    animateSnowflakes();
+    animate();
 
     // Adjust canvas size on window resize
     window.addEventListener('resize', () => {
