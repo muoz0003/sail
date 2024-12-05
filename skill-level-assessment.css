@@ -1,0 +1,145 @@
+/* skill-level-assessment.css */
+
+/* Reset and Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #7EE4F6;
+    color: #fff;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+/* Background Canvas */
+#backgroundCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #7EE4F6;
+}
+
+.description {
+    font-size: 1.2rem; /* Adjust the size as needed */
+}
+
+/* Navigation Menu */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #000;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #4D7585;
+}
+
+/* Language Selector */
+.language-selector {
+    display: flex;
+    align-items: center;
+}
+
+.language-selector .selection-box {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.language-selector .selection-box img {
+    width: 100%;
+    height: auto;
+}
+
+/* Banner Image */
+.full-width-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Assessment Form */
+.assessment h1 {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.assessment label {
+    color: #fff;
+}
+
+.assessment .form-control {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000;
+}
+
+.assessment .form-group {
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #4D7585;
+    border-color: #4D7585;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #8AA6AC;
+    border-color: #8AA6AC;
+}
+
+/* Results Section */
+#skill-results h3 {
+    color: #fff;
+    text-align: center;
+}
+
+#skill-results {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #7EE4F6;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .assessment h1 {
+        font-size: 1.8rem;
+    }
+
+    .language-selector {
+        margin-top: 10px;
+    }
+}

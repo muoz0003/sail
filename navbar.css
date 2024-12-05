@@ -1,0 +1,36 @@
+/* navbar.css */
+
+/* Navigation Menu */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #000;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #4D7585;
+}
+
+/* Language Selector */
+.language-selector {
+    display: flex;
+    align-items: center;
+}
+
+.language-selector .selection-box {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.language-selector .selection-box img {
+    width: 100%;
+    height: auto;
+}

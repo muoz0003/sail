@@ -1,10 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background: #68B6C0; /* Change to match the canvas background color */
+    background: #7EE4F6; /* Change to match the canvas background color */
     color: #fff; /* Change text color to white for better contrast */
-    /* background-attachment: fixed; */
-    margin: 0;
-    
+    /* padding: 0 20px; */
+    background-attachment: fixed;
 }
 
 #backgroundCanvas {
@@ -14,7 +13,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1; /* Ensure it is behind other content */
-    background-color: #68B6C0; /* Darker background color for better contrast with white waves */
+    background-color: #7EE4F6; /* Darker background color for better contrast with white waves */
 }
 
 header h1 {
@@ -132,7 +131,7 @@ p {
 .language-selector .selection-box {
     width: 50px; /* Smaller width */
     height: 50px; /* Smaller height */
-    background-color: #68B6C0; /* Darker background for selection boxes */
+    background-color: #ffffff; /* Darker background for selection boxes */
     color: #fff; /* White text color */
 }
 
