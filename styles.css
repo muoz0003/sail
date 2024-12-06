@@ -126,7 +126,7 @@ p {
     width: 50px; /* Smaller width */
     height: 50px; /* Smaller height */
     background-color: #ffffff; /* Darker background for selection boxes */
-    color: #fff; /* White text color */
+    color: #4D7585; /* White text color */
 }
 
 .language-selector .selection-box img {
@@ -145,7 +145,7 @@ p {
 
 .results h3 {
     margin-bottom: 20px;
-    color: #fff; /* White text color */
+    color: #4D7585; /* White text color */
 }
 
 .results .table th,
