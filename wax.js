@@ -72,7 +72,9 @@ document.getElementById('waxForm').addEventListener('submit', function (event) {
     const snowCondition = document.getElementById('snowCondition').value;
     let recommendation = '';
 
-    if (temperature >= 0) {
+    if (temperature > 10) {
+        recommendation = 'It\'s too warm for skiing! Use slippers and go to the beach instead.';
+    } else if (temperature >= 0) {
         recommendation = 'Use warm wax (Red or Yellow)';
     } else if (temperature < 0 && temperature >= -10) {
         if (snowCondition === 'new') {
