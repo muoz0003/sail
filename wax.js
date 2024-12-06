@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const currentLocation = location.href;
     const menuItem = document.querySelectorAll('.nav-link');
     const menuLength = menuItem.length;
@@ -65,9 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.getElementById('waxForm').addEventListener('submit', function(event) {
+document.getElementById('waxForm').addEventListener('submit', function (event) {
     event.preventDefault();
-    
+
     const temperature = document.getElementById('temperature').value;
     const snowCondition = document.getElementById('snowCondition').value;
     let recommendation = '';

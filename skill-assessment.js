@@ -98,7 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('skill-results').style.display = 'block';
 
         // Smooth scroll to results
-        document.getElementById('skill-results').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('skill-results').scrollIntoView({
+            behavior: 'smooth'
+        });
     });
 
     // Language Switcher

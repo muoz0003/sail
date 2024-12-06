@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,70 +10,81 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script>navigator.serviceWorker.register("service-worker.js")</script>
+    <script>
+        navigator.serviceWorker.register("service-worker.js")
+    </script>
     <link rel="manifest" href="manifest.json" />
     <!-- FAVICON -->
     <link rel="icon" href="images/ski-icon.ico" type="image/x-icon">
     <!-- Navigation Menu -->
     <!-- Navigation Menu -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">Outdoor Tools</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Ski Calculator</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="skill-level-assessment.html">Ski Level Assessment</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="paddle.html">Kayak Paddle Calculator</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="boot.html">Boot Size Finder</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="wax.html">Wax Recommendation Tool</a>
-            </li>
-        </ul>
-        <!-- Language Selector -->
-        <div class="language-selector ml-auto">
-            <div class="selection-box" id="english" data-lang="en">
-                <img src="images/Flag_of_United_Kingdom.svg" alt="English">
-            </div>
-            <div class="selection-box" id="french" data-lang="fr">
-                <img src="images/Flag_of_France.svg" alt="Français">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Outdoor Tools</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Ski Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="skill-level-assessment.html">Ski Level Assessment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="paddle.html">Kayak Paddle Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="boot.html">Boot Size Finder</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="wax.html">Wax Recommendation Tool</a>
+                </li>
+            </ul>
+            <!-- Language Selector -->
+            <div class="language-selector ml-auto">
+                <div class="selection-box" id="english" data-lang="en">
+                    <img src="images/Flag_of_United_Kingdom.svg" alt="English">
+                </div>
+                <div class="selection-box" id="french" data-lang="fr">
+                    <img src="images/Flag_of_France.svg" alt="Français">
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <div class="image-container">
         <img src="images/banner-01-01.webp" alt="Header Image" class="full-width-image">
     </div>
 </head>
+
 <body>
-    
+
     <canvas id="backgroundCanvas"></canvas>
     <div class="container mt-5">
         <header class="text-center mb-4">
-            
-           
-            <h1 class="font-weight-bold" data-lang-en="Ski and Snowshoe Size Finder" data-lang-fr="Trouveur de taille de ski et de raquette">Ski and Snowshoe Size Finder</h1>
-            <h2 data-lang-en="Determine the optimal length and width for your skis, snowshoes, and ski poles." data-lang-fr="Déterminez la longueur et la largeur optimales de vos skis, raquettes et bâtons de ski.">Determine the optimal length and width for your skis, snowshoes, and ski poles.</h2>
 
-    <!-- Expanded Instruction Section -->
-<p data-lang-en="Please provide your details below to receive personalized recommendations. Select your weight, height, and gender from the dropdown menus. Then, choose your activity, skill level, and terrain type by clicking on the corresponding boxes below." data-lang-fr="Veuillez fournir vos informations ci-dessous pour recevoir des recommandations personnalisées. Sélectionnez votre poids, taille et sexe dans les menus déroulants. Ensuite, choisissez votre activité, niveau de compétence et type de terrain en cliquant sur les cases correspondantes ci-dessous.">
-    Please provide your details below to receive personalized recommendations. Select your weight, height, and gender from the dropdown menus. Then, choose your activity, skill level, and terrain type by clicking on the corresponding boxes below.
-</p>
-            
+
+            <h1 class="font-weight-bold" data-lang-en="Ski and Snowshoe Size Finder"
+                data-lang-fr="Trouveur de taille de ski et de raquette">Ski and Snowshoe Size Finder</h1>
+            <h2 data-lang-en="Determine the optimal length and width for your skis, snowshoes, and ski poles."
+                data-lang-fr="Déterminez la longueur et la largeur optimales de vos skis, raquettes et bâtons de ski.">
+                Determine the optimal length and width for your skis, snowshoes, and ski poles.</h2>
+
+            <!-- Expanded Instruction Section -->
+            <p data-lang-en="Please provide your details below to receive personalized recommendations. Select your weight, height, and gender from the dropdown menus. Then, choose your activity, skill level, and terrain type by clicking on the corresponding boxes below."
+                data-lang-fr="Veuillez fournir vos informations ci-dessous pour recevoir des recommandations personnalisées. Sélectionnez votre poids, taille et sexe dans les menus déroulants. Ensuite, choisissez votre activité, niveau de compétence et type de terrain en cliquant sur les cases correspondantes ci-dessous.">
+                Please provide your details below to receive personalized recommendations. Select your weight, height,
+                and gender from the dropdown menus. Then, choose your activity, skill level, and terrain type by
+                clicking on the corresponding boxes below.
+            </p>
+
         </header>
         <main>
             <section class="user-info mb-4">
                 <div class="form-group">
-                    <label for="weight" class="font-weight-bold" data-lang-en="Your Weight:" data-lang-fr="Votre poids:">Your Weight:</label>
+                    <label for="weight" class="font-weight-bold" data-lang-en="Your Weight:"
+                        data-lang-fr="Votre poids:">Your Weight:</label>
                     <select class="form-control" id="weight" name="weight" aria-label="Your Weight">
                         <!-- Options for weight in kg and lbs -->
                         <option value="20">20 kg - 44 lbs</option>
@@ -99,7 +111,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="height" class="font-weight-bold" data-lang-en="Your Height:" data-lang-fr="Votre taille:">Your Height:</label>
+                    <label for="height" class="font-weight-bold" data-lang-en="Your Height:"
+                        data-lang-fr="Votre taille:">Your Height:</label>
                     <select class="form-control" id="height" name="height" aria-label="Your Height">
                         <option value="90">90 cm - 0.9 m - 2.95 ft</option>
                         <option value="95">95 cm - 0.95 m - 3.12 ft</option>
@@ -127,19 +140,23 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="gender" class="font-weight-bold" data-lang-en="Gender:" data-lang-fr="Genre:">Gender:</label>
+                    <label for="gender" class="font-weight-bold" data-lang-en="Gender:"
+                        data-lang-fr="Genre:">Gender:</label>
                     <select class="form-control" id="gender" name="gender" aria-label="Your Gender">
                         <option value="male" data-lang-en="Male" data-lang-fr="Homme">Male</option>
                         <option value="female" data-lang-en="Female" data-lang-fr="Femme">Female</option>
                     </select>
                 </div>
                 <div class="form-group mt-5">
-                    <label for="style" class="font-weight-bold" style="color: #4D7585; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Activity:" data-lang-fr="Activité:">Activity:</label>
+                    <label for="style" class="font-weight-bold"
+                        style="color: #4D7585; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;"
+                        data-lang-en="Activity:" data-lang-fr="Activité:">Activity:</label>
                     <table class="table table-selection">
                         <tbody>
                             <tr>
                                 <td>
-                                    <div class="selection-box" id="cross-country" data-value="cross-country" data-group="style">
+                                    <div class="selection-box" id="cross-country" data-value="cross-country"
+                                        data-group="style">
                                         <i class="fas fa-skiing-nordic"></i>
                                         <p data-lang-en="Cross-Country" data-lang-fr="Ski de fond">Cross-Country</p>
                                     </div>
@@ -151,7 +168,8 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="selection-box" id="snowshoeing" data-value="snowshoeing" data-group="style">
+                                    <div class="selection-box" id="snowshoeing" data-value="snowshoeing"
+                                        data-group="style">
                                         <i class="fas fa-hiking"></i>
                                         <p data-lang-en="Snowshoeing" data-lang-fr="Raquette">Snowshoeing</p>
                                     </div>
@@ -161,7 +179,9 @@
                     </table>
                 </div>
                 <div class="form-group mt-5">
-                    <label for="skill" class="font-weight-bold" style="color: #4D7585; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Skill Level:" data-lang-fr="Niveau de compétence:">Skill Level:</label>
+                    <label for="skill" class="font-weight-bold"
+                        style="color: #4D7585; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;"
+                        data-lang-en="Skill Level:" data-lang-fr="Niveau de compétence:">Skill Level:</label>
                     <table class="table table-selection">
                         <tbody>
                             <tr>
@@ -172,7 +192,8 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="selection-box" id="intermediate" data-value="intermediate" data-group="skill">
+                                    <div class="selection-box" id="intermediate" data-value="intermediate"
+                                        data-group="skill">
                                         <i class="fas fa-user"></i>
                                         <p data-lang-en="Intermediate" data-lang-fr="Intermédiaire">Intermediate</p>
                                     </div>
@@ -188,18 +209,22 @@
                     </table>
                 </div>
                 <div class="form-group mt-5">
-                    <label for="terrain" class="font-weight-bold" style="color: #4D7585; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Terrain Type:" data-lang-fr="Type de terrain:">Terrain Type:</label>
+                    <label for="terrain" class="font-weight-bold"
+                        style="color: #4D7585; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;"
+                        data-lang-en="Terrain Type:" data-lang-fr="Type de terrain:">Terrain Type:</label>
                     <table class="table table-selection">
                         <tbody>
                             <tr>
                                 <td>
                                     <div class="selection-box" id="groomed" data-value="groomed" data-group="terrain">
                                         <i class="fas fa-road"></i>
-                                        <p data-lang-en="Groomed Trails" data-lang-fr="Sentiers damés">Groomed Trails</p>
+                                        <p data-lang-en="Groomed Trails" data-lang-fr="Sentiers damés">Groomed Trails
+                                        </p>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="selection-box" id="backcountry" data-value="backcountry" data-group="terrain">
+                                    <div class="selection-box" id="backcountry" data-value="backcountry"
+                                        data-group="terrain">
                                         <i class="fas fa-mountain"></i>
                                         <p data-lang-en="Backcountry" data-lang-fr="Hors-piste">Backcountry</p>
                                     </div>
@@ -215,38 +240,52 @@
                     </table>
                 </div>
                 <div class="text-center mt-2">
-                    <button id="calculate-btn" class="btn btn-primary" aria-label="Calculate" data-lang-en="Calculate" data-lang-fr="Calculer">Calculate</button>
-                    <button id="reset-btn" class="btn btn-secondary" aria-label="Reset" data-lang-en="Reset" data-lang-fr="Réinitialiser">Reset</button>
+                    <button id="calculate-btn" class="btn btn-primary" aria-label="Calculate" data-lang-en="Calculate"
+                        data-lang-fr="Calculer">Calculate</button>
+                    <button id="reset-btn" class="btn btn-secondary" aria-label="Reset" data-lang-en="Reset"
+                        data-lang-fr="Réinitialiser">Reset</button>
                 </div>
             </section>
             <section class="results">
-                <h3 class="font-weight-bold" style="color: #4D7585; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;" data-lang-en="Recommendations" data-lang-fr="Recommandations">Recommendations</h3>
+                <h3 class="font-weight-bold"
+                    style="color: #4D7585; font-size: 1.25rem; text-align: center; display: block; text-transform: uppercase;"
+                    data-lang-en="Recommendations" data-lang-fr="Recommandations">Recommendations</h3>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th scope="col" data-lang-en="Type" data-lang-fr="Type">Type</th>
-                            <th scope="col" data-lang-en="Recommendation" data-lang-fr="Recommandation">Recommendation</th>
+                            <th scope="col" data-lang-en="Recommendation" data-lang-fr="Recommandation">Recommendation
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><i class="fas fa-ruler-vertical"></i> <span data-lang-en="Recommended Ski Length (cm)" data-lang-fr="Longueur de ski recommandée (cm)">Recommended Ski Length (cm)</span></td>
+                            <td><i class="fas fa-ruler-vertical"></i> <span data-lang-en="Recommended Ski Length (cm)"
+                                    data-lang-fr="Longueur de ski recommandée (cm)">Recommended Ski Length (cm)</span>
+                            </td>
                             <td><span id="recommended-length" aria-live="polite"></span></td>
                         </tr>
                         <tr>
-                            <td><i class="fas fa-ruler-horizontal"></i> <span data-lang-en="Recommended Ski Width (mm)" data-lang-fr="Largeur de ski recommandée (mm)">Recommended Ski Width (mm)</span></td>
+                            <td><i class="fas fa-ruler-horizontal"></i> <span data-lang-en="Recommended Ski Width (mm)"
+                                    data-lang-fr="Largeur de ski recommandée (mm)">Recommended Ski Width (mm)</span>
+                            </td>
                             <td><span id="recommended-width" aria-live="polite"></span></td>
                         </tr>
                         <tr>
-                            <td><i class="fas fa-skiing"></i> <span data-lang-en="Suggested Ski" data-lang-fr="Ski suggéré">Suggested Ski</span></td>
+                            <td><i class="fas fa-skiing"></i> <span data-lang-en="Suggested Ski"
+                                    data-lang-fr="Ski suggéré">Suggested Ski</span></td>
                             <td><span id="suggested-ski-size" aria-live="polite"></span></td>
                         </tr>
                         <tr>
-                            <td><i class="fas fa-shoe-prints"></i> <span data-lang-en="Recommended Snowshoe Length (in)" data-lang-fr="Longueur de raquette recommandée (in)">Recommended Snowshoe Length (in)</span></td>
+                            <td><i class="fas fa-shoe-prints"></i> <span data-lang-en="Recommended Snowshoe Length (in)"
+                                    data-lang-fr="Longueur de raquette recommandée (in)">Recommended Snowshoe Length
+                                    (in)</span></td>
                             <td><span id="recommended-snowshoe-length" aria-live="polite"></span></td>
                         </tr>
                         <tr>
-                            <td><i class="fas fa-hiking"></i> <span data-lang-en="Recommended Ski Pole Length (cm)" data-lang-fr="Longueur de bâton de ski recommandée (cm)">Recommended Ski Pole Length (cm)</span></td>
+                            <td><i class="fas fa-hiking"></i> <span data-lang-en="Recommended Ski Pole Length (cm)"
+                                    data-lang-fr="Longueur de bâton de ski recommandée (cm)">Recommended Ski Pole Length
+                                    (cm)</span></td>
                             <td><span id="recommended-pole-length" aria-live="polite"></span></td>
                         </tr>
                     </tbody>
@@ -254,13 +293,17 @@
             </section>
         </main>
         <footer class="text-center mt-4">
-            <p data-lang-en="These recommendations are general and provide a broad guideline for Cross-Country Skiing and Snowshoeing. For a more precise fit, please consult a specialist." data-lang-fr="Ces recommandations sont générales et fournissent des directives générales pour le ski de fond et la raquette. Pour un ajustement plus précis, veuillez consulter un spécialiste.">
-                These recommendations are general and provide a broad guideline for Cross-Country Skiing and Snowshoeing. For a more precise fit, please consult a specialist.
+            <p data-lang-en="These recommendations are general and provide a broad guideline for Cross-Country Skiing and Snowshoeing. For a more precise fit, please consult a specialist."
+                data-lang-fr="Ces recommandations sont générales et fournissent des directives générales pour le ski de fond et la raquette. Pour un ajustement plus précis, veuillez consulter un spécialiste.">
+                These recommendations are general and provide a broad guideline for Cross-Country Skiing and
+                Snowshoeing. For a more precise fit, please consult a specialist.
             </p>
-            <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank" aria-label="David Muñoz Jensen Ski Tool" data-lang-en="David Muñoz Jensen" data-lang-fr="David Muñoz Jensen">David Muñoz Jensen</a></p>
+            <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank"
+                    aria-label="David Muñoz Jensen Ski Tool" data-lang-en="David Muñoz Jensen"
+                    data-lang-fr="David Muñoz Jensen">David Muñoz Jensen</a></p>
         </footer>
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 const currentLocation = location.href;
                 const menuItem = document.querySelectorAll('.nav-link');
                 const menuLength = menuItem.length;
@@ -277,4 +320,5 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </div>
 </body>
+
 </html>

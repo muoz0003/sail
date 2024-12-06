@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,141 +11,234 @@
     <link rel="stylesheet" href="skill-level-assessment.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script>navigator.serviceWorker.register("service-worker.js")</script>
+    <script>
+        navigator.serviceWorker.register("service-worker.js")
+    </script>
     <link rel="manifest" href="manifest.json" />
     <!-- FAVICON -->
     <link rel="icon" href="images/ski-icon.ico" type="image/x-icon">
     <!-- Navigation Menu -->
-    <!-- Navigation Menu -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">Outdoor Tools</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Ski Calculator</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="skill-level-assessment.html">Ski Level Assessment</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="paddle.html">Kayak Paddle Calculator</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="boot.html">Boot Size Finder</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="wax.html">Wax Recommendation Tool</a>
-            </li>
-        </ul>
-        <!-- Language Selector -->
-        <div class="language-selector ml-auto">
-            <div class="selection-box" id="english" data-lang="en">
-                <img src="images/Flag_of_United_Kingdom.svg" alt="English">
-            </div>
-            <div class="selection-box" id="french" data-lang="fr">
-                <img src="images/Flag_of_France.svg" alt="Français">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Outdoor Tools</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Ski Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="skill-level-assessment.html">Ski Level Assessment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="paddle.html">Kayak Paddle Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="boot.html">Boot Size Finder</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="wax.html">Wax Recommendation Tool</a>
+                </li>
+            </ul>
+            <!-- Language Selector -->
+            <div class="language-selector ml-auto">
+                <div class="selection-box" id="english" data-lang="en">
+                    <img src="images/Flag_of_United_Kingdom.svg" alt="English">
+                </div>
+                <div class="selection-box" id="french" data-lang="fr">
+                    <img src="images/Flag_of_France.svg" alt="Français">
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <div class="image-container">
         <img src="images/quiz-01.webp" alt="Header Image" class="full-width-image">
     </div>
 </head>
+
 <body>
-    
+
     <canvas id="backgroundCanvas"></canvas>
     <div class="container mt-5">
         <header class="text-center mb-4">
-            
-           
-            <h1 class="font-weight-bold" data-lang-en="Skill Level Assessment" data-lang-fr="Évaluation du Niveau de Compétence">Skill Level Assessment</h1>
-            <h2 data-lang-en="This assessment is based on your answers and represents only an estimate of your skill level. It is designed to give you a general idea of where you stand and should not be taken as a definitive measure of your abilities. For a more accurate assessment, consider consulting with a professional." data-lang-fr="Cette évaluation est basée sur vos réponses et ne représente qu'une estimation de votre niveau de compétence. Elle est conçue pour vous donner une idée générale de votre niveau et ne doit pas être considérée comme une mesure définitive de vos capacités. Pour une évaluation plus précise, envisagez de consulter un professionnel.">
-                This assessment is based on your answers and represents only an estimate of your skill level. It is designed to give you a general idea of where you stand and should not be taken as a definitive measure of your abilities. For a more accurate assessment, consider consulting with a professional.</h2>
-
-   
-            
+            <h1 class="font-weight-bold" data-lang-en="Skill Level Assessment"
+                data-lang-fr="Évaluation du Niveau de Compétence">Skill Level Assessment</h1>
+            <h2 data-lang-en="This assessment is based on your answers and represents only an estimate of your skill level. It is designed to give you a general idea of where you stand and should not be taken as a definitive measure of your abilities. For a more accurate assessment, consider consulting with a professional."
+                data-lang-fr="Cette évaluation est basée sur vos réponses et ne représente qu'une estimation de votre niveau de compétence. Elle est conçue pour vous donner une idée générale de votre niveau et ne doit pas être considérée comme une mesure définitive de vos capacités. Pour une évaluation plus précise, envisagez de consulter un professionnel.">
+                This assessment is based on your answers and represents only an estimate of your skill level. It is
+                designed to give you a general idea of where you stand and should not be taken as a definitive measure
+                of your abilities. For a more accurate assessment, consider consulting with a professional.</h2>
         </header>
         <main>
             <!-- Assessment Form -->
-    <section class="assessment container mt-5">
-        <section class="assessment container mt-5">
-            
-            <form id="assessment-form">
-            <!-- Activity Selection -->
-            <div class="form-group">
-                <label for="activity" class="font-weight-bold" data-lang-en="Select Your Activity:" data-lang-fr="Sélectionnez Votre Activité:">Select Your Activity:</label>
-                <select id="activity" name="activity" class="form-control">
-                    <option value="cross-country" data-lang-en="Cross-Country Skiing" data-lang-fr="Ski de Fond">Cross-Country Skiing</option>
-                    <option value="skate" data-lang-en="Skate Skiing" data-lang-fr="Ski de Patinage">Skate Skiing</option>
-                    <option value="snowshoeing" data-lang-en="Snowshoeing" data-lang-fr="Raquette">Snowshoeing</option>
-                </select>
-            </div>
+            <section class="assessment container mt-5">
+                <form id="assessment-form">
+                    <!-- Activity Selection -->
+                    <div class="form-group">
+                        <label for="activity" class="font-weight-bold" data-lang-en="Select Your Activity:"
+                            data-lang-fr="Sélectionnez Votre Activité:">Select Your Activity:</label>
+                        <select id="activity" name="activity" class="form-control">
+                            <option value="cross-country" data-lang-en="Cross-Country Skiing"
+                                data-lang-fr="Ski de Fond">Cross-Country Skiing</option>
+                            <option value="skate" data-lang-en="Skate Skiing" data-lang-fr="Ski de Patinage">Skate
+                                Skiing</option>
+                            <option value="snowshoeing" data-lang-en="Snowshoeing" data-lang-fr="Raquette">Snowshoeing
+                            </option>
+                        </select>
+                    </div>
 
-            <!-- Experience Level -->
-            <div class="form-group">
-                <label for="experience" data-lang-en="How many years have you been participating in this activity?" data-lang-fr="Depuis combien d'années pratiquez-vous cette activité?">How many years have you been participating in this activity?</label>
-                <select id="experience" name="experience" class="form-control">
-                    <option value="1" data-lang-en="0–1 year" data-lang-fr="0–1 an">0–1 year</option>
-                    <option value="2" data-lang-en="1–3 years" data-lang-fr="1–3 ans">1–3 years</option>
-                    <option value="3" data-lang-en="3–5 years" data-lang-fr="3–5 ans">3–5 years</option>
-                    <option value="4" data-lang-en="More than 5 years" data-lang-fr="Plus de 5 ans">More than 5 years</option>
-                </select>
-            </div>
+                    <!-- Experience Level -->
+                    <div class="form-group">
+                        <label for="experience"
+                            data-lang-en="How many years have you been participating in this activity?"
+                            data-lang-fr="Depuis combien d'années pratiquez-vous cette activité?">How many years have
+                            you been participating in this activity?</label>
+                        <select id="experience" name="experience" class="form-control">
+                            <option value="1" data-lang-en="0–1 year" data-lang-fr="0–1 an">0–1 year</option>
+                            <option value="2" data-lang-en="1–3 years" data-lang-fr="1–3 ans">1–3 years</option>
+                            <option value="3" data-lang-en="3–5 years" data-lang-fr="3–5 ans">3–5 years</option>
+                            <option value="4" data-lang-en="More than 5 years" data-lang-fr="Plus de 5 ans">More than 5
+                                years</option>
+                        </select>
+                    </div>
 
-            <!-- Terrain Preference -->
-            <div class="form-group">
-                <label for="terrain" data-lang-en="What type of terrain do you usually explore?" data-lang-fr="Quel type de terrain explorez-vous habituellement?">What type of terrain do you usually explore?</label>
-                <select id="terrain" name="terrain" class="form-control">
-                    <option value="1" data-lang-en="Flat groomed trails" data-lang-fr="Sentiers plats damés">Flat groomed trails</option>
-                    <option value="2" data-lang-en="Hilly groomed trails" data-lang-fr="Sentiers vallonnés damés">Hilly groomed trails</option>
-                    <option value="3" data-lang-en="Ungroomed trails" data-lang-fr="Sentiers non damés">Ungroomed trails</option>
-                    <option value="4" data-lang-en="Backcountry" data-lang-fr="Hors-piste">Backcountry</option>
-                </select>
-            </div>
+                    <!-- Terrain Preference -->
+                    <div class="form-group">
+                        <label for="terrain" data-lang-en="What type of terrain do you usually explore?"
+                            data-lang-fr="Quel type de terrain explorez-vous habituellement?">What type of terrain do
+                            you usually explore?</label>
+                        <select id="terrain" name="terrain" class="form-control">
+                            <option value="1" data-lang-en="Flat groomed trails" data-lang-fr="Sentiers plats damés">
+                                Flat groomed trails</option>
+                            <option value="2" data-lang-en="Hilly groomed trails"
+                                data-lang-fr="Sentiers vallonnés damés">Hilly groomed trails</option>
+                            <option value="3" data-lang-en="Ungroomed trails" data-lang-fr="Sentiers non damés">
+                                Ungroomed trails</option>
+                            <option value="4" data-lang-en="Backcountry" data-lang-fr="Hors-piste">Backcountry</option>
+                        </select>
+                    </div>
 
-            <!-- Fitness Level -->
-            <div class="form-group">
-                <label for="fitness" data-lang-en="How would you rate your fitness level?" data-lang-fr="Comment évalueriez-vous votre niveau de forme physique?">How would you rate your fitness level?</label>
-                <select id="fitness" name="fitness" class="form-control">
-                    <option value="1" data-lang-en="Poor" data-lang-fr="Faible">Poor</option>
-                    <option value="2" data-lang-en="Average" data-lang-fr="Moyen">Average</option>
-                    <option value="3" data-lang-en="Good" data-lang-fr="Bon">Good</option>
-                    <option value="4" data-lang-en="Excellent" data-lang-fr="Excellent">Excellent</option>
-                </select>
-            </div>
+                    <!-- Fitness Level -->
+                    <div class="form-group">
+                        <label for="fitness" data-lang-en="How would you rate your fitness level?"
+                            data-lang-fr="Comment évalueriez-vous votre niveau de forme physique?">How would you rate
+                            your fitness level?</label>
+                        <select id="fitness" name="fitness" class="form-control">
+                            <option value="1" data-lang-en="Poor" data-lang-fr="Faible">Poor</option>
+                            <option value="2" data-lang-en="Average" data-lang-fr="Moyen">Average</option>
+                            <option value="3" data-lang-en="Good" data-lang-fr="Bon">Good</option>
+                            <option value="4" data-lang-en="Excellent" data-lang-fr="Excellent">Excellent</option>
+                        </select>
+                    </div>
 
-            <!-- Equipment Quality -->
-            <div class="form-group">
-                <label for="equipment" data-lang-en="How would you rate the quality of your equipment?" data-lang-fr="Comment évalueriez-vous la qualité de votre équipement?">How would you rate the quality of your equipment?</label>
-                <select id="equipment" name="equipment" class="form-control">
-                    <option value="1" data-lang-en="Poor" data-lang-fr="Faible">Poor</option>
-                    <option value="2" data-lang-en="Average" data-lang-fr="Moyen">Average</option>
-                    <option value="3" data-lang-en="Good" data-lang-fr="Bon">Good</option>
-                    <option value="4" data-lang-en="Excellent" data-lang-fr="Excellent">Excellent</option>
-                </select>
-            </div>
+                    <!-- Equipment Quality -->
+                    <div class="form-group">
+                        <label for="equipment" data-lang-en="How would you rate the quality of your equipment?"
+                            data-lang-fr="Comment évalueriez-vous la qualité de votre équipement?">How would you rate
+                            the quality of your equipment?</label>
+                        <select id="equipment" name="equipment" class="form-control">
+                            <option value="1" data-lang-en="Poor" data-lang-fr="Faible">Poor</option>
+                            <option value="2" data-lang-en="Average" data-lang-fr="Moyen">Average</option>
+                            <option value="3" data-lang-en="Good" data-lang-fr="Bon">Good</option>
+                            <option value="4" data-lang-en="Excellent" data-lang-fr="Excellent">Excellent</option>
+                        </select>
+                    </div>
 
-            <button type="button" id="calculate-skill-btn" class="btn btn-primary">Calculate Skill</button>
-        </form>
+                    <!-- Additional Questions -->
+                    <!-- Question 1 -->
+                    <div class="form-group">
+                        <label for="frequency" data-lang-en="How often do you participate in this activity?"
+                            data-lang-fr="À quelle fréquence pratiquez-vous cette activité?">How often do you
+                            participate in this activity?</label>
+                        <select id="frequency" name="frequency" class="form-control">
+                            <option value="1" data-lang-en="Rarely" data-lang-fr="Rarement">Rarely</option>
+                            <option value="2" data-lang-en="Occasionally" data-lang-fr="Occasionnellement">Occasionally
+                            </option>
+                            <option value="3" data-lang-en="Regularly" data-lang-fr="Régulièrement">Regularly</option>
+                            <option value="4" data-lang-en="Frequently" data-lang-fr="Fréquemment">Frequently</option>
+                        </select>
+                    </div>
 
-        <div id="skill-results">
-            <h3 id="skill-level"></h3>
-        </div>
-    </section>
+                    <!-- Question 2 -->
+                    <div class="form-group">
+                        <label for="technique" data-lang-en="How would you rate your technique?"
+                            data-lang-fr="Comment évalueriez-vous votre technique?">How would you rate your
+                            technique?</label>
+                        <select id="technique" name="technique" class="form-control">
+                            <option value="1" data-lang-en="Poor" data-lang-fr="Faible">Poor</option>
+                            <option value="2" data-lang-en="Average" data-lang-fr="Moyen">Average</option>
+                            <option value="3" data-lang-en="Good" data-lang-fr="Bon">Good</option>
+                            <option value="4" data-lang-en="Excellent" data-lang-fr="Excellent">Excellent</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="form-group">
+                        <label for="lessons"
+                            data-lang-en="Have you taken any lessons or received professional training?"
+                            data-lang-fr="Avez-vous pris des cours ou reçu une formation professionnelle?">Have you
+                            taken any lessons or received professional training?</label>
+                        <select id="lessons" name="lessons" class="form-control">
+                            <option value="1" data-lang-en="No" data-lang-fr="Non">No</option>
+                            <option value="2" data-lang-en="A few" data-lang-fr="Quelques-uns">A few</option>
+                            <option value="3" data-lang-en="Several" data-lang-fr="Plusieurs">Several</option>
+                            <option value="4" data-lang-en="Many" data-lang-fr="Beaucoup">Many</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="form-group">
+                        <label for="confidence" data-lang-en="How confident are you in your abilities?"
+                            data-lang-fr="Quelle est votre confiance en vos capacités?">How confident are you in your
+                            abilities?</label>
+                        <select id="confidence" name="confidence" class="form-control">
+                            <option value="1" data-lang-en="Not confident" data-lang-fr="Pas confiant">Not confident
+                            </option>
+                            <option value="2" data-lang-en="Somewhat confident" data-lang-fr="Assez confiant">Somewhat
+                                confident</option>
+                            <option value="3" data-lang-en="Confident" data-lang-fr="Confiant">Confident</option>
+                            <option value="4" data-lang-en="Very confident" data-lang-fr="Très confiant">Very confident
+                            </option>
+                        </select>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="form-group">
+                        <label for="goals" data-lang-en="What are your goals for this activity?"
+                            data-lang-fr="Quels sont vos objectifs pour cette activité?">What are your goals for this
+                            activity?</label>
+                        <select id="goals" name="goals" class="form-control">
+                            <option value="1" data-lang-en="Recreation" data-lang-fr="Récréation">Recreation</option>
+                            <option value="2" data-lang-en="Fitness" data-lang-fr="Forme physique">Fitness</option>
+                            <option value="3" data-lang-en="Competition" data-lang-fr="Compétition">Competition</option>
+                            <option value="4" data-lang-en="Professional" data-lang-fr="Professionnel">Professional
+                            </option>
+                        </select>
+                    </div>
+
+                    <button type="button" id="calculate-skill-btn" class="btn btn-primary">Calculate Skill</button>
+                </form>
+
+                <div id="skill-results">
+                    <h3 id="skill-level"></h3>
+                </div>
+            </section>
         </main>
         <footer class="text-center mt-4">
-            <p data-lang-en="These recommendations are general and provide a broad guideline for Cross-Country Skiing and Snowshoeing. For a more precise fit, please consult a specialist." data-lang-fr="Ces recommandations sont générales et fournissent des directives générales pour le ski de fond et la raquette. Pour un ajustement plus précis, veuillez consulter un spécialiste.">
-                These recommendations are general and provide a broad guideline for Cross-Country Skiing and Snowshoeing. For a more precise fit, please consult a specialist.
+            <p data-lang-en="These recommendations are general and provide a broad guideline for Cross-Country Skiing and Snowshoeing. For a more precise fit, please consult a specialist."
+                data-lang-fr="Ces recommandations sont générales et fournissent des directives générales pour le ski de fond et la raquette. Pour un ajustement plus précis, veuillez consulter un spécialiste.">
+                These recommendations are general and provide a broad guideline for Cross-Country Skiing and
+                Snowshoeing. For a more precise fit, please consult a specialist.
             </p>
-            <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank" aria-label="David Muñoz Jensen Ski Tool" data-lang-en="David Muñoz Jensen" data-lang-fr="David Muñoz Jensen">David Muñoz Jensen</a></p>
+            <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank"
+                    aria-label="David Muñoz Jensen Ski Tool" data-lang-en="David Muñoz Jensen"
+                    data-lang-fr="David Muñoz Jensen">David Muñoz Jensen</a></p>
         </footer>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 const currentLocation = location.href;
                 const menuItem = document.querySelectorAll('.nav-link');
                 const menuLength = menuItem.length;
@@ -162,4 +256,5 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </div>
 </body>
+
 </html>

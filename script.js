@@ -11,48 +11,247 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetBtn = document.getElementById('reset-btn');
     const selectionBoxes = document.querySelectorAll('.selection-box');
 
-    const skis = [
-        { brand: 'FISCHER', model: 'Spider 62 Crown Xtralite', width: 62, sizes: [169, 179, 189, 199] },
-    { brand: 'SALOMON', model: 'RC+ Grip with Prolink Access Binding - Kids', width: 45, sizes: [121, 131, 141, 151, 161] },
-    { brand: 'FISCHER', model: 'Aerolite Skate 60 IFP', width: 41, sizes: [176, 181, 186] },
-    { brand: 'SALOMON', model: 'RC7+ eSKIN with Prolink Shift Binding', width: 44, sizes: [174, 182, 190, 198, 206] },
-    { brand: 'SALOMON', model: 'RC8+ eSKIN with Prolink Shift Binding', width: 44, sizes: [174, 182, 190, 198, 206] },
-    { brand: 'SALOMON', model: 'Escape Snow 59 POSI with Prolink Auto Binding', width: 59, sizes: [163, 173, 183, 193] },
-    { brand: 'FISCHER', model: 'Twin Skin Power EF', width: 51, sizes: [184, 189, 194, 199] },
-    { brand: 'FISCHER', model: 'Sports Crown EF', width: 50, sizes: [179, 184, 189, 194, 199] },
-    { brand: 'ROSSIGNOL', model: 'Evo Xc 60 R-Skin with Control SI Ski Bindings', width: 60, sizes: [165, 175, 185, 195] },
-    { brand: 'ROSSIGNOL', model: 'Evo OT 65 Positrack IFP with Control SI Ski Bindings', width: 65, sizes: [165, 175, 185, 195] },
-    { brand: 'ATOMIC', model: 'Pro C2 Skintec Med with Prolink Shift CL Binding', width: 45, sizes: [174, 181, 188, 195, 202, 209] },
-    { brand: 'ATOMIC', model: 'Pro C1 Skintec Med with Prolink Shift CL Binding', width: 45, sizes: [174, 181, 188, 195, 202, 209] },
-    { brand: 'FISCHER', model: 'Twin Skin Sport EF', width: 51, sizes: [179, 184, 189, 194, 199] },
-    { brand: 'ROSSIGNOL', model: 'BC 80 Positrack', width: 80, sizes: [166, 176, 186, 196] },
-    { brand: 'ROSSIGNOL', model: 'XT Venture WXLS', width: 70, sizes: [176, 186, 191] },
-    { brand: 'ATOMIC', model: 'Savor 48 Skintec Med + PA', width: 48, sizes: [174, 184, 194, 204] },
-    { brand: 'ATOMIC', model: 'Savor 52 Grip + Prolink Access CL', width: 52, sizes: [177, 184, 191, 198, 205] },
-    { brand: 'ATOMIC', model: 'Savor 48 Skintec Hard with Prolink Shift Pro CL Binding', width: 48, sizes: [204] },
-    { brand: 'SALOMON', model: 'Escape 48 eSKIN Cross-country Skis and X-Stiff Shift Binding', width: [48, 46, 44, 46], sizes: [180, 206] },
-    { brand: 'ATOMIC', model: 'Pro C1 Skintec Hard Cross-country Skis with Prolink Shift CL Binding', width: 47, sizes: [209] },
-    { brand: 'ROSSIGNOL', model: 'Delta Sport R-Skin', width: 44, sizes: [176, 186, 196] },
-    { brand: 'ROSSIGNOL', model: 'Delta Comp R-Skin', width: 44, sizes: [176, 186, 196] },
-    { brand: 'FISCHER', model: 'Speedmax 3D Skate Plus', width: 41, sizes: [181, 186, 191] },
-    { brand: 'FISCHER', model: 'Carbonlite Skate Plus', width: 41, sizes: [181, 186, 191] },
-    { brand: 'SALOMON', model: 'S/Max Carbon Skate', width: 44, sizes: [170, 177, 182, 187, 192] },
-    { brand: 'SALOMON', model: 'S/Race Skate', width: 44, sizes: [170, 177, 182, 187, 192] },
-    { brand: 'ATOMIC', model: 'Redster S9 Gen S', width: 44, sizes: [170, 177, 184, 191] },
-    { brand: 'ATOMIC', model: 'Redster C9 Carbon', width: 44, sizes: [170, 177, 184, 191] },
-    { brand: 'MADSHUS', model: 'Redline 3.0 Skate', width: 44, sizes: [170, 177, 184, 191] },
-    { brand: 'MADSHUS', model: 'Redline 3.0 Classic', width: 44, sizes: [170, 177, 184, 191] },
-    { brand: 'FISCHER', model: 'RCR Skate', width: 41, sizes: [176, 181, 186] },
-    { brand: 'FISCHER', model: 'RCS Skate Plus', width: 41, sizes: [176, 181, 186] },
-    { brand: 'ROSSIGNOL', model: 'X-IUM Skate', width: 44, sizes: [173, 180, 187, 193] },
-    { brand: 'ROSSIGNOL', model: 'X-IUM Classic', width: 44, sizes: [173, 180, 187, 193] },
-    { brand: 'SALOMON', model: 'S/Max Skate', width: 44, sizes: [170, 177, 182, 187, 192] },
-    { brand: 'SALOMON', model: 'S/Race Classic', width: 44, sizes: [170, 177, 182, 187, 192] },
-    { brand: 'ATOMIC', model: 'Redster C7 Skintec', width: 44, sizes: [170, 177, 184, 191] },
-    { brand: 'ATOMIC', model: 'Redster C8 Skintec', width: 44, sizes: [170, 177, 184, 191] },
-    { brand: 'MADSHUS', model: 'Hypersonic Skate', width: 44, sizes: [170, 177, 184, 191] },
-    { brand: 'MADSHUS', model: 'Hypersonic Classic', width: 44, sizes: [170, 177, 184, 191] }
-];
+    const skis = [{
+            brand: 'FISCHER',
+            model: 'Spider 62 Crown Xtralite',
+            width: 62,
+            sizes: [169, 179, 189, 199]
+        },
+        {
+            brand: 'SALOMON',
+            model: 'RC+ Grip with Prolink Access Binding - Kids',
+            width: 45,
+            sizes: [121, 131, 141, 151, 161]
+        },
+        {
+            brand: 'FISCHER',
+            model: 'Aerolite Skate 60 IFP',
+            width: 41,
+            sizes: [176, 181, 186]
+        },
+        {
+            brand: 'SALOMON',
+            model: 'RC7+ eSKIN with Prolink Shift Binding',
+            width: 44,
+            sizes: [174, 182, 190, 198, 206]
+        },
+        {
+            brand: 'SALOMON',
+            model: 'RC8+ eSKIN with Prolink Shift Binding',
+            width: 44,
+            sizes: [174, 182, 190, 198, 206]
+        },
+        {
+            brand: 'SALOMON',
+            model: 'Escape Snow 59 POSI with Prolink Auto Binding',
+            width: 59,
+            sizes: [163, 173, 183, 193]
+        },
+        {
+            brand: 'FISCHER',
+            model: 'Twin Skin Power EF',
+            width: 51,
+            sizes: [184, 189, 194, 199]
+        },
+        {
+            brand: 'FISCHER',
+            model: 'Sports Crown EF',
+            width: 50,
+            sizes: [179, 184, 189, 194, 199]
+        },
+        {
+            brand: 'ROSSIGNOL',
+            model: 'Evo Xc 60 R-Skin with Control SI Ski Bindings',
+            width: 60,
+            sizes: [165, 175, 185, 195]
+        },
+        {
+            brand: 'ROSSIGNOL',
+            model: 'Evo OT 65 Positrack IFP with Control SI Ski Bindings',
+            width: 65,
+            sizes: [165, 175, 185, 195]
+        },
+        {
+            brand: 'ATOMIC',
+            model: 'Pro C2 Skintec Med with Prolink Shift CL Binding',
+            width: 45,
+            sizes: [174, 181, 188, 195, 202, 209]
+        },
+        {
+            brand: 'ATOMIC',
+            model: 'Pro C1 Skintec Med with Prolink Shift CL Binding',
+            width: 45,
+            sizes: [174, 181, 188, 195, 202, 209]
+        },
+        {
+            brand: 'FISCHER',
+            model: 'Twin Skin Sport EF',
+            width: 51,
+            sizes: [179, 184, 189, 194, 199]
+        },
+        {
+            brand: 'ROSSIGNOL',
+            model: 'BC 80 Positrack',
+            width: 80,
+            sizes: [166, 176, 186, 196]
+        },
+        {
+            brand: 'ROSSIGNOL',
+            model: 'XT Venture WXLS',
+            width: 70,
+            sizes: [176, 186, 191]
+        },
+        {
+            brand: 'ATOMIC',
+            model: 'Savor 48 Skintec Med + PA',
+            width: 48,
+            sizes: [174, 184, 194, 204]
+        },
+        {
+            brand: 'ATOMIC',
+            model: 'Savor 52 Grip + Prolink Access CL',
+            width: 52,
+            sizes: [177, 184, 191, 198, 205]
+        },
+        {
+            brand: 'ATOMIC',
+            model: 'Savor 48 Skintec Hard with Prolink Shift Pro CL Binding',
+            width: 48,
+            sizes: [204]
+        },
+        {
+            brand: 'SALOMON',
+            model: 'Escape 48 eSKIN Cross-country Skis and X-Stiff Shift Binding',
+            width: [48, 46, 44, 46],
+            sizes: [180, 206]
+        },
+        {
+            brand: 'ATOMIC',
+            model: 'Pro C1 Skintec Hard Cross-country Skis with Prolink Shift CL Binding',
+            width: 47,
+            sizes: [209]
+        },
+        {
+            brand: 'ROSSIGNOL',
+            model: 'Delta Sport R-Skin',
+            width: 44,
+            sizes: [176, 186, 196]
+        },
+        {
+            brand: 'ROSSIGNOL',
+            model: 'Delta Comp R-Skin',
+            width: 44,
+            sizes: [176, 186, 196]
+        },
+        {
+            brand: 'FISCHER',
+            model: 'Speedmax 3D Skate Plus',
+            width: 41,
+            sizes: [181, 186, 191]
+        },
+        {
+            brand: 'FISCHER',
+            model: 'Carbonlite Skate Plus',
+            width: 41,
+            sizes: [181, 186, 191]
+        },
+        {
+            brand: 'SALOMON',
+            model: 'S/Max Carbon Skate',
+            width: 44,
+            sizes: [170, 177, 182, 187, 192]
+        },
+        {
+            brand: 'SALOMON',
+            model: 'S/Race Skate',
+            width: 44,
+            sizes: [170, 177, 182, 187, 192]
+        },
+        {
+            brand: 'ATOMIC',
+            model: 'Redster S9 Gen S',
+            width: 44,
+            sizes: [170, 177, 184, 191]
+        },
+        {
+            brand: 'ATOMIC',
+            model: 'Redster C9 Carbon',
+            width: 44,
+            sizes: [170, 177, 184, 191]
+        },
+        {
+            brand: 'MADSHUS',
+            model: 'Redline 3.0 Skate',
+            width: 44,
+            sizes: [170, 177, 184, 191]
+        },
+        {
+            brand: 'MADSHUS',
+            model: 'Redline 3.0 Classic',
+            width: 44,
+            sizes: [170, 177, 184, 191]
+        },
+        {
+            brand: 'FISCHER',
+            model: 'RCR Skate',
+            width: 41,
+            sizes: [176, 181, 186]
+        },
+        {
+            brand: 'FISCHER',
+            model: 'RCS Skate Plus',
+            width: 41,
+            sizes: [176, 181, 186]
+        },
+        {
+            brand: 'ROSSIGNOL',
+            model: 'X-IUM Skate',
+            width: 44,
+            sizes: [173, 180, 187, 193]
+        },
+        {
+            brand: 'ROSSIGNOL',
+            model: 'X-IUM Classic',
+            width: 44,
+            sizes: [173, 180, 187, 193]
+        },
+        {
+            brand: 'SALOMON',
+            model: 'S/Max Skate',
+            width: 44,
+            sizes: [170, 177, 182, 187, 192]
+        },
+        {
+            brand: 'SALOMON',
+            model: 'S/Race Classic',
+            width: 44,
+            sizes: [170, 177, 182, 187, 192]
+        },
+        {
+            brand: 'ATOMIC',
+            model: 'Redster C7 Skintec',
+            width: 44,
+            sizes: [170, 177, 184, 191]
+        },
+        {
+            brand: 'ATOMIC',
+            model: 'Redster C8 Skintec',
+            width: 44,
+            sizes: [170, 177, 184, 191]
+        },
+        {
+            brand: 'MADSHUS',
+            model: 'Hypersonic Skate',
+            width: 44,
+            sizes: [170, 177, 184, 191]
+        },
+        {
+            brand: 'MADSHUS',
+            model: 'Hypersonic Classic',
+            width: 44,
+            sizes: [170, 177, 184, 191]
+        }
+    ];
 
     function calculateSkiDimensions() {
         const weight = parseFloat(weightInput.value);
@@ -139,7 +338,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 ski.sizes.forEach(size => {
                     const difference = Math.abs(size - roundedLength);
                     if (difference < closestDifference) {
-                        closestSki = { ...ski, closestSize: size };
+                        closestSki = {
+                            ...ski,
+                            closestSize: size
+                        };
                         closestDifference = difference;
                     }
                 });
@@ -167,7 +369,9 @@ document.addEventListener('DOMContentLoaded', () => {
             recommendedPoleLength.textContent = roundedPoleLength;
         }
 
-        document.querySelector('.results').scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('.results').scrollIntoView({
+            behavior: 'smooth'
+        });
     }
 
     function calculateSnowshoeSize(weightInKg, terrain) {

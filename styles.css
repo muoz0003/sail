@@ -1,7 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background: #7EE4F6; /* Change to match the canvas background color */
-    color: #4D7585; /* Change text color to white for better contrast */
+    background: #7EE4F6;
+    /* Change to match the canvas background color */
+    color: #4D7585;
+    /* Change text color to white for better contrast */
     /* padding: 0 20px; */
     background-attachment: fixed;
 }
@@ -12,13 +14,16 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Ensure it is behind other content */
-    background-color: #7EE4F6; /* Change this to any color you prefer */
+    z-index: -1;
+    /* Ensure it is behind other content */
+    background-color: #7EE4F6;
+    /* Change this to any color you prefer */
 }
 
 header h1 {
     font-size: 2.5rem;
-    color: #4D7585; /* Change to white */
+    color: #4D7585;
+    /* Change to white */
     text-transform: uppercase;
 }
 
@@ -37,12 +42,14 @@ header h1 {
 
 header h2 {
     font-size: 1.25rem;
-    color: #4D7585; /* Change to a lighter shade of gray */
+    color: #4D7585;
+    /* Change to a lighter shade of gray */
 }
 
 p {
     font-size: 1.25rem;
-    color: #4D7585; /* Change to a lighter shade of gray */
+    color: #4D7585;
+    /* Change to a lighter shade of gray */
 }
 
 .logo {
@@ -55,24 +62,31 @@ p {
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s, border-color 0.3s;
-    width: 150px; /* Set a fixed width */
-    height: 150px; /* Set a fixed height */
+    width: 150px;
+    /* Set a fixed width */
+    height: 150px;
+    /* Set a fixed height */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #7EE4F6; /* Darker background for selection boxes */
-    color: #fff; /* White text color */
+    background-color: #7EE4F6;
+    /* Darker background for selection boxes */
+    color: #fff;
+    /* White text color */
 }
 
 .selection-box.selected {
-    border-color: #fff; /* White border for selected boxes */
-    background-color: #7EE4F6; /* Slightly lighter background for selected boxes */
+    border-color: #fff;
+    /* White border for selected boxes */
+    background-color: #7EE4F6;
+    /* Slightly lighter background for selected boxes */
 }
 
 .selection-box i {
     font-size: 2rem;
-    color: #fff; /* White icon color */
+    color: #fff;
+    /* White icon color */
 }
 
 .selection-box p {
@@ -96,7 +110,8 @@ p {
 .table-selection td {
     text-align: center;
     vertical-align: middle;
-    color: #4D7585; /* White text color */
+    color: #4D7585;
+    /* White text color */
 }
 
 .table-selection tbody {
@@ -123,10 +138,14 @@ p {
 }
 
 .language-selector .selection-box {
-    width: 50px; /* Smaller width */
-    height: 50px; /* Smaller height */
-    background-color: #ffffff; /* Darker background for selection boxes */
-    color: #4D7585; /* White text color */
+    width: 50px;
+    /* Smaller width */
+    height: 50px;
+    /* Smaller height */
+    background-color: #ffffff;
+    /* Darker background for selection boxes */
+    color: #4D7585;
+    /* White text color */
 }
 
 .language-selector .selection-box img {
@@ -136,22 +155,27 @@ p {
 
 .results {
     margin-top: 20px;
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Semi-transparent background */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
-    color: #fff; /* White text color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Darker shadow */
+    color: #fff;
+    /* White text color */
 }
 
 .results h3 {
     margin-bottom: 20px;
-    color: #4D7585; /* White text color */
+    color: #4D7585;
+    /* White text color */
 }
 
 .results .table th,
 .results .table td {
     vertical-align: middle;
-    color: #4D7585; /* White text color */
+    color: #4D7585;
+    /* White text color */
 }
 
 .results .table td i {
@@ -166,8 +190,10 @@ p {
 
 footer {
     font-size: 0.75rem;
-    color: #333; /* Lighter gray text color */
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    color: #333;
+    /* Lighter gray text color */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Semi-transparent background */
     padding: 10px;
     border-radius: 8px;
 }
@@ -184,7 +210,8 @@ footer a:hover {
 .btn-primary {
     background-color: #8AA6AC;
     border-color: #8AA6AC;
-    color: #fff; /* White text color */
+    color: #fff;
+    /* White text color */
 }
 
 .btn-primary:hover,
@@ -196,7 +223,8 @@ footer a:hover {
 .btn-secondary {
     background-color: #4D7585;
     border-color: #4D7585;
-    color: #fff; /* White text color */
+    color: #fff;
+    /* White text color */
 }
 
 .btn-secondary:hover,
@@ -218,7 +246,8 @@ footer a:hover {
 .table td {
     text-align: center;
     vertical-align: middle;
-    color: #4D7585; /* White text color */
+    color: #4D7585;
+    /* White text color */
 }
 
 
@@ -291,20 +320,25 @@ footer a:hover {
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .selection-box {
-        width: 100px; /* Adjust width for smaller screens */
-        height: 100px; /* Adjust height for smaller screens */
+        width: 100px;
+        /* Adjust width for smaller screens */
+        height: 100px;
+        /* Adjust height for smaller screens */
     }
 
     .selection-group {
-        flex-direction: column; /* Stack selection boxes vertically on smaller screens */
+        flex-direction: column;
+        /* Stack selection boxes vertically on smaller screens */
         align-items: center;
     }
 
     .table-selection tr {
-        flex-direction: column; /* Stack table rows vertically on smaller screens */
+        flex-direction: column;
+        /* Stack table rows vertically on smaller screens */
     }
 
     .table-selection td {
-        margin-bottom: 10px; /* Add margin between stacked items */
+        margin-bottom: 10px;
+        /* Add margin between stacked items */
     }
 }
