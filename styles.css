@@ -96,7 +96,7 @@ p {
 .table-selection td {
     text-align: center;
     vertical-align: middle;
-    color: #fff; /* White text color */
+    color: #4D7585; /* White text color */
 }
 
 .table-selection tbody {
@@ -218,8 +218,9 @@ footer a:hover {
 .table td {
     text-align: center;
     vertical-align: middle;
-    color: #fff; /* White text color */
+    color: #4D7585; /* White text color */
 }
+
 
 /* Styles for the assessment form */
 .assessment {
