@@ -9,22 +9,58 @@
 
 .navbar-brand {
     font-weight: bold;
-    color: #fff; /* White text color for better contrast */
+    color: #4D7585; /* White text color for better contrast */
     font-size: 1.5rem; /* Increase font size */
 }
 
 .navbar-brand:hover {
-    color: #7EE4F6; /* Change color on hover */
+    color: #4D7585; /* Change color on hover */
+}
+
+.navbar-nav {
+    margin: 0 auto; /* Center the nav items */
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: #000000; /* White text color for better contrast */
+    color: #4D7585; /* White text color for better contrast */
     font-size: 1rem; /* Increase font size */
     margin-left: 15px; /* Add spacing between links */
+    transition: color 0.5s, background-color 0.5s, text-decoration 0.5s; /* Smooth transition for hover effects */
+    position: relative; /* Needed for the underline animation */
+}
+
+.navbar-light .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #4D7585;
+    transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+    background: #4D7585;
+}
+
+.navbar-light .navbar-nav .nav-link.active::after {
+    width: 100%;
+    left: 0;
+    background: #4D7585;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
     color: #4D7585; /* Change color on hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Add background color on hover */
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: #4D7585; /* Highlight the current page */
+    font-weight: bold; /* Make the current page bold */
 }
 
 /* Language Selector */
