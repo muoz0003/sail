@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ski and Snowshoe Size Finder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include Navbar Stylesheet -->
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>navigator.serviceWorker.register("service-worker.js")</script>
+    <link rel="manifest" href="manifest.json" />
+    <!-- FAVICON -->
+    <link rel="icon" href="images/ski-icon.ico" type="image/x-icon">
+    <!-- Navigation Menu -->
+    <!-- Navigation Menu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Outdoor Tools</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Ski Calculator</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="skill-level-assessment.html">Ski Level Assessment</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="paddle.html">Kayak Paddle Calculator</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="boot.html">Boot Size Finder</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="wax.html">Wax Recommendation Tool</a>
+            </li>
+        </ul>
+        <!-- Language Selector -->
+        <div class="language-selector ml-auto">
+            <div class="selection-box" id="english" data-lang="en">
+                <img src="images/Flag_of_United_Kingdom.svg" alt="English">
+            </div>
+            <div class="selection-box" id="french" data-lang="fr">
+                <img src="images/Flag_of_France.svg" alt="Français">
+            </div>
+        </div>
+    </div>
+</nav>
+    <div class="image-container">
+        <img src="images/wax.webp" alt="Header Image" class="full-width-image">
+    </div>
+</head>
+<body>
+    
+    <canvas id="backgroundCanvas"></canvas>
+    <div class="container mt-5">
+        <header class="text-center mb-4">
+            
+           
+            <h1 class="font-weight-bold" data-lang-en="Wax Recommendation Tool" data-lang-fr="Outil de recommandation de cire">Wax Recommendation Tool</h1>
+<h2 data-lang-en="Find the best wax for your skis based on temperature and snow conditions." data-lang-fr="Trouvez la meilleure cire pour vos skis en fonction de la température et des conditions de neige.">Find the best wax for your skis based on temperature and snow conditions.</h2>
+
+<!-- Expanded Instruction Section -->
+<p data-lang-en="Please provide the temperature and snow conditions below to receive a personalized wax recommendation. Select the temperature in degrees Celsius and the type of snow condition from the dropdown menu." data-lang-fr="Veuillez fournir la température et les conditions de neige ci-dessous pour recevoir une recommandation de cire personnalisée. Sélectionnez la température en degrés Celsius et le type de condition de neige dans le menu déroulant.">
+    Please provide the temperature and snow conditions below to receive a personalized wax recommendation. Select the temperature in degrees Celsius and the type of snow condition from the dropdown menu.
+</p>
+            
+        </header>
+        <main>
+            <div class="wax-recommendation-tool">
+                <h3>Wax Recommendation Tool</h3>
+                <form id="waxForm">
+                    <div class="form-group">
+                        <label for="temperature">Temperature (°C):</label>
+                        <input type="number" class="form-control" id="temperature" name="temperature" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="snowCondition">Snow Condition:</label>
+                        <select class="form-control" id="snowCondition" name="snowCondition" required>
+                            <option value="new">New Snow</option>
+                            <option value="old">Old Snow</option>
+                            <option value="icy">Icy</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Get Recommendation</button>
+                </form>
+                <div id="recommendation" class="mt-3"></div>
+            </div>
+        </main>
+        <footer class="text-center mt-4">
+            <p data-lang-en="These recommendations are general and provide a broad guideline for Cross-Country Skiing and Snowshoeing. For a more precise fit, please consult a specialist." data-lang-fr="Ces recommandations sont générales et fournissent des directives générales pour le ski de fond et la raquette. Pour un ajustement plus précis, veuillez consulter un spécialiste.">
+                These recommendations are general and provide a broad guideline for Cross-Country Skiing and Snowshoeing. For a more precise fit, please consult a specialist.
+            </p>
+            <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank" aria-label="David Muñoz Jensen Ski Tool" data-lang-en="David Muñoz Jensen" data-lang-fr="David Muñoz Jensen">David Muñoz Jensen</a></p>
+        </footer>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const currentLocation = location.href;
+                const menuItem = document.querySelectorAll('.nav-link');
+                const menuLength = menuItem.length;
+                for (let i = 0; i < menuLength; i++) {
+                    if (menuItem[i].href === currentLocation) {
+                        menuItem[i].classList.add('active');
+                    }
+                }
+            });
+        </script>
+        <script src="wax.js"></script>
+        <script src="script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
+</body>
+</html>

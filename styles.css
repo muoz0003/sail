@@ -275,6 +275,19 @@ footer a:hover {
     color: #fff;
 }
 
+/* WAX recommendation */
+#recommendation {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4D7585;
+    text-align: center;
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .selection-box {
