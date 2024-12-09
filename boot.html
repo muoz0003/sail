@@ -10,12 +10,52 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script>
         navigator.serviceWorker.register("service-worker.js")
     </script>
     <link rel="manifest" href="manifest.json" />
     <!-- FAVICON -->
     <link rel="icon" href="images/ski-icon.ico" type="image/x-icon">
+    <style>
+        /* Optional: Ensure the canvas covers the background */
+        #backgroundCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Sends the canvas behind other elements */
+            width: 100%;
+            height: 100%;
+        }
+        /* Styling for the conversion result */
+#conversion-result {
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.1em;
+    color: #333;
+}
+
+#boot-size-results {
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Responsive styling */
+@media (max-width: 576px) {
+    #conversion-result {
+        padding: 15px;
+        font-size: 1em;
+    }
+}
+    </style>
 </head>
 
 <body>
@@ -58,108 +98,157 @@
     <div class="image-container">
         <img src="images/boot.webp" alt="Header Image" class="full-width-image">
     </div>
-    </head>
+    <canvas id="backgroundCanvas"></canvas>
+    <div class="container mt-5">
+        <header class="text-center mb-4">
+            <h1 class="font-weight-bold" data-lang-en="Boot Size Finder"
+                data-lang-fr="Trouveur de taille de bottes">Boot Size Finder</h1>
+            <h2 data-lang-en="Determine the optimal boot size for your skis or snowshoes."
+                data-lang-fr="Déterminez la taille optimale des bottes pour vos skis ou raquettes.">Determine the
+                optimal boot size for your skis or snowshoes.</h2>
 
-    <body>
-        <canvas id="backgroundCanvas"></canvas>
-        <div class="container mt-5">
-            <header class="text-center mb-4">
-                <h1 class="font-weight-bold" data-lang-en="Boot Size Finder"
-                    data-lang-fr="Trouveur de taille de bottes">Boot Size Finder</h1>
-                <h2 data-lang-en="Determine the optimal boot size for your skis or snowshoes."
-                    data-lang-fr="Déterminez la taille optimale des bottes pour vos skis ou raquettes.">Determine the
-                    optimal boot size for your skis or snowshoes.</h2>
-
-                <!-- Expanded Instruction Section -->
-                <p data-lang-en="Please provide your foot measurements and select the type of activity to receive a personalized boot size recommendation. Ensure you measure your foot length and width accurately for the best fit."
-                    data-lang-fr="Veuillez fournir les mesures de vos pieds et sélectionner le type d'activité pour recevoir une recommandation personnalisée de taille de bottes. Assurez-vous de mesurer avec précision la longueur et la largeur de vos pieds pour un ajustement optimal.">
-                    Please provide your foot measurements and select the type of activity to receive a personalized boot
-                    size recommendation. Ensure you measure your foot length and width accurately for the best fit.
-                </p>
-                <p data-lang-en="Select the type of activity you will be using the boots for, such as skiing or snowshoeing, as different activities may require different boot sizes."
-                    data-lang-fr="Sélectionnez le type d'activité pour laquelle vous utiliserez les bottes, comme le ski ou la raquette, car différentes activités peuvent nécessiter des tailles de bottes différentes.">
-                    Select the type of activity you will be using the boots for, such as skiing or snowshoeing, as
-                    different activities may require different boot sizes.
-                </p>
-            </header>
-            <main>
-                <form id="boot-size-form">
-                    <div class="form-group">
-                        <label for="foot-length" data-lang-en="Foot Length (cm):"
-                            data-lang-fr="Longueur du pied (cm):">Foot Length (cm):</label>
-                        <input type="number" class="form-control" id="foot-length" name="foot-length" min="0" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="foot-width" data-lang-en="Foot Width (cm):"
-                            data-lang-fr="Largeur du pied (cm):">Foot Width (cm):</label>
-                        <input type="number" class="form-control" id="foot-width" name="foot-width" min="0" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="activity" data-lang-en="Intended Activity:" data-lang-fr="Activité prévue:">Intended
-                            Activity:</label>
-                        <select id="activity" name="activity" class="form-control" required>
-                            <option value="skiing" data-lang-en="Skiing" data-lang-fr="Ski">Skiing</option>
-                            <option value="snowshoeing" data-lang-en="Snowshoeing" data-lang-fr="Raquette">Snowshoeing
-                            </option>
-                            <option value="trekking" data-lang-en="Trekking Boots" data-lang-fr="Bottes de randonnée">
-                                Trekking Boots</option>
-                            <option value="climbing" data-lang-en="Climbing Shoes" data-lang-fr="Chaussures d'escalade">
-                                Climbing Shoes</option>
-                            <option value="mountaineering" data-lang-en="Mountaineering" data-lang-fr="Alpinisme">
-                                Mountaineering</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="category" data-lang-en="Category:" data-lang-fr="Catégorie:">Category:</label>
-                        <select id="category" name="category" class="form-control" required>
-                            <option value="men" data-lang-en="Men" data-lang-fr="Hommes">Men</option>
-                            <option value="women" data-lang-en="Women" data-lang-fr="Femmes">Women</option>
-                            <option value="kids" data-lang-en="Kids" data-lang-fr="Enfants">Kids</option>
-                        </select>
-                    </div>
-                    <button type="button" id="calculate-boot-size-btn" class="btn btn-primary"
-                        data-lang-en="Calculate Boot Size" data-lang-fr="Calculer la taille des bottes">Calculate Boot
-                        Size</button>
-                </form>
-                <div id="boot-size-results" class="mt-4">
-                    <h3 id="boot-size"></h3>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>EU</th>
-                                <th>US</th>
-                                <th>JPN</th>
-                                <th>AUS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td id="eu-size"></td>
-                                <td id="us-size"></td>
-                                <td id="jpn-size"></td>
-                                <td id="aus-size"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p id="boot-size-description"></p>
+            <!-- Expanded Instruction Section -->
+            <p data-lang-en="Please provide your foot measurements and select the type of activity to receive a personalized boot size recommendation. Ensure you measure your foot length and width accurately for the best fit."
+                data-lang-fr="Veuillez fournir les mesures de vos pieds et sélectionner le type d'activité pour recevoir une recommandation personnalisée de taille de bottes. Assurez-vous de mesurer avec précision la longueur et la largeur de vos pieds pour un ajustement optimal.">
+                Please provide your foot measurements and select the type of activity to receive a personalized boot
+                size recommendation. Ensure you measure your foot length and width accurately for the best fit.
+            </p>
+            <p data-lang-en="Select the type of activity you will be using the boots for, such as skiing or snowshoeing, as different activities may require different boot sizes."
+                data-lang-fr="Sélectionnez le type d'activité pour laquelle vous utiliserez les bottes, comme le ski ou la raquette, car différentes activités peuvent nécessiter des tailles de bottes différentes.">
+                Select the type of activity you will be using the boots for, such as skiing or snowshoeing, as
+                different activities may require different boot sizes.
+            </p>
+        </header>
+        <main>
+            <form id="boot-size-form">
+                <div class="form-group">
+                    <label for="foot-length" data-lang-en="Foot Length (cm):"
+                        data-lang-fr="Longueur du pied (cm):">Foot Length (cm):</label>
+                    <input type="number" class="form-control" id="foot-length" name="foot-length" min="0" required>
                 </div>
-            </main>
-            <footer class="text-center mt-4">
-                <p data-lang-en="These recommendations are general and provide a broad guideline for boot sizing. For a more precise fit, please consult a specialist."
-                    data-lang-fr="Ces recommandations sont générales et fournissent des directives générales pour la taille des bottes. Pour un ajustement plus précis, veuillez consulter un spécialiste.">
-                    These recommendations are general and provide a broad guideline for boot sizing. For a more precise
-                    fit, please consult a specialist.
-                </p>
-                <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank"
-                        aria-label="David Muñoz Jensen Boot Size Finder" data-lang-en="David Muñoz Jensen"
-                        data-lang-fr="David Muñoz Jensen">David Muñoz Jensen</a></p>
-            </footer>
-        </div>
-        <script src="boot.js"></script>
-        <script src="script.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </body>
+                <div class="form-group">
+                    <label for="foot-width" data-lang-en="Foot Width (cm):"
+                        data-lang-fr="Largeur du pied (cm):">Foot Width (cm):</label>
+                    <input type="number" class="form-control" id="foot-width" name="foot-width" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="activity" data-lang-en="Intended Activity:" data-lang-fr="Activité prévue:">Intended
+                        Activity:</label>
+                    <select id="activity" name="activity" class="form-control" required>
+                        <option value="skiing" data-lang-en="Skiing" data-lang-fr="Ski">Skiing</option>
+                        <option value="snowshoeing" data-lang-en="Snowshoeing" data-lang-fr="Raquette">Snowshoeing
+                        </option>
+                        <option value="trekking" data-lang-en="Trekking Boots" data-lang-fr="Bottes de randonnée">
+                            Trekking Boots</option>
+                        <option value="climbing" data-lang-en="Climbing Shoes" data-lang-fr="Chaussures d'escalade">
+                            Climbing Shoes</option>
+                        <option value="mountaineering" data-lang-en="Mountaineering" data-lang-fr="Alpinisme">
+                            Mountaineering</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="category" data-lang-en="Category:" data-lang-fr="Catégorie:">Category:</label>
+                    <select id="category" name="category" class="form-control" required>
+                        <option value="men" data-lang-en="Men" data-lang-fr="Hommes">Men</option>
+                        <option value="women" data-lang-en="Women" data-lang-fr="Femmes">Women</option>
+                        <option value="kids" data-lang-en="Kids" data-lang-fr="Enfants">Kids</option>
+                    </select>
+                </div>
+                <button type="button" id="calculate-boot-size-btn" class="btn btn-primary"
+                    data-lang-en="Calculate Boot Size" data-lang-fr="Calculer la taille des bottes">Calculate Boot
+                    Size</button>
+            </form>
+            <!-- Updated HTML with Bootstrap classes -->
+<div id="boot-size-results" class="mt-4 alert alert-info" role="alert">
+    <h3 id="boot-size"></h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>EU</th>
+                <th>US</th>
+                <th>JPN</th>
+                <th>AUS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="eu-size"></td>
+                <td id="us-size"></td>
+                <td id="jpn-size"></td>
+                <td id="aus-size"></td>
+            </tr>
+        </tbody>
+    </table>
+    <p id="boot-size-description"></p>
+</div>
+            <hr>
+            <h2>Shoe Size Converter</h2>
+            <form id="size-converter-form">
+                <div class="form-group">
+                    <label for="source-brand">Source Brand:</label>
+                    <select id="source-brand" class="form-control">
+                        <option value="Salomon">Salomon</option>
+                        <option value="Merrell">Merrell</option>
+                        <option value="Keen">Keen</option>
+                        <option value="Oboz">Oboz</option>
+                        <option value="Columbia">Columbia</option>
+                        <option value="The North Face">The North Face</option>
+                        <option value="Sorel">Sorel</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="source-gender">Gender:</label>
+                    <select id="source-gender" class="form-control">
+                        <option value="Men">Men</option>
+                        <option value="Women">Women</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="source-size">Source Size (US):</label>
+                    <input type="number" id="source-size" class="form-control" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="target-brand">Target Brand:</label>
+                    <select id="target-brand" class="form-control">
+                        <option value="Salomon">Salomon</option>
+                        <option value="Merrell">Merrell</option>
+                        <option value="Keen">Keen</option>
+                        <option value="Oboz">Oboz</option>
+                        <option value="Columbia">Columbia</option>
+                        <option value="The North Face">The North Face</option>
+                        <option value="Sorel">Sorel</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="target-gender">Gender:</label>
+                    <select id="target-gender" class="form-control">
+                        <option value="Men">Men</option>
+                        <option value="Women">Women</option>
+                    </select>
+                </div>
+                <button type="button" id="convert-size-btn" class="btn btn-primary">Convert Size</button>
+            </form>
+            <!-- Updated HTML with Bootstrap classes -->
+<div id="conversion-result" class="mt-4 alert alert-info" role="alert">
+    <!-- Conversion result will appear here -->
+</div>
+        </main>
+        <footer class="text-center mt-4">
+            <p data-lang-en="These recommendations are general and provide a broad guideline for boot sizing. For a more precise fit, please consult a specialist."
+                data-lang-fr="Ces recommandations sont générales et fournissent des directives générales pour la taille des bottes. Pour un ajustement plus précis, veuillez consulter un spécialiste.">
+                These recommendations are general and provide a broad guideline for boot sizing. For a more precise
+                fit, please consult a specialist.
+            </p>
+            <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank"
+                    aria-label="David Muñoz Jensen Boot Size Finder" data-lang-en="David Muñoz Jensen"
+                    data-lang-fr="David Muñoz Jensen">David Muñoz Jensen</a></p>
+        </footer>
+    </div>
+    <script src="boot.js"></script>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 
 </html>
