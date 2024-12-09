@@ -65,6 +65,10 @@ body {
     height: auto;
 }
 
+.language-selector .selection-box.selected {
+    border-color: #4D7585; /* Add border color for selected language */
+}
+
 /* Banner Image */
 .full-width-image {
     width: 100%;

@@ -111,3 +111,7 @@
     width: 100%;
     height: auto;
 }
+
+.language-selector .selection-box.selected {
+    border-color: #4D7585; /* Add border color for selected language */
+}

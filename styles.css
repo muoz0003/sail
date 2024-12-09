@@ -153,6 +153,10 @@ p {
     height: auto;
 }
 
+.language-selector .selection-box.selected {
+    border-color: #4D7585; /* Add border color for selected language */
+}
+
 .results {
     margin-top: 20px;
     background-color: rgba(255, 255, 255, 0.1);
