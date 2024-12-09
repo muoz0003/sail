@@ -85,7 +85,7 @@ p {
 
 .selection-box i {
     font-size: 2rem;
-    color: #fff;
+    color: #4D7585;
     /* White icon color */
 }
 
@@ -320,9 +320,9 @@ footer a:hover {
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .selection-box {
-        width: 100px;
+        width: 150px;
         /* Adjust width for smaller screens */
-        height: 100px;
+        height: 150px;
         /* Adjust height for smaller screens */
     }
 
