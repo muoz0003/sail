@@ -63,28 +63,56 @@ document.addEventListener('DOMContentLoaded', function () {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     });
-});
 
-document.getElementById('waxForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+    const languageSelector = document.querySelectorAll('.language-selector .selection-box');
+    let currentLang = 'en';
 
-    const temperature = document.getElementById('temperature').value;
-    const snowCondition = document.getElementById('snowCondition').value;
-    let recommendation = '';
+    languageSelector.forEach(box => {
+        box.addEventListener('click', () => {
+            currentLang = box.getAttribute('data-lang');
+            document.querySelectorAll('[data-lang-en]').forEach(el => {
+                el.textContent = el.getAttribute(`data-lang-${currentLang}`);
+            });
+        });
+    });
 
-    if (temperature > 10) {
-        recommendation = 'It\'s too warm for skiing! Use slippers and go to the beach instead.';
-    } else if (temperature >= 0) {
-        recommendation = 'Use warm wax (Red or Yellow)';
-    } else if (temperature < 0 && temperature >= -10) {
-        if (snowCondition === 'new') {
-            recommendation = 'Use medium wax (Blue)';
-        } else if (snowCondition === 'old' || snowCondition === 'icy') {
-            recommendation = 'Use cold wax (Green)';
+    document.getElementById('waxForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const temperature = document.getElementById('temperature').value;
+        const snowCondition = document.getElementById('snowCondition').value;
+        let recommendation = '';
+
+        if (currentLang === 'en') {
+            if (temperature > 10) {
+                recommendation = 'It\'s too warm for skiing! Use slippers and go to the beach instead.';
+            } else if (temperature >= 0) {
+                recommendation = 'Use warm wax (Red or Yellow)';
+            } else if (temperature < 0 && temperature >= -10) {
+                if (snowCondition === 'new') {
+                    recommendation = 'Use medium wax (Blue)';
+                } else if (snowCondition === 'old' || snowCondition === 'icy') {
+                    recommendation = 'Use cold wax (Green)';
+                }
+            } else if (temperature < -10) {
+                recommendation = 'Use extra cold wax (Green or White)';
+            }
+        } else if (currentLang === 'fr') {
+            if (temperature > 10) {
+                recommendation = 'Il fait trop chaud pour skier ! Utilisez des pantoufles et allez à la plage à la place.';
+            } else if (temperature >= 0) {
+                recommendation = 'Utilisez de la cire chaude (Rouge ou Jaune)';
+            } else if (temperature < 0 && temperature >= -10) {
+                if (snowCondition === 'new') {
+                    recommendation = 'Utilisez de la cire moyenne (Bleue)';
+                } else if (snowCondition === 'old' || snowCondition === 'icy') {
+                    recommendation = 'Utilisez de la cire froide (Verte)';
+                }
+            } else if (temperature < -10) {
+                recommendation = 'Utilisez de la cire extra froide (Verte ou Blanche)';
+            }
         }
-    } else if (temperature < -10) {
-        recommendation = 'Use extra cold wax (Green or White)';
-    }
 
-    document.getElementById('recommendation').innerText = `Recommended Wax: ${recommendation}`;
+        document.getElementById('recommendation').innerText = `Recommended Wax: ${recommendation}`;
+    });
 });
