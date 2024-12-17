@@ -317,6 +317,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Set default language
     document.getElementById('english').classList.add('selected');
+    switchLanguage('en'); // Set default language content
 
     // Canvas animation for snow
     const canvas = document.getElementById('backgroundCanvas');
