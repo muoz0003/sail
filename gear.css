@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #007bff;
+}
+
+.selection-instructions {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.selection-description {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.type-selection, .skill-selection, .stiffness-selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.type-option, .skill-option, .stiffness-option {
+    flex: 1 1 30%;
+    margin: 5px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    background-color: #f8f9fa;
+}
+
+.type-option.selected, .skill-option.selected, .stiffness-option.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.type-option i, .skill-option i, .stiffness-option i {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.type-option span, .skill-option span, .stiffness-option span {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.pro-tip {
+    font-size: 12px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Results section styling */
+#result {
+    margin-top: 30px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #4D7585;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .type-selection .type-option,
+    .skill-selection .skill-option,
+    .stiffness-selection .stiffness-option {
+        margin-bottom: 10px;
+        flex: 1 1 100%;
+    }
+
+    .type-selection,
+    .skill-selection,
+    .stiffness-selection {
+        flex-direction: column;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-group-append {
+        margin-top: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .form-group .input-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group .input-group-append {
+        margin-top: 10px;
+    }
+
+    .form-group.text-center {
+        text-align: center;
+    }
+
+    .form-group.text-center button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .form-group.text-center button:last-child {
+        margin-bottom: 0;
+    }
+}

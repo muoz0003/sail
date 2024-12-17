@@ -1,0 +1,97 @@
+Brand,Model,Type,Size (cm),Stiffness,Weight Range (kg),Weight Range (lbs),Skill Level,Grip Type
+FISCHER,Spider 62 Crown Xtralite,Touring,169,Soft/Medium,55-70,121-154,Recreational,Fishscale
+FISCHER,Spider 62 Crown Xtralite,Touring,179,Medium,65-85,143-187,Recreational,Fishscale
+FISCHER,Spider 62 Crown Xtralite,Touring,189,Medium/Hard,75-95,165-209,Recreational,Fishscale
+FISCHER,Spider 62 Crown Xtralite,Touring,199,Hard,85-105+,187-231+,Recreational,Fishscale
+SALOMON,RC+ Grip with Prolink Access Binding - Kids,Classic,121,Soft,20-30,44-66,Intermediate,Skins
+SALOMON,RC+ Grip with Prolink Access Binding - Kids,Classic,131,Medium,25-35,55-77,Intermediate,Skins
+SALOMON,RC+ Grip with Prolink Access Binding - Kids,Classic,141,Medium,30-40,66-88,Intermediate,Skins
+SALOMON,RC+ Grip with Prolink Access Binding - Kids,Classic,151,Hard,35-45,77-99,Intermediate,Skins
+SALOMON,RC+ Grip with Prolink Access Binding - Kids,Classic,161,Hard,40-50,88-110,Intermediate,Skins
+FISCHER,Aerolite Skate 60 IFP,Skate,176,Soft/Medium,55-70,121-154,Intermediate,Waxable
+FISCHER,Aerolite Skate 60 IFP,Skate,181,Medium/Hard,65-85,143-187,Intermediate,Waxable
+FISCHER,Aerolite Skate 60 IFP,Skate,186,Hard,75-95,165-209,Intermediate,Waxable
+SALOMON,RC7+ eSKIN with Prolink Shift Binding,Classic,174,Soft,60-70,132-154,Intermediate,Skins
+SALOMON,RC7+ eSKIN with Prolink Shift Binding,Classic,182,Medium,65-85,143-187,Intermediate,Skins
+SALOMON,RC7+ eSKIN with Prolink Shift Binding,Classic,190,Medium/Hard,75-95,165-209,Intermediate,Skins
+SALOMON,RC7+ eSKIN with Prolink Shift Binding,Classic,198,Hard,85-105+,187-231+,Intermediate,Skins
+SALOMON,RC7+ eSKIN with Prolink Shift Binding,Classic,206,Extra Hard,95-115+,209-254+,Intermediate,Skins
+ROSSIGNOL,Evo OT 65 Positrack IFP with Control SI Ski Bindings,Backcountry,165,Medium,60-80,132-176,Recreational,Fishscale
+ROSSIGNOL,Evo OT 65 Positrack IFP with Control SI Ski Bindings,Backcountry,175,Medium/Hard,70-90,154-198,Recreational,Fishscale
+ROSSIGNOL,Evo OT 65 Positrack IFP with Control SI Ski Bindings,Backcountry,185,Hard,80-100,176-220,Recreational,Fishscale
+ROSSIGNOL,Evo OT 65 Positrack IFP with Control SI Ski Bindings,Backcountry,195,Extra Hard,90-115+,198-254+,Recreational,Fishscale
+SALOMON,RC8 eSKIN with Prolink Shift Binding,Classic,174,Soft,60-75,132-165,Intermediate,Skins
+SALOMON,RC8 eSKIN with Prolink Shift Binding,Classic,182,Medium,70-85,154-187,Intermediate,Skins
+SALOMON,RC8 eSKIN with Prolink Shift Binding,Classic,190,Medium/Hard,80-100,176-220,Intermediate,Skins
+SALOMON,RC8 eSKIN with Prolink Shift Binding,Classic,198,Hard,90-110,198-243,Intermediate,Skins
+SALOMON,RC8 eSKIN with Prolink Shift Binding,Classic,206,Extra Hard,100-120,220-265,Intermediate,Skins
+ATOMIC,Pro C3 Skintec,Classic,174,Soft,60-75,132-165,Advanced,Skins
+ATOMIC,Pro C3 Skintec,Classic,181,Medium,70-85,154-187,Advanced,Skins
+ATOMIC,Pro C3 Skintec,Classic,188,Hard,80-100,176-220,Advanced,Skins
+ROSSIGNOL,Delta Comp Skating,Skate,173,Soft/Medium,55-70,121-154,Advanced,Waxable
+ROSSIGNOL,Delta Comp Skating,Skate,180,Medium/Hard,65-85,143-187,Advanced,Waxable
+ROSSIGNOL,Delta Comp Skating,Skate,187,Hard,75-95,165-209,Advanced,Waxable
+FISCHER,Twin Skin Race,Classic,187,Medium/Hard,70-90,154-198,Expert,Skins
+FISCHER,Twin Skin Race,Classic,192,Hard,80-100,176-220,Expert,Skins
+FISCHER,Twin Skin Race,Classic,197,Extra Hard,90-110,198-243,Expert,Skins
+MADSHUS,Endurace Skate,Skate,180,Medium,65-85,143-187,Intermediate,Waxable
+MADSHUS,Endurace Skate,Skate,185,Medium/Hard,75-95,165-209,Intermediate,Waxable
+MADSHUS,Endurace Skate,Skate,190,Hard,85-105,187-232,Intermediate,Waxable
+FISCHER,Carbonlite Classic Plus,Classic,192,Medium,70-90,154-198,Expert,Waxable
+ÅSNES,Nansen BC,Backcountry,180,Medium,65-85,143-187,Advanced,Fishscale
+ÅSNES,Falketind 62 Xplore,Backcountry,172,Medium,60-80,132-176,Expert,Fishscale
+ÅSNES,Combat NATO,Backcountry,190,Hard,75-95,165-209,Intermediate,Waxable
+SKITRAB,Team Comp Classic,Racing,195,Medium/Hard,70-90,154-198,Expert,Waxable
+SKITRAB,Piuma Evo,Classic,185,Medium,65-85,143-187,Intermediate,Fishscale
+ALTUS,Active Skin 45,Classic,180,Soft/Medium,60-75,132-165,Intermediate,Skins
+ALTUS,Pro Race Skate,Racing,190,Medium/Hard,75-95,165-209,Advanced,Waxable
+FISCHER,Traverse 78 Crown,Backcountry,179,Medium,65-85,143-187,Intermediate,Fishscale
+ROSSIGNOL,BC 65 Positrack,Backcountry,180,Medium,70-90,154-198,Intermediate,Fishscale
+MADSHUS,Glittertind Wax,Backcountry,190,Hard,75-100,165-220,Advanced,Waxable
+ALPINA,Discovery 68,Backcountry,180,Medium,70-90,154-198,Intermediate,Fishscale
+ALPINA,Control 64E,Touring,190,Medium,75-95,165-209,Recreational,Fishscale
+PELTONEN,Infra X Classic,Racing,203,Hard,80-100,176-220,Expert,Waxable
+PELTONEN,SKINPRO,Classic,195,Medium/Hard,70-90,154-198,Advanced,Skins
+YOKO,YXC Classic,Racing,202,Medium/Hard,75-95,165-209,Advanced,Waxable
+YOKO,YXS Skate,Racing,187,Medium/Hard,70-90,154-198,Advanced,Waxable
+HART,Classic Race 2000,Racing,205,Hard,80-100,176-220,Expert,Waxable
+HART,Skate Performance,Racing,192,Medium/Hard,75-95,165-209,Expert,Waxable
+REX,Rex Pro Classic,Racing,203,Medium/Hard,70-90,154-198,Expert,Waxable
+REX,Skate Ultra Pro,Racing,195,Hard,75-100,165-220,Expert,Waxable
+KARHU,XCD GT 60,Touring,175,Medium,60-80,132-176,Intermediate,Fishscale
+KARHU,XCD Traverse,Touring,185,Medium/Hard,70-90,154-198,Advanced,Fishscale
+MERRELL,Nordic Classic Plus,Touring,190,Medium,65-85,143-187,Recreational,Waxable
+FISCHER,S-Bound 98 Crown,Backcountry,179,Medium,65-85,143-187,Intermediate,Fishscale
+SALOMON,Escape 68,Backcountry,170,Medium,60-80,132-176,Intermediate,Skins
+ALTUS,Backcountry 54,Touring,180,Medium,65-85,143-187,Intermediate,Fishscale
+SALOMON,Outpath 68,Backcountry,170,Medium,60-80,132-176,Intermediate,Fishscale
+SALOMON,Outpath 68,Backcountry,180,Medium,70-90,154-198,Intermediate,Fishscale
+SALOMON,Outpath 68,Backcountry,190,Medium/Hard,80-100,176-220,Advanced,Fishscale
+SALOMON,RS10 Skate,Racing,182,Medium/Hard,70-90,154-198,Advanced,Waxable
+SALOMON,RS10 Skate,Racing,187,Medium/Hard,75-95,165-209,Advanced,Waxable
+SALOMON,RS10 Skate,Racing,192,Hard,85-105,187-231,Advanced,Waxable
+SALOMON,RS8 Classic,Racing,196,Medium/Hard,75-95,165-209,Advanced,Waxable
+SALOMON,RS8 Classic,Racing,201,Hard,80-100,176-220,Advanced,Waxable
+SALOMON,RS8 Classic,Racing,206,Extra Hard,85-110,187-243,Advanced,Waxable
+FISCHER,Twin Skin Pro,Classic,184,Medium,65-85,143-187,Intermediate,Skins
+FISCHER,Twin Skin Pro,Classic,189,Medium/Hard,75-95,165-209,Intermediate,Skins
+FISCHER,Twin Skin Pro,Classic,194,Hard,85-105,187-231,Advanced,Skins
+FISCHER,Twin Skin Pro,Classic,199,Extra Hard,95-115,209-254,Advanced,Skins
+MADSHUS,Nordic Skin,Classic,180,Medium,60-75,132-165,Intermediate,Skins
+MADSHUS,Nordic Skin,Classic,190,Medium/Hard,70-85,154-187,Intermediate,Skins
+MADSHUS,Nordic Pro Classic,Classic,185,Medium,65-85,143-187,Advanced,Fishscale
+MADSHUS,Nordic Pro Classic,Classic,195,Medium/Hard,75-95,165-209,Advanced,Fishscale
+MADSHUS,Nordic Skate,Touring,180,Medium,65-85,143-187,Intermediate,Waxable
+MADSHUS,Nordic Skate,Touring,190,Medium/Hard,75-95,165-209,Advanced,Waxable
+ATOMIC,Redster C9 Skintec,Classic,190,Medium/Hard,70-85,154-187,Expert,Skins
+ATOMIC,Redster C9 Skintec,Classic,200,Hard,80-100,176-220,Expert,Skins
+ATOMIC,Redster C9 Carbon,Racing,202,Hard,85-105,187-231,Expert,Waxable
+ATOMIC,Redster C8 Skintec,Classic,195,Medium/Hard,75-95,165-209,Advanced,Skins
+ATOMIC,Redster S9 Gen S,Skate,184,Medium/Hard,70-90,154-198,Expert,Waxable
+ATOMIC,Redster S9 Gen S,Skate,191,Hard,80-100,176-220,Expert,Waxable
+SALOMON,S/Lab Classic,Classic,201,Medium/Hard,75-95,165-209,Expert,Waxable
+SALOMON,S/Lab Classic,Classic,206,Hard,85-105,187-231,Expert,Waxable
+SALOMON,S/Lab Skate,Skate,182,Medium/Hard,70-85,154-187,Expert,Waxable
+SALOMON,S/Lab Skate,Skate,187,Medium/Hard,75-95,165-209,Expert,Waxable
+SALOMON,S/Lab Skate,Skate,192,Hard,85-100,187-220,Expert,Waxable
+SALOMON,S/Lab eSkin,Classic,201,Medium/Hard,80-95,176-209,Expert,Skins

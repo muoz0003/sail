@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ski and Snowshoe Size Finder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include Navbar Stylesheet -->
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="gear.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="manifest" href="manifest.json" />
+    <!-- FAVICON -->
+    <link rel="icon" href="images/ski-icon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Outdoor Tools</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Ski Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gear.html">Advanced Ski Size Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="skill-level-assessment.html">Ski Level Assessment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="paddle.html">Kayak Paddle Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="boot.html">Boot Size Finder</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="wax.html">Wax Recommendation Tool</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+            </ul>
+            <!-- Language Selector -->
+            <div class="language-selector ml-auto">
+                <div class="selection-box" id="english" data-lang="en">
+                    <img src="images/Flag_of_United_Kingdom.svg" alt="English">
+                </div>
+                <div class="selection-box" id="french" data-lang="fr">
+                    <img src="images/Flag_of_France.svg" alt="Français">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="image-container">
+        <img src="images/banner-01-01.webp" alt="Header Image" class="full-width-image">
+    </div>
+
+    <canvas id="backgroundCanvas"></canvas>
+    <div class="container mt-5">
+        <header class="text-center mb-4">
+            <h1 data-lang-en="Advanced Ski Size Calculator" data-lang-fr="Calculateur Avancé de Taille de Ski"><i class="fas fa-skiing"></i> Advanced Ski Size Calculator</h1>
+            <p class="text-center" data-lang-en="Use this tool to find the perfect ski size for your needs. Adjust the sliders to input your weight and height, then select your skiing type, skill level, and stiffness preferences. The calculator uses advanced algorithms to determine the optimal ski size based on your inputs. Click 'Find Ski' to discover the best matches tailored specifically for you." data-lang-fr="Utilisez cet outil pour trouver la taille de ski parfaite pour vos besoins. Ajustez les curseurs pour entrer votre poids et votre taille, puis sélectionnez votre type de ski, votre niveau de compétence et vos préférences de rigidité. Le calculateur utilise des algorithmes avancés pour déterminer la taille de ski optimale en fonction de vos entrées. Cliquez sur 'Trouver un Ski' pour découvrir les meilleures correspondances adaptées spécifiquement pour vous."></p>
+        </header>
+        <main>
+            <form id="skiForm">
+                <div class="form-group">
+                    <label for="weight" data-lang-en="Weight with Gear:" data-lang-fr="Poids avec Équipement:">Weight with Gear: <span id="weightValue">70</span> <span id="weightUnitLabel">kg</span></label>
+                    <div class="input-group">
+                        <input type="range" class="form-control-range" id="weight" min="20" max="150" value="70" step="1">
+                        <div class="input-group-append">
+                            <select class="form-control" id="weightUnit">
+                                <option value="kg" data-lang-en="kg" data-lang-fr="kg">kg</option>
+                                <option value="lb" data-lang-en="lbs" data-lang-fr="lbs">lbs</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="height" data-lang-en="Height:" data-lang-fr="Taille:">Height: <span id="heightValue">170</span> <span id="heightUnitLabel">cm</span></label>
+                    <div class="input-group">
+                        <input type="range" class="form-control-range" id="height" min="100" max="220" value="170" step="1">
+                        <div class="input-group-append">
+                            <select class="form-control" id="heightUnit">
+                                <option value="cm" data-lang-en="cm" data-lang-fr="cm">cm</option>
+                                <option value="ft" data-lang-en="ft" data-lang-fr="ft">ft</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- Type selection with icons -->
+                <div class="form-group">
+                    <label data-lang-en="Type" data-lang-fr="Type">Type</label>
+                    <p class="selection-description" data-lang-en="Choose the type of skiing you plan to do, as each type is specifically designed to match different terrains and skiing styles. Whether you prefer the smooth trails of cross-country skiing, the precision and speed of skate skiing, or the adventurous backcountry routes, selecting the right type will ensure optimal performance, comfort, and enjoyment." data-lang-fr="Choisissez le type de ski que vous prévoyez de faire, car chaque type est spécifiquement conçu pour correspondre à différents terrains et styles de ski. Que vous préfériez les pistes lisses du ski de fond, la précision et la vitesse du ski de skate, ou les routes aventureuses du hors-piste, choisir le bon type garantira des performances optimales, du confort et du plaisir."></p>
+                    <div class="type-selection d-flex">
+                        <div class="type-option" data-value="Touring">
+                            <i class="fas fa-hiking"></i>
+                            <span data-lang-en="Touring" data-lang-fr="Randonnée">Touring</span>
+                            <p class="pro-tip" data-lang-en="Great for long-distance skiing on groomed trails." data-lang-fr="Idéal pour le ski de longue distance sur des pistes damées.">Great for long-distance skiing on groomed trails.</p>
+                        </div>
+                        <div class="type-option" data-value="Classic">
+                            <i class="fas fa-skiing-nordic"></i>
+                            <span data-lang-en="Classic" data-lang-fr="Classique">Classic</span>
+                            <p class="pro-tip" data-lang-en="Ideal for traditional cross-country skiing on groomed tracks." data-lang-fr="Idéal pour le ski de fond traditionnel sur des pistes damées.">Ideal for traditional cross-country skiing on groomed tracks.</p>
+                        </div>
+                        <div class="type-option" data-value="Skate">
+                            <i class="fas fa-skiing"></i>
+                            <span data-lang-en="Skate" data-lang-fr="Skate">Skate</span>
+                            <p class="pro-tip" data-lang-en="Best for fast-paced skiing on groomed trails." data-lang-fr="Idéal pour le ski rapide sur des pistes damées.">Best for fast-paced skiing on groomed trails.</p>
+                        </div>
+                        <div class="type-option" data-value="Backcountry Touring">
+                            <i class="fas fa-mountain"></i>
+                            <span data-lang-en="Backcountry" data-lang-fr="Hors-piste">Backcountry</span>
+                            <p class="pro-tip" data-lang-en="Perfect for off-trail adventures in deep snow." data-lang-fr="Parfait pour les aventures hors-piste dans la neige profonde.">Perfect for off-trail adventures in deep snow.</p>
+                        </div>
+                        <div class="type-option" data-value="Racing">
+                            <i class="fas fa-flag-checkered"></i>
+                            <span data-lang-en="Racing" data-lang-fr="Course">Racing</span>
+                            <p class="pro-tip" data-lang-en="Designed for competitive skiing with maximum speed." data-lang-fr="Conçu pour le ski de compétition avec une vitesse maximale.">Designed for competitive skiing with maximum speed.</p>
+                        </div>
+                        <input type="hidden" id="type" name="type" required>
+                    </div>
+                </div>
+
+                <!-- Skill Level selection with icons -->
+                <div class="form-group">
+                    <label data-lang-en="Skill Level" data-lang-fr="Niveau de Compétence">Skill Level</label>
+                    <p class="selection-description" data-lang-en="Select your skill level to find skis that match your experience and ability. Recreational skiers are beginners or occasional skiers who prioritize comfort and ease of use. Intermediate skiers have growing confidence and aim to improve their technique while exploring varied terrain. Advanced skiers are experienced and seek greater performance, speed, and control on the slopes. Expert skiers are highly skilled and demand precision, responsiveness, and top-tier performance in the most challenging conditions." data-lang-fr="Sélectionnez votre niveau de compétence pour trouver des skis qui correspondent à votre expérience et à vos capacités. Les skieurs récréatifs sont des débutants ou des skieurs occasionnels qui privilégient le confort et la facilité d'utilisation. Les skieurs intermédiaires ont une confiance croissante et visent à améliorer leur technique tout en explorant des terrains variés. Les skieurs avancés sont expérimentés et recherchent de meilleures performances, vitesse et contrôle sur les pistes. Les skieurs experts sont très compétents et exigent précision, réactivité et performances de haut niveau dans les conditions les plus difficiles."></p>
+                    <div class="skill-selection d-flex">
+                        <div class="skill-option" data-value="Recreational">
+                            <i class="fas fa-user"></i>
+                            <span data-lang-en="Recreational" data-lang-fr="Récréatif">Recreational</span>
+                            <p class="pro-tip" data-lang-en="Suitable for beginners and casual skiers." data-lang-fr="Convient aux débutants et aux skieurs occasionnels.">Suitable for beginners and casual skiers.</p>
+                        </div>
+                        <div class="skill-option" data-value="Intermediate">
+                            <i class="fas fa-user-friends"></i>
+                            <span data-lang-en="Intermediate" data-lang-fr="Intermédiaire">Intermediate</span>
+                            <p class="pro-tip" data-lang-en="Ideal for skiers with some experience looking to improve." data-lang-fr="Idéal pour les skieurs ayant une certaine expérience cherchant à s'améliorer.">Ideal for skiers with some experience looking to improve.</p>
+                        </div>
+                        <div class="skill-option" data-value="Advanced">
+                            <i class="fas fa-user-ninja"></i>
+                            <span data-lang-en="Advanced" data-lang-fr="Avancé">Advanced</span>
+                            <p class="pro-tip" data-lang-en="Perfect for experienced skiers seeking performance." data-lang-fr="Parfait pour les skieurs expérimentés recherchant des performances.">Perfect for experienced skiers seeking performance.</p>
+                        </div>
+                        <div class="skill-option" data-value="Expert">
+                            <i class="fas fa-user-graduate"></i>
+                            <span data-lang-en="Expert" data-lang-fr="Expert">Expert</span>
+                            <p class="pro-tip" data-lang-en="Best for highly skilled skiers and professionals." data-lang-fr="Idéal pour les skieurs très compétents et les professionnels.">Best for highly skilled skiers and professionals.</p>
+                        </div>
+                        <input type="hidden" id="skillLevel" name="skillLevel" required>
+                    </div>
+                </div>
+
+                <!-- Stiffness selection with icons -->
+                <div class="form-group">
+                    <label data-lang-en="Stiffness" data-lang-fr="Rigidité">Stiffness</label>
+                    <p class="selection-description" data-lang-en="Choose the stiffness of the skis based on your weight and skiing style to ensure optimal performance and control. Lighter skiers or those focusing on recreational skiing may benefit from softer skis, which are more forgiving and easier to maneuver. Heavier skiers or those with an aggressive style, such as advanced or expert skiers, often require stiffer skis for better stability, power transfer, and precision, especially at higher speeds or on challenging terrain." data-lang-fr="Choisissez la rigidité des skis en fonction de votre poids et de votre style de ski pour garantir des performances et un contrôle optimaux. Les skieurs plus légers ou ceux qui se concentrent sur le ski récréatif peuvent bénéficier de skis plus souples, qui sont plus indulgents et plus faciles à manœuvrer. Les skieurs plus lourds ou ceux ayant un style agressif, comme les skieurs avancés ou experts, nécessitent souvent des skis plus rigides pour une meilleure stabilité, un meilleur transfert de puissance et une précision accrue, surtout à des vitesses plus élevées ou sur des terrains difficiles."></p>
+                    <div class="stiffness-selection d-flex">
+                        <div class="stiffness-option" data-value="Soft">
+                            <i class="fas fa-feather-alt"></i>
+                            <span data-lang-en="Soft" data-lang-fr="Souple">Soft</span>
+                            <p class="pro-tip" data-lang-en="Best for lighter skiers and soft snow conditions." data-lang-fr="Idéal pour les skieurs plus légers et les conditions de neige douce.">Best for lighter skiers and soft snow conditions.</p>
+                        </div>
+                        <div class="stiffness-option" data-value="Soft/Medium">
+                            <i class="fas fa-feather"></i>
+                            <span data-lang-en="Soft/Medium" data-lang-fr="Souple/Moyen">Soft/Medium</span>
+                            <p class="pro-tip" data-lang-en="A good balance for various conditions and skier weights." data-lang-fr="Un bon équilibre pour diverses conditions et poids de skieur.">A good balance for various conditions and skier weights.</p>
+                        </div>
+                        <div class="stiffness-option" data-value="Medium">
+                            <i class="fas fa-balance-scale"></i>
+                            <span data-lang-en="Medium" data-lang-fr="Moyen">Medium</span>
+                            <p class="pro-tip" data-lang-en="Suitable for average weight skiers and mixed conditions." data-lang-fr="Convient aux skieurs de poids moyen et aux conditions mixtes.">Suitable for average weight skiers and mixed conditions.</p>
+                        </div>
+                        <div class="stiffness-option" data-value="Medium/Hard">
+                            <i class="fas fa-weight-hanging"></i>
+                            <span data-lang-en="Medium/Hard" data-lang-fr="Moyen/Dur">Medium/Hard</span>
+                            <p class="pro-tip" data-lang-en="Ideal for heavier skiers or firmer snow." data-lang-fr="Idéal pour les skieurs plus lourds ou la neige plus ferme.">Ideal for heavier skiers or firmer snow.</p>
+                        </div>
+                        <div class="stiffness-option" data-value="Hard">
+                            <i class="fas fa-dumbbell"></i>
+                            <span data-lang-en="Hard" data-lang-fr="Dur">Hard</span>
+                            <p class="pro-tip" data-lang-en="Best for very firm snow and aggressive skiing." data-lang-fr="Idéal pour la neige très ferme et le ski agressif.">Best for very firm snow and aggressive skiing.</p>
+                        </div>
+                        <div class="stiffness-option" data-value="Extra Hard">
+                            <i class="fas fa-hammer"></i>
+                            <span data-lang-en="Extra Hard" data-lang-fr="Très Dur">Extra Hard</span>
+                            <p class="pro-tip" data-lang-en="Suitable for the heaviest skiers and the hardest conditions." data-lang-fr="Convient aux skieurs les plus lourds et aux conditions les plus difficiles.">Suitable for the heaviest skiers and the hardest conditions.</p>
+                        </div>
+                        <input type="hidden" id="stiffness" name="stiffness" required>
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary" data-lang-en="Find Ski" data-lang-fr="Trouver un Ski"><i class="fas fa-search"></i> Find Ski</button>
+                    <button type="reset" class="btn btn-secondary" data-lang-en="Reset" data-lang-fr="Réinitialiser"><i class="fas fa-undo"></i> Reset</button>
+                </div>
+            </form>
+            <div id="result" class="mt-4"></div>
+        </main>
+
+        <footer class="text-center mt-4">
+            <p data-lang-en="These recommendations are general and provide a broad guideline for Cross-Country Skiing and Snowshoeing. For a more precise fit, please consult a specialist."
+                data-lang-fr="Ces recommandations sont générales et fournissent des directives générales pour le ski de fond et la raquette. Pour un ajustement plus précis, veuillez consulter un spécialiste.">
+                These recommendations are general and provide a broad guideline for Cross-Country Skiing and
+                Snowshoeing. For a more precise fit, please consult a specialist.
+            </p>
+            <p>&copy; <a href="https://muoz0003.github.io/portfolio/" target="_blank"
+                    aria-label="David Muñoz Jensen Ski Tool" data-lang-en="David Muñoz Jensen"
+                    data-lang-fr="David Muñoz Jensen">David Muñoz Jensen</a></p>
+        </footer>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const currentLocation = location.href;
+                const menuItem = document.querySelectorAll('.nav-link');
+                const menuLength = menuItem.length;
+                for (let i = 0; i < menuLength; i++) {
+                    if (menuItem[i].href === currentLocation) {
+                        menuItem[i].classList.add('active');
+                    }
+                }
+            });
+        </script>
+        <script src="gear.js"></script>
+        <!-- <script src="script.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
+</body>
+
+</html>

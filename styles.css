@@ -360,6 +360,37 @@ font-size: 1em;
 }
 }
 
+/* gear compare page */
+.comparison-tool {
+    text-align: center;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#comparison-table {
+    display: none;
+    overflow-x: auto;
+}
+
+#comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#comparison-table th, #comparison-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#comparison-table th {
+    background-color: #f2f2f2;
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .selection-box {
