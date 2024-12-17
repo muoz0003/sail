@@ -21,6 +21,9 @@ h1 {
     color: #007bff;
 }
 
+#weightValue, #heightValue {
+    color: #333; /* Ensure the text color is visible */
+}
 .selection-instructions {
     margin-bottom: 20px;
     font-size: 16px;

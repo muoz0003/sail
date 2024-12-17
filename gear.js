@@ -32,11 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Update height value display
     heightSlider.addEventListener('input', function () {
-        if (heightUnit.value === 'ft') {
-            heightValue.textContent = parseFloat(heightSlider.value).toFixed(1);
-        } else {
-            heightValue.textContent = parseInt(heightSlider.value);
-        }
+        heightValue.textContent = heightSlider.value;
     });
 
     heightUnit.addEventListener('change', function () {
@@ -111,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Handle form submission
-    document.getElementById('skiForm').addEventListener('submit', function (e) {
+    document.getElementById('skiFormUpdated').addEventListener('submit', function (e) {
         e.preventDefault();
 
         // Ensure Type, Skill Level, and Stiffness are selected
@@ -328,6 +324,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return ski;
         });
     }
+
     // Language switcher
     const languageBoxes = document.querySelectorAll('.language-selector .selection-box');
     languageBoxes.forEach(box => {
