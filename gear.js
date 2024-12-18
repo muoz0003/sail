@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const weightValue = document.getElementById('weightValue');
     const weightUnit = document.getElementById('weightUnit');
     const weightUnitLabel = document.getElementById('weightUnitLabel');
-
     const heightSlider = document.getElementById('height');
     const heightValue = document.getElementById('heightValue');
     const heightUnit = document.getElementById('heightUnit');
