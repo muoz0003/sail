@@ -1,53 +1,101 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const weightSlider = document.getElementById('weight');
+    const weightSlider = document.getElementById('weightSlider');
     const weightValue = document.getElementById('weightValue');
     const weightUnit = document.getElementById('weightUnit');
     const weightUnitLabel = document.getElementById('weightUnitLabel');
-    const heightSlider = document.getElementById('height');
+    const heightSlider = document.getElementById('heightSlider');
     const heightValue = document.getElementById('heightValue');
     const heightUnit = document.getElementById('heightUnit');
     const heightUnitLabel = document.getElementById('heightUnitLabel');
 
-    // Update weight value display
-    weightSlider.addEventListener('input', function () {
-        weightValue.textContent = weightSlider.value;
+    // Initialize weight slider
+    noUiSlider.create(weightSlider, {
+        start: 70,
+        range: {
+            'min': 20,
+            'max': 150
+        },
+        step: 1,
+        tooltips: true,
+        format: {
+            to: function (value) {
+                return value.toFixed(0);
+            },
+            from: function (value) {
+                return Number(value);
+            }
+        }
+    });
+
+    weightSlider.noUiSlider.on('update', function (values, handle) {
+        weightValue.textContent = values[handle];
     });
 
     weightUnit.addEventListener('change', function () {
         weightUnitLabel.textContent = weightUnit.value;
         if (weightUnit.value === 'lb') {
-            weightSlider.min = 44;
-            weightSlider.max = 330;
-            weightSlider.step = 1;
-            weightSlider.value = (parseFloat(weightSlider.value) * 2.20462).toFixed(0);
+            weightSlider.noUiSlider.updateOptions({
+                range: {
+                    'min': 44,
+                    'max': 330
+                },
+                start: (parseFloat(weightSlider.noUiSlider.get()) * 2.20462).toFixed(0)
+            });
         } else {
-            weightSlider.min = 20;
-            weightSlider.max = 150;
-            weightSlider.step = 1;
-            weightSlider.value = (parseFloat(weightSlider.value) / 2.20462).toFixed(0);
+            weightSlider.noUiSlider.updateOptions({
+                range: {
+                    'min': 20,
+                    'max': 150
+                },
+                start: (parseFloat(weightSlider.noUiSlider.get()) / 2.20462).toFixed(0)
+            });
         }
-        weightValue.textContent = weightSlider.value;
     });
 
-    // Update height value display
-    heightSlider.addEventListener('input', function () {
-        heightValue.textContent = heightSlider.value;
+    // Initialize height slider
+    noUiSlider.create(heightSlider, {
+        start: 170,
+        range: {
+            'min': 100,
+            'max': 220
+        },
+        step: 1,
+        tooltips: true,
+        format: {
+            to: function (value) {
+                return value.toFixed(0);
+            },
+            from: function (value) {
+                return Number(value);
+            }
+        }
+    });
+
+    heightSlider.noUiSlider.on('update', function (values, handle) {
+        heightValue.textContent = values[handle];
     });
 
     heightUnit.addEventListener('change', function () {
         heightUnitLabel.textContent = heightUnit.value;
         if (heightUnit.value === 'ft') {
-            heightSlider.min = 3.0;
-            heightSlider.max = 7.0;
-            heightSlider.step = 0.1;
-            heightSlider.value = (parseFloat(heightSlider.value) / 30.48).toFixed(1);
+            heightSlider.noUiSlider.updateOptions({
+                range: {
+                    'min': 3.0,
+                    'max': 7.0
+                },
+                start: (parseFloat(heightSlider.noUiSlider.get()) / 30.48).toFixed(1),
+                step: 0.1
+            });
         } else {
-            heightSlider.min = 100;
-            heightSlider.max = 220;
-            heightSlider.step = 1;
-            heightSlider.value = (parseFloat(heightSlider.value) * 30.48).toFixed(0);
+            heightSlider.noUiSlider.updateOptions({
+                range: {
+                    'min': 100,
+                    'max': 220
+                },
+                start: (parseFloat(heightSlider.noUiSlider.get()) * 30.48).toFixed(0),
+                step: 1
+            });
         }
-        heightValue.textContent = heightSlider.value;
     });
 
     // Handle Type selection
@@ -115,9 +163,9 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        let weight = parseFloat(weightSlider.value);
+        let weight = parseFloat(weightSlider.noUiSlider.get());
         const weightUnitValue = weightUnit.value;
-        let height = parseFloat(heightSlider.value);
+        let height = parseFloat(heightSlider.noUiSlider.get());
         const heightUnitValue = heightUnit.value;
         const types = document.getElementById('type').value.toLowerCase().split(',');
         const skillLevels = document.getElementById('skillLevel').value.toLowerCase().split(',');
@@ -274,22 +322,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle form reset
     document.getElementById('skiForm').addEventListener('reset', function () {
         // Reset weight slider and display
-        weightSlider.value = weightSlider.defaultValue;
-        weightValue.textContent = weightSlider.defaultValue;
+        weightSlider.noUiSlider.set(weightSlider.noUiSlider.options.range.min);
+        weightValue.textContent = weightSlider.noUiSlider.options.range.min;
         weightUnit.value = 'kg';
         weightUnitLabel.textContent = 'kg';
-        weightSlider.min = 20;
-        weightSlider.max = 150;
-        weightSlider.step = 1;
 
         // Reset height slider and display
-        heightSlider.value = heightSlider.defaultValue;
-        heightValue.textContent = heightSlider.defaultValue;
+        heightSlider.noUiSlider.set(heightSlider.noUiSlider.options.range.min);
+        heightValue.textContent = heightSlider.noUiSlider.options.range.min;
         heightUnit.value = 'cm';
         heightUnitLabel.textContent = 'cm';
-        heightSlider.min = 100;
-        heightSlider.max = 220;
-        heightSlider.step = 1;
 
         // Deselect type options
         typeOptions.forEach(opt => opt.classList.remove('selected'));
@@ -399,5 +441,6 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        createSnowflakes(); // Recreate snowflakes to fit new canvas size
     });
 });
